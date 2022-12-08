@@ -4,6 +4,8 @@
  */
 package HospitalManagement;
 
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +15,10 @@ public class HMOrganizationPage extends javax.swing.JFrame {
     /**
      * Creates new form HMOrganizationPage
      */
-    public HMOrganizationPage() {
+    private system s;
+    public HMOrganizationPage(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -93,7 +97,7 @@ public class HMOrganizationPage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-            HMHospitalLogin sapframe = new HMHospitalLogin();
+            HMHospitalLogin sapframe = new HMHospitalLogin(s);
             sapframe.setVisible(true);
             this.setVisible(false);
 //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -108,7 +112,7 @@ public class HMOrganizationPage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         HMPharmacyLogin sapframe = new HMPharmacyLogin();
+         HMPharmacyLogin sapframe = new HMPharmacyLogin(s);
             sapframe.setVisible(true);
             this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -143,7 +147,7 @@ public class HMOrganizationPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HMOrganizationPage().setVisible(true);
+//                new HMOrganizationPage().setVisible(true);
             }
         });
     }

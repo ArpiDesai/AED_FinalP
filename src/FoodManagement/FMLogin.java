@@ -5,6 +5,7 @@
 package FoodManagement;
 
 import javax.swing.JOptionPane;
+import model.system;
 
 /**
  *
@@ -15,8 +16,10 @@ public class FMLogin extends javax.swing.JFrame {
     /**
      * Creates new form FMLogin
      */
-    public FMLogin() {
+    system s;
+    public FMLogin(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -138,10 +141,10 @@ public class FMLogin extends javax.swing.JFrame {
         String user = username.getText();
         String pass = password.getText();
         String rol = (String)role.getSelectedItem();
-        if(user.equals("admin") && pass.equals("123") && rol.equals("Blood Donation Admin"))
+        if(user.equals("admin") && pass.equals("123") && rol.equals("Food Manager"))
         {
-            JOptionPane.showMessageDialog(null," System Admin Login Successful");
-            FMManager sapframe = new FMManager();
+            JOptionPane.showMessageDialog(null," Food Management Login Successful");
+            FMManager sapframe = new FMManager(s);
             sapframe.setVisible(true);
             this.setVisible(false);
             //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -190,7 +193,7 @@ public class FMLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FMLogin().setVisible(true);
+//                new FMLogin().setVisible(true);
             }
         });
     }

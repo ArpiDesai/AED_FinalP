@@ -4,6 +4,10 @@
  */
 package BloodDonationManagement.Donor;
 
+import Main.MainLogin;
+import model.Donor;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +17,10 @@ public class BDDonorPanel extends javax.swing.JFrame {
     /**
      * Creates new form BDDonorPanel
      */
-    public BDDonorPanel() {
+    private system s;
+    public BDDonorPanel(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -28,6 +34,8 @@ public class BDDonorPanel extends javax.swing.JFrame {
 
         BDDonorSplit = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
+        display = new javax.swing.JLabel();
+        display1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -35,6 +43,7 @@ public class BDDonorPanel extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,11 +51,21 @@ public class BDDonorPanel extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 443, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(370, Short.MAX_VALUE))
         );
 
         BDDonorSplit.setRightComponent(jPanel2);
@@ -93,6 +112,13 @@ public class BDDonorPanel extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setText("Home");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,6 +129,7 @@ public class BDDonorPanel extends javax.swing.JFrame {
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +146,9 @@ public class BDDonorPanel extends javax.swing.JFrame {
                 .addComponent(jButton5)
                 .addGap(18, 18, 18)
                 .addComponent(jButton6)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton7)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         BDDonorSplit.setLeftComponent(jPanel1);
@@ -128,7 +157,7 @@ public class BDDonorPanel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BDDonorSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
+            .addComponent(BDDonorSplit)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,13 +169,13 @@ public class BDDonorPanel extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        BDDonorNotificationsPanel sapframe = new BDDonorNotificationsPanel();
+        BDDonorNotificationsPanel sapframe = new BDDonorNotificationsPanel(s);
         BDDonorSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        BDDonorFAQPanel sapframe = new BDDonorFAQPanel();
+        BDDonorFAQPanel sapframe = new BDDonorFAQPanel(s);
         BDDonorSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -171,9 +200,32 @@ public class BDDonorPanel extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        BDDonorProfilePanel sapframe = new  BDDonorProfilePanel();
+        BDDonorProfilePanel sapframe = new  BDDonorProfilePanel(s);
         BDDonorSplit.setRightComponent(sapframe);
+        BDDonorProfilePanel.username.setText(display1.getText());
+        for (Donor epp:s.getDonordirectory().getDonor()){
+            if(BDDonorProfilePanel.username.getText().equals(epp.getUsername())){
+                BDDonorProfilePanel.name.setText(String.valueOf(epp.getName()));
+                BDDonorProfilePanel.age.setText(String.valueOf(epp.getAge()));
+                BDDonorProfilePanel.gender.setSelectedItem(String.valueOf(epp.getGender()));
+                BDDonorProfilePanel.usertype.setSelectedItem(String.valueOf(epp.getUserType()));
+                BDDonorProfilePanel.id.setText(String.valueOf(epp.getId()));
+                BDDonorProfilePanel.emailid.setText(String.valueOf(epp.getEmailId()));
+                BDDonorProfilePanel.bloodgroup.setText(String.valueOf(epp.getBloodGroup()));
+                BDDonorProfilePanel.contact.setText(String.valueOf(epp.getContact()));
+//                BDDonorProfilePanel.username.setText(String.valueOf(selectedep.getUsername()));
+                BDDonorProfilePanel.password.setText(String.valueOf(epp.getPassword()));
+               }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,19 +257,22 @@ public class BDDonorPanel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BDDonorPanel().setVisible(true);
+//                new BDDonorPanel().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane BDDonorSplit;
+    public static javax.swing.JLabel display;
+    public static javax.swing.JLabel display1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

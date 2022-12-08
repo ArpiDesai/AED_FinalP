@@ -4,6 +4,10 @@
  */
 package BloodDonationManagement.Receiver;
 
+import javax.swing.table.DefaultTableModel;
+import model.FAQ;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +17,10 @@ public class BDReceiverFAQPanel extends javax.swing.JPanel {
     /**
      * Creates new form BDReceiverFAQPanel
      */
-    public BDReceiverFAQPanel() {
+    system s;
+    public BDReceiverFAQPanel(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -28,11 +34,28 @@ public class BDReceiverFAQPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        tablefaq = new javax.swing.JTable();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        tablefaq.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Question", "Answer"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablefaq);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -46,8 +69,8 @@ public class BDReceiverFAQPanel extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -67,6 +90,23 @@ public class BDReceiverFAQPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTable tablefaq;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+    DefaultTableModel model = (DefaultTableModel) tablefaq.getModel();
+    model.setRowCount(0);
+//    tablefaq.setShowGrid(true);
+//    tablefaq.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    for (FAQ ep:s.getFaqdirectory().getFAQ()){
+            
+            Object[] row = new Object[2];
+            row[0] = ep;
+            row[1] = ep.getAnswers();  
+                
+                      
+            model.addRow(row);
+}     
+ 
+}
 }

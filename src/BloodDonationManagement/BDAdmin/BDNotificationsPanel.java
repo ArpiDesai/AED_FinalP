@@ -4,6 +4,11 @@
  */
 package BloodDonationManagement.BDAdmin;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Notification;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +18,10 @@ public class BDNotificationsPanel extends javax.swing.JPanel {
     /**
      * Creates new form BDNotificationsPanel
      */
-    public BDNotificationsPanel() {
+    system s;
+    public BDNotificationsPanel(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -27,72 +34,109 @@ public class BDNotificationsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        textArea1 = new java.awt.TextArea();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        notification = new javax.swing.JTextField();
+        delete = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        view = new javax.swing.JButton();
+        create = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablenoti = new javax.swing.JTable();
 
         jLabel1.setText("Notifications:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        notification.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                notificationActionPerformed(evt);
             }
         });
 
-        jButton1.setText("DELETE");
-
-        jButton2.setText("UPDATE");
-
-        jButton3.setText("VIEW");
-
-        jButton4.setText("CREATE");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        delete.setText("DELETE");
+        delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                deleteActionPerformed(evt);
             }
         });
+
+        update.setText("UPDATE");
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
+
+        view.setText("VIEW");
+        view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewActionPerformed(evt);
+            }
+        });
+
+        create.setText("CREATE");
+        create.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createActionPerformed(evt);
+            }
+        });
+
+        tablenoti.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Notification"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablenoti);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(notification, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(112, 112, 112)
-                        .addComponent(jButton4)
+                        .addComponent(create)
                         .addGap(52, 52, 52)
-                        .addComponent(jButton3)
+                        .addComponent(view)
                         .addGap(61, 61, 61)
-                        .addComponent(jButton2)
+                        .addComponent(update)
                         .addGap(69, 69, 69)
-                        .addComponent(jButton1)))
+                        .addComponent(delete)))
                 .addContainerGap(88, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(notification, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(create)
+                    .addComponent(view)
+                    .addComponent(update)
+                    .addComponent(delete))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -109,7 +153,7 @@ public class BDNotificationsPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 558, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -118,23 +162,118 @@ public class BDNotificationsPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void notificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_notificationActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        int flag = 1;
+        String s1 = notification.getText();
+        if(s1.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Notification field cannot be empty");
+           return;                     
+        }           
+        
+        if(flag == 1)
+        {
+            Notification hh = s.getNotificationdirectory().addNewNotification();
+            hh.setNotification(s1);
+                        
+            JOptionPane.showMessageDialog(this,"Notification created successfully"); 
+            populateTable();
+        } 
+        
+        notification.setText("");
+        
+        
+    }//GEN-LAST:event_createActionPerformed
+
+    private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
+        // TODO add your handling code here:
+        int row = tablenoti.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablenoti.getModel();
+        Notification selectedep = (Notification)model.getValueAt(row, 0);
+        
+                notification.setText(String.valueOf(selectedep.getNotification()));
+               
+        
+    }//GEN-LAST:event_viewActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+        int row = tablenoti.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(this,"Please select row to delete");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tablenoti.getModel();
+        Notification selectedep = (Notification)model.getValueAt(row, 0);
+        s.getNotificationdirectory().deleteNotification(selectedep);
+        JOptionPane.showMessageDialog(this,"Notification deleted");
+
+        populateTable();
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        // TODO add your handling code here:
+        int row = tablenoti.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablenoti.getModel();
+        Notification selectedep = (Notification)model.getValueAt(row, 0);
+        s.getNotificationdirectory().deleteNotification(selectedep);
+        int flag = 1;
+        String s1 = notification.getText();
+        if(s1.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Notification field cannot be empty");
+           return;                     
+        }           
+        
+        if(flag == 1)
+        {
+            Notification hh = s.getNotificationdirectory().addNewNotification();
+            hh.setNotification(s1);
+                        
+            JOptionPane.showMessageDialog(this,"Notification created successfully"); 
+            populateTable();
+        } 
+        
+        notification.setText("");
+        
+        
+    }//GEN-LAST:event_updateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton create;
+    private javax.swing.JButton delete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private java.awt.TextArea textArea1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField notification;
+    private javax.swing.JTable tablenoti;
+    private javax.swing.JButton update;
+    private javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+    DefaultTableModel model = (DefaultTableModel) tablenoti.getModel();
+    model.setRowCount(0);
+//    tablefaq.setShowGrid(true);
+//    tablefaq.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    for (Notification ep:s.getNotificationdirectory().getNotification()){
+            
+            Object[] row = new Object[1];
+            row[0] = ep;
+            
+                
+                      
+            model.addRow(row);
+}     
+ 
+}
 }

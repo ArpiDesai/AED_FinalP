@@ -4,8 +4,13 @@
  */
 package BloodDonationManagement;
 
+import BloodDonationManagement.Donor.BDDonorPanel;
 import BloodDonationManagement.Donor.BDNewUserPanel;
+import BloodDonationManagement.Receiver.BDReceiverPanel;
 import javax.swing.JOptionPane;
+import model.Donor;
+import model.Receiver;
+import model.system;
 
 /**
  *
@@ -16,8 +21,11 @@ public class loginBD extends javax.swing.JFrame {
     /**
      * Creates new form loginBD
      */
-    public loginBD() {
-        initComponents();
+   
+    private system s;
+    public loginBD(system s) {
+        initComponents();        
+        this.s = s;
     }
 
     /**
@@ -48,7 +56,7 @@ public class loginBD extends javax.swing.JFrame {
 
         jLabel3.setText("Role:");
 
-        role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Blood Donation Admin", "Donor", "Reciever" }));
+        role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Blood Donation Admin", "Donor", "Receiver" }));
         role.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roleActionPerformed(evt);
@@ -149,7 +157,7 @@ public class loginBD extends javax.swing.JFrame {
         if(user.equals("admin") && pass.equals("123") && rol.equals("Blood Donation Admin"))
         {
             JOptionPane.showMessageDialog(null," System Admin Login Successful");
-            BDAdminPanel sapframe = new BDAdminPanel();
+            BDAdminPanel sapframe = new BDAdminPanel(s);
             sapframe.setVisible(true);
             this.setVisible(false);
 //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -157,6 +165,45 @@ public class loginBD extends javax.swing.JFrame {
 
             
             
+        }
+        else if(rol.equals("Donor")){
+             for(Donor ep2: s.getDonordirectory().getDonor())
+            {
+                if(user.equals(ep2.getUsername()) && pass.equals(ep2.getPassword()))
+                {
+                    JOptionPane.showMessageDialog(null," Donor Login Successful");
+                    BDDonorPanel dframe = new BDDonorPanel(s);
+                    dframe.setVisible(true);
+                    this.setVisible(false);
+                    this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+                    this.dispose();
+                    BDDonorPanel x = new BDDonorPanel(s);
+                    BDDonorPanel.display.setText("Hi ");
+                    BDDonorPanel.display1.setText(username.getText());
+                    x.setVisible(true);
+                }
+            }                                   
+      
+      
+        }
+           
+        else if(rol.equals("Receiver")){
+           for(Receiver ep2: s.getReceiverdirectory().getReceiver())
+            {
+                if(user.equals(ep2.getUsername()) && pass.equals(ep2.getPassword()))
+                {
+                    JOptionPane.showMessageDialog(null," Receiver Login Successful");
+                    BDReceiverPanel dframe = new BDReceiverPanel(s);
+                    dframe.setVisible(true);
+                    this.setVisible(false);
+                    this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+                    this.dispose();
+                    BDReceiverPanel x = new BDReceiverPanel(s);
+                    BDReceiverPanel.display.setText("Hi ");
+                    BDReceiverPanel.display1.setText(username.getText());
+                    x.setVisible(true);
+                }
+            }     
         }
     }//GEN-LAST:event_loginActionPerformed
 
@@ -167,7 +214,7 @@ public class loginBD extends javax.swing.JFrame {
     private void newuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newuserActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null," New User Login Successful");
-            BDNewUserPanel sapframe = new BDNewUserPanel();
+            BDNewUserPanel sapframe = new BDNewUserPanel(s);
             sapframe.setVisible(true);
             this.setVisible(false);
     }//GEN-LAST:event_newuserActionPerformed
@@ -202,7 +249,7 @@ public class loginBD extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new loginBD().setVisible(true);
+//                new loginBD().setVisible(true);
             }
         });
     }

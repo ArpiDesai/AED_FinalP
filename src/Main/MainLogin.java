@@ -8,6 +8,7 @@ import BloodDonationManagement.BDOrganization;
 import FoodManagement.FMLogin;
 import GovernmentManagementSystem.GMLoginPanel;
 import HospitalManagement.HMOrganizationPage;
+import model.system;
 
 /**
  *
@@ -18,8 +19,11 @@ public class MainLogin extends javax.swing.JFrame {
     /**
      * Creates new form MainLogin
      */
-    public MainLogin() {
+    private system s;
+    public MainLogin(system s) {
         initComponents();
+        this.s = s;
+        
     }
 
     /**
@@ -114,21 +118,21 @@ public class MainLogin extends javax.swing.JFrame {
 
     private void GMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GMSActionPerformed
         // TODO add your handling code here:
-        GMLoginPanel sapframe = new GMLoginPanel();
+        GMLoginPanel sapframe = new GMLoginPanel(s);
         sapframe.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_GMSActionPerformed
 
     private void FMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FMSActionPerformed
         // TODO add your handling code here:
-        FMLogin sapframe = new FMLogin();
+        FMLogin sapframe = new FMLogin(s);
         sapframe.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_FMSActionPerformed
 
     private void HMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HMSActionPerformed
         // TODO add your handling code here:
-        HMOrganizationPage sapframe = new HMOrganizationPage();
+        HMOrganizationPage sapframe = new HMOrganizationPage(s);
         sapframe.setVisible(true);
         this.setVisible(false);
         
@@ -136,7 +140,7 @@ public class MainLogin extends javax.swing.JFrame {
 
     private void BDMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BDMSActionPerformed
         // TODO add your handling code here:
-        BDOrganization sapframe = new BDOrganization();
+        BDOrganization sapframe = new BDOrganization(s);
         sapframe.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BDMSActionPerformed
@@ -171,7 +175,7 @@ public class MainLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainLogin().setVisible(true);
+//                new MainLogin().setVisible(true);
             }
         });
     }

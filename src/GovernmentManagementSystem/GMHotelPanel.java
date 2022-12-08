@@ -4,6 +4,12 @@
  */
 package GovernmentManagementSystem;
 
+import Main.MainLogin;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Hotel;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +19,10 @@ public class GMHotelPanel extends javax.swing.JPanel {
     /**
      * Creates new form GMHotelPanel
      */
-    public GMHotelPanel() {
+    system s;
+    public GMHotelPanel(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -27,25 +35,32 @@ public class GMHotelPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablehotel = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
+        location = new javax.swing.JTextField();
+        emailid = new javax.swing.JTextField();
+        contact = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        hotelid = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        ownername = new javax.swing.JTextField();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablehotel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -64,7 +79,7 @@ public class GMHotelPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablehotel);
 
         jLabel1.setText("Name:");
 
@@ -82,52 +97,136 @@ public class GMHotelPanel extends javax.swing.JPanel {
         });
 
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("View");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Delete");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Hotel ID:");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        hotelid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hotelidActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Username:");
+
+        jLabel7.setText("Password:");
+
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Home");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Owner Name:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(emailid, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                                .addComponent(contact, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(location, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(name, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(username))
+                                            .addComponent(hotelid, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(3, 3, 3))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(ownername, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(68, 68, 68)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(189, Short.MAX_VALUE))
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(369, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(hotelid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(emailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -135,47 +234,36 @@ public class GMHotelPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
+                        .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))))
-                .addContainerGap(188, Short.MAX_VALUE))
+                        .addComponent(jButton5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ownername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 764, Short.MAX_VALUE)
+            .addGap(0, 944, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -184,7 +272,7 @@ public class GMHotelPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 567, Short.MAX_VALUE)
+            .addGap(0, 772, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -192,27 +280,414 @@ public class GMHotelPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int flag =1;
+        String s1 = name.getText();
+        if(s1.equals(""))        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+            return;
+        }
+        char[] chars = s1.toCharArray();
+        for(char c : chars)
+        {
+            if(Character.isDigit(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+                return;
+            }
+        }
+
+        String ss2 = hotelid.getText();
+
+        if(ss2.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+            return;
+        }
+        char[] chars3 = ss2.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        int s2 = Integer.parseInt(ss2);
+        for (Hotel epp:s.getHoteldirectory().getHotel()){
+            if (s2 == (epp.getHotelId())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+            }
+        }
+
+        String s3 = location.getText();
+
+        if(s3.equals("")){
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Location cannot be empty");
+            return;
+        }
+
+        String ss4 =  contact.getText();
+
+        if(ss4.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Contact number field cannot be empty or contain alphabet");
+            return;
+        }
+        if(ss4.length()!=10)
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Contact number must be 10 digits");
+            return;
+        }
+        char[] chars5 = ss4.toCharArray();
+        for(char c : chars5)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+
+        long s4 = Long.parseLong(ss4);
+        for (Hotel epp:s.getHoteldirectory().getHotel()){
+            if (s4 == (epp.getContact())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Phone Number already exists, please fill the details again");
+            }
+        }
+        String s5 = emailid.getText();
+        if(s5.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"EmailId field cannot be empty");
+            return;
+        }
+        String s6 = username.getText();
+        if(s6.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Username field cannot be empty");
+            return;
+        }
+
+        for (Hotel ep:s.getHoteldirectory().getHotel()){
+            if (s6.equals(ep.getUsername())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Username already exists, please try again");
+            }
+        }
+
+        String s7 = password.getText();
+        if(s7.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Password field cannot be empty");
+            return;
+        }
+        for (Hotel ep:s.getHoteldirectory().getHotel()){
+            if (s7.equals(ep.getPassword())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Password already exists, please try again");
+            }
+        }
+        String s8 = ownername.getText();
+        if(s8.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Owner Name field cannot be empty");
+            return;
+        }
+
+        if(flag == 1)
+        {
+            Hotel hh = s.getHoteldirectory().addNewHotel();
+            hh.setName(s1);
+            hh.setHotelId(s2);
+            hh.setContact(s4);
+            hh.setLocation(s3);
+            hh.setEmailid(s5);
+            hh.setUsername(s6);
+            hh.setPassword(s7);
+            hh.setOwnername(s8);
+
+            JOptionPane.showMessageDialog(this,"Hotel Profile created successfully");
+
+            populateTable();
+        }
+        name.setText("");
+        hotelid.setText("");
+        contact.setText("");
+        location.setText("");
+        emailid.setText("");
+        username.setText("");
+        password.setText("");
+        ownername.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int row = tablehotel.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablehotel.getModel();
+        Hotel selectedep = (Hotel)model.getValueAt(row, 0);
+        s.getHoteldirectory().deleteHotel(selectedep);
+
+        int flag =1;
+        String s1 = name.getText();
+        if(s1.equals(""))        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+            return;
+        }
+        char[] chars = s1.toCharArray();
+        for(char c : chars)
+        {
+            if(Character.isDigit(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+                return;
+            }
+        }
+
+        String ss2 = hotelid.getText();
+
+        if(ss2.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+            return;
+        }
+        char[] chars3 = ss2.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        int s2 = Integer.parseInt(ss2);
+        for (Hotel epp:s.getHoteldirectory().getHotel()){
+            if (s2 == (epp.getHotelId())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+            }
+        }
+
+        String s3 = location.getText();
+
+        if(s3.equals("")){
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Location cannot be empty");
+            return;
+        }
+
+        String ss4 =  contact.getText();
+
+        if(ss4.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Contact number field cannot be empty or contain alphabet");
+            return;
+        }
+        if(ss4.length()!=10)
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Contact number must be 10 digits");
+            return;
+        }
+        char[] chars5 = ss4.toCharArray();
+        for(char c : chars5)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+
+        long s4 = Long.parseLong(ss4);
+        for (Hotel epp:s.getHoteldirectory().getHotel()){
+            if (s4 == (epp.getContact())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Phone Number already exists, please fill the details again");
+            }
+        }
+        String s5 = emailid.getText();
+        if(s5.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"EmailId field cannot be empty");
+            return;
+        }
+        String s6 = username.getText();
+        if(s6.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Username field cannot be empty");
+            return;
+        }
+
+        for (Hotel ep:s.getHoteldirectory().getHotel()){
+            if (s6.equals(ep.getUsername())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Username already exists, please try again");
+            }
+        }
+
+        String s7 = password.getText();
+        if(s7.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Password field cannot be empty");
+            return;
+        }
+        for (Hotel ep:s.getHoteldirectory().getHotel()){
+            if (s7.equals(ep.getPassword())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Password already exists, please try again");
+            }
+        }
+        String s8 = ownername.getText();
+        if(s8.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Owner Name field cannot be empty");
+            return;
+        }
+
+        if(flag == 1)
+        {
+            Hotel hh = s.getHoteldirectory().addNewHotel();
+            hh.setName(s1);
+            hh.setHotelId(s2);
+            hh.setContact(s4);
+            hh.setLocation(s3);
+            hh.setEmailid(s5);
+            hh.setUsername(s6);
+            hh.setPassword(s7);
+            hh.setOwnername(s8);
+
+            JOptionPane.showMessageDialog(this,"Hotel Profile updated successfully");
+
+            populateTable();
+        }
+        name.setText("");
+        hotelid.setText("");
+        contact.setText("");
+        location.setText("");
+        emailid.setText("");
+        username.setText("");
+        password.setText("");
+        ownername.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int row = tablehotel.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablehotel.getModel();
+        Hotel selectedep = (Hotel)model.getValueAt(row, 0);
+
+        name.setText(String.valueOf(selectedep.getName()));
+        hotelid.setText(String.valueOf(selectedep.getHotelId()));
+        emailid.setText(String.valueOf(selectedep.getEmailid()));
+        location.setText(String.valueOf(selectedep.getLocation()));
+        contact.setText(String.valueOf(selectedep.getContact()));
+        username.setText(String.valueOf(selectedep.getUsername()));
+        password.setText(String.valueOf(selectedep.getPassword()));
+        ownername.setText(String.valueOf(selectedep.getOwnername()));
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int row = tablehotel.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(this,"Please select row to delete");
+            return;
+
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tablehotel.getModel();
+        Hotel selectedep = (Hotel)model.getValueAt(row, 0);
+
+        s.getHoteldirectory().deleteHotel(selectedep);
+        JOptionPane.showMessageDialog(this,"Donor Profile deleted");
+
+        populateTable();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void hotelidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotelidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hotelidActionPerformed
+
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField contact;
+    private javax.swing.JTextField emailid;
+    private javax.swing.JTextField hotelid;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField location;
+    private javax.swing.JTextField name;
+    private javax.swing.JTextField ownername;
+    private javax.swing.JTextField password;
+    private javax.swing.JTable tablehotel;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+          DefaultTableModel model = (DefaultTableModel) tablehotel.getModel();
+          model.setRowCount(0);
+        
+        for (Hotel ep:s.getHoteldirectory().getHotel()){
+            
+            Object[] row = new Object[4];
+            row[0] = ep;
+            row[1] = ep.getLocation();
+            row[2] = ep.getContact();
+            row[3] = ep.getEmailid();
+            
+            
+            
+            
+            model.addRow(row);
+}     
+ 
+}
 }

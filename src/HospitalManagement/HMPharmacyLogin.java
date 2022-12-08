@@ -4,7 +4,9 @@
  */
 package HospitalManagement;
 
+import HospitalManagement.Pharmacy.HMPharmacyAdmin;
 import javax.swing.JOptionPane;
+import model.system;
 
 /**
  *
@@ -15,8 +17,10 @@ public class HMPharmacyLogin extends javax.swing.JFrame {
     /**
      * Creates new form HMPharmacyLogin
      */
-    public HMPharmacyLogin() {
+    system s;
+    public HMPharmacyLogin(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -136,15 +140,13 @@ public class HMPharmacyLogin extends javax.swing.JFrame {
         String user = username.getText();
         String pass = password.getText();
         String rol = (String)role.getSelectedItem();
-        if(user.equals("admin") && pass.equals("123") && rol.equals("Blood Donation Admin"))
+        if(user.equals("admin") && pass.equals("123") && rol.equals("Pharmacy Admin"))
         {
-//            JOptionPane.showMessageDialog(null," System Admin Login Successful");
-////            BDAdminPanel sapframe = new BDAdminPanel();
-//            sapframe.setVisible(true);
-//            this.setVisible(false);
-            //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-            //            this.dispose();
-
+            JOptionPane.showMessageDialog(null," Pharmacy Admin Login Successful");
+            HMPharmacyAdmin sapframe = new HMPharmacyAdmin(s);
+            sapframe.setVisible(true);
+            this.setVisible(false);
+                        
         }
     }//GEN-LAST:event_loginActionPerformed
 
@@ -178,7 +180,7 @@ public class HMPharmacyLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HMPharmacyLogin().setVisible(true);
+//                new HMPharmacyLogin().setVisible(true);
             }
         });
     }

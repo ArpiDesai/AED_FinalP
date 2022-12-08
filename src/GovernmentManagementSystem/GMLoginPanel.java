@@ -5,6 +5,7 @@
 package GovernmentManagementSystem;
 
 import javax.swing.JOptionPane;
+import model.system;
 
 /**
  *
@@ -15,8 +16,10 @@ public class GMLoginPanel extends javax.swing.JFrame {
     /**
      * Creates new form GMLoginPanel
      */
-    public GMLoginPanel() {
+    system s;
+    public GMLoginPanel(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -135,10 +138,10 @@ public class GMLoginPanel extends javax.swing.JFrame {
         String user = username.getText();
         String pass = password.getText();
         String rol = (String)role.getSelectedItem();
-        if(user.equals("admin") && pass.equals("123") && rol.equals("Blood Donation Admin"))
+        if(user.equals("admin") && pass.equals("123") && rol.equals("Government Admin"))
         {
-            JOptionPane.showMessageDialog(null," System Admin Login Successful");
-            GMAdmin sapframe = new GMAdmin();
+            JOptionPane.showMessageDialog(null," Government Admin Login Successful");
+            GMAdmin sapframe = new GMAdmin(s);
             sapframe.setVisible(true);
             this.setVisible(false);
 //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -179,7 +182,7 @@ public class GMLoginPanel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GMLoginPanel().setVisible(true);
+//                new GMLoginPanel().setVisible(true);
             }
         });
     }

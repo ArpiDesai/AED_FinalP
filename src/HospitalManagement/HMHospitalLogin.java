@@ -4,6 +4,10 @@
  */
 package HospitalManagement;
 
+import HospitalManagement.HospitalAdmin.HMHospitalAdmin;
+import javax.swing.JOptionPane;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +17,10 @@ public class HMHospitalLogin extends javax.swing.JFrame {
     /**
      * Creates new form HMHospitalLogin
      */
-    public HMHospitalLogin() {
+    system s;
+    public HMHospitalLogin(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -136,14 +142,14 @@ public class HMHospitalLogin extends javax.swing.JFrame {
         String user = username.getText();
         String pass = password.getText();
         String rol = (String)role.getSelectedItem();
-        if(user.equals("admin") && pass.equals("123") && rol.equals("Blood Donation Admin"))
+        if(user.equals("admin") && pass.equals("123") && rol.equals("Hospital Admin"))
         {
-            //            JOptionPane.showMessageDialog(null," System Admin Login Successful");
-            ////            BDAdminPanel sapframe = new BDAdminPanel();
-            //            sapframe.setVisible(true);
-            //            this.setVisible(false);
-            //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-            //            this.dispose();
+                        JOptionPane.showMessageDialog(null," Hospital Admin Login Successful");
+                        HMHospitalAdmin sapframe = new HMHospitalAdmin(s);
+                        sapframe.setVisible(true);
+                        this.setVisible(false);
+                        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+                        this.dispose();
 
         }
     }//GEN-LAST:event_loginActionPerformed
@@ -178,7 +184,7 @@ public class HMHospitalLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HMHospitalLogin().setVisible(true);
+//                new HMHospitalLogin().setVisible(true);
             }
         });
     }

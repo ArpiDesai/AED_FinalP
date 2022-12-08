@@ -4,6 +4,10 @@
  */
 package BloodDonationManagement.Receiver;
 
+import Main.MainLogin;
+import model.Receiver;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +17,10 @@ public class BDReceiverPanel extends javax.swing.JFrame {
     /**
      * Creates new form BDReceiverPanel
      */
-    public BDReceiverPanel() {
+    private system s;
+    public BDReceiverPanel(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -27,7 +33,6 @@ public class BDReceiverPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         BDReceiverSplit = new javax.swing.JSplitPane();
-        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         notification = new javax.swing.JButton();
         faq = new javax.swing.JButton();
@@ -35,21 +40,12 @@ public class BDReceiverPanel extends javax.swing.JFrame {
         slot = new javax.swing.JButton();
         avilability = new javax.swing.JButton();
         profile = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        display = new javax.swing.JLabel();
+        display1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
-        );
-
-        BDReceiverSplit.setRightComponent(jPanel2);
 
         notification.setText("Notification");
         notification.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +89,13 @@ public class BDReceiverPanel extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Home");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,6 +106,7 @@ public class BDReceiverPanel extends javax.swing.JFrame {
             .addComponent(faq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(notification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(slot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,21 +123,48 @@ public class BDReceiverPanel extends javax.swing.JFrame {
                 .addComponent(faq)
                 .addGap(18, 18, 18)
                 .addComponent(notification)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(458, Short.MAX_VALUE))
         );
 
         BDReceiverSplit.setLeftComponent(jPanel1);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(237, 237, 237)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(529, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(713, Short.MAX_VALUE))
+        );
+
+        BDReceiverSplit.setRightComponent(jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BDReceiverSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(BDReceiverSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(BDReceiverSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BDReceiverSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -142,13 +173,13 @@ public class BDReceiverPanel extends javax.swing.JFrame {
 
     private void notificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationActionPerformed
         // TODO add your handling code here:
-        BDReceiverNotificationsPanel sapframe = new BDReceiverNotificationsPanel();
+        BDReceiverNotificationsPanel sapframe = new BDReceiverNotificationsPanel(s);
         BDReceiverSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_notificationActionPerformed
 
     private void faqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faqActionPerformed
         // TODO add your handling code here:
-        BDReceiverFAQPanel sapframe = new BDReceiverFAQPanel();
+        BDReceiverFAQPanel sapframe = new BDReceiverFAQPanel(s);
         BDReceiverSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_faqActionPerformed
 
@@ -172,9 +203,31 @@ public class BDReceiverPanel extends javax.swing.JFrame {
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
         // TODO add your handling code here:
-        BDReceiverProfilePanel sapframe = new  BDReceiverProfilePanel();
+        BDReceiverProfilePanel sapframe = new  BDReceiverProfilePanel(s);
         BDReceiverSplit.setRightComponent(sapframe);
+        BDReceiverProfilePanel.username.setText(display1.getText());
+        for (Receiver epp:s.getReceiverdirectory().getReceiver()){
+            if(BDReceiverProfilePanel.username.getText().equals(epp.getUsername())){
+                BDReceiverProfilePanel.name.setText(String.valueOf(epp.getName()));
+                BDReceiverProfilePanel.age.setText(String.valueOf(epp.getAge()));
+                BDReceiverProfilePanel.gender.setSelectedItem(String.valueOf(epp.getGender()));
+                BDReceiverProfilePanel.usertype.setSelectedItem(String.valueOf(epp.getUserType()));
+                BDReceiverProfilePanel.id.setText(String.valueOf(epp.getId()));
+                BDReceiverProfilePanel.emailid.setText(String.valueOf(epp.getEmailId()));
+                BDReceiverProfilePanel.bloodgroup.setText(String.valueOf(epp.getBloodGroup()));
+                BDReceiverProfilePanel.contact.setText(String.valueOf(epp.getContact()));
+//                BDDonorProfilePanel.username.setText(String.valueOf(selectedep.getUsername()));
+                BDReceiverProfilePanel.password.setText(String.valueOf(epp.getPassword()));
+               }
+        }
     }//GEN-LAST:event_profileActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+          MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,7 +259,7 @@ public class BDReceiverPanel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BDReceiverPanel().setVisible(true);
+//                new BDReceiverPanel().setVisible(true);
             }
         });
     }
@@ -214,10 +267,13 @@ public class BDReceiverPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane BDReceiverSplit;
     private javax.swing.JButton avilability;
+    public static javax.swing.JLabel display;
+    public static javax.swing.JLabel display1;
     private javax.swing.JButton faq;
     private javax.swing.JButton history;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JButton notification;
     private javax.swing.JButton profile;
     private javax.swing.JButton slot;

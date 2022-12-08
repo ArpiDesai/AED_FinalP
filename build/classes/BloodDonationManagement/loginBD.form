@@ -134,7 +134,7 @@
                 <StringItem index="0" value="Select"/>
                 <StringItem index="1" value="Blood Donation Admin"/>
                 <StringItem index="2" value="Donor"/>
-                <StringItem index="3" value="Reciever"/>
+                <StringItem index="3" value="Receiver"/>
               </StringArray>
             </Property>
           </Properties>

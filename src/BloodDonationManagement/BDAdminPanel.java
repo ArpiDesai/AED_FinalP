@@ -10,7 +10,10 @@ import BloodDonationManagement.BDAdmin.BDEmergenciesPanel;
 import BloodDonationManagement.BDAdmin.BDFAQPanel;
 import BloodDonationManagement.BDAdmin.BDHospitalPanel;
 import BloodDonationManagement.BDAdmin.BDNotificationsPanel;
-import BloodDonationManagement.BDAdmin.BDUserPanel;
+import BloodDonationManagement.BDAdmin.BDDonorUserPanel;
+import BloodDonationManagement.BDAdmin.BDReceiverUserPanel;
+
+import model.system;
 
 /**
  *
@@ -21,8 +24,13 @@ public class BDAdminPanel extends javax.swing.JFrame {
     /**
      * Creates new form BDAdminPane
      */
-    public BDAdminPanel() {
+    private system s;
+    public BDAdminPanel(system s) {
         initComponents();
+        this.s = s;
+        this.setExtendedState(BDAdminPanel.MAXIMIZED_BOTH);
+        
+        
     }
 
     /**
@@ -43,6 +51,7 @@ public class BDAdminPanel extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,14 +63,14 @@ public class BDAdminPanel extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Emergencies");
+        jButton2.setText("Hospital");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Users");
+        jButton3.setText("Donors");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -89,10 +98,17 @@ public class BDAdminPanel extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setText("Hospitals");
+        jButton7.setText("Emergency");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Receivers");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
             }
         });
 
@@ -104,29 +120,29 @@ public class BDAdminPanel extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(130, Short.MAX_VALUE)
+                .addGap(133, 133, 133)
                 .addComponent(jButton1)
-                .addGap(53, 53, 53)
-                .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton7)
+                .addGap(18, 18, 18)
+                .addComponent(jButton8)
+                .addGap(12, 12, 12)
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5)
@@ -134,18 +150,24 @@ public class BDAdminPanel extends javax.swing.JFrame {
                 .addComponent(jButton6)
                 .addGap(24, 24, 24)
                 .addComponent(jButton2)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(175, 175, 175)
-                    .addComponent(jButton7)
-                    .addContainerGap(195, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addContainerGap(332, Short.MAX_VALUE))
         );
 
         BDAdminSplit.setLeftComponent(jPanel1);
 
-        jPanel2.setPreferredSize(new java.awt.Dimension(731, 439));
-        jPanel2.setLayout(new javax.swing.OverlayLayout(jPanel2));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 898, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 763, Short.MAX_VALUE)
+        );
+
         BDAdminSplit.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,14 +175,14 @@ public class BDAdminPanel extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(BDAdminSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 305, Short.MAX_VALUE))
+                .addComponent(BDAdminSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 1072, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(BDAdminSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 176, Short.MAX_VALUE))
+                .addComponent(BDAdminSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,40 +190,40 @@ public class BDAdminPanel extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        BDCentrePanel sapframe = new BDCentrePanel();
+        BDCentrePanel sapframe = new BDCentrePanel(s);
         BDAdminSplit.setRightComponent(sapframe);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        BDUserPanel sapframe = new BDUserPanel();
+        BDDonorUserPanel sapframe = new BDDonorUserPanel(s);
         BDAdminSplit.setRightComponent(sapframe);
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        BDHospitalPanel sapframe = new BDHospitalPanel();
+        BDHospitalPanel sapframe = new BDHospitalPanel(s);
         BDAdminSplit.setRightComponent(sapframe);
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        BDCateringPanel sapframe = new BDCateringPanel();
+        BDCateringPanel sapframe = new BDCateringPanel(s);
         BDAdminSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        BDFAQPanel sapframe = new BDFAQPanel();
+        BDFAQPanel sapframe = new BDFAQPanel(s);
         BDAdminSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        BDNotificationsPanel sapframe = new BDNotificationsPanel();
+        BDNotificationsPanel sapframe = new BDNotificationsPanel(s);
         BDAdminSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -210,6 +232,13 @@ public class BDAdminPanel extends javax.swing.JFrame {
         BDEmergenciesPanel sapframe = new BDEmergenciesPanel();
         BDAdminSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        BDReceiverUserPanel sapframe = new BDReceiverUserPanel(s);
+        BDAdminSplit.setRightComponent(sapframe);
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,7 +271,7 @@ public class BDAdminPanel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BDAdminPanel().setVisible(true);
+//                new BDAdminPanel().setVisible(true);
             }
         });
     }
@@ -256,6 +285,7 @@ public class BDAdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

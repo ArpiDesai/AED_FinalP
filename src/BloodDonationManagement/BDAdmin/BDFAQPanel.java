@@ -4,6 +4,12 @@
  */
 package BloodDonationManagement.BDAdmin;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import model.FAQ;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +19,11 @@ public class BDFAQPanel extends javax.swing.JPanel {
     /**
      * Creates new form BDFAQPanel
      */
-    public BDFAQPanel() {
+    system s;
+    public BDFAQPanel(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
     }
 
     /**
@@ -26,107 +35,246 @@ public class BDFAQPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textArea1 = new java.awt.TextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        answer = new javax.swing.JTextField();
+        delete = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        view = new javax.swing.JButton();
+        create = new javax.swing.JButton();
+        question = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablefaq = new javax.swing.JTable();
 
         jLabel1.setText("Question:");
 
         jLabel2.setText("Answer:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        delete.setText("DELETE");
+        delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                deleteActionPerformed(evt);
             }
         });
 
-        jButton1.setText("DELETE");
-
-        jButton2.setText("UPDATE");
-
-        jButton3.setText("VIEW");
-
-        jButton4.setText("CREATE");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        update.setText("UPDATE");
+        update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                updateActionPerformed(evt);
             }
         });
+
+        view.setText("VIEW");
+        view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewActionPerformed(evt);
+            }
+        });
+
+        create.setText("CREATE");
+        create.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createActionPerformed(evt);
+            }
+        });
+
+        tablefaq.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Question", "Answer"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablefaq);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4)
-                        .addGap(46, 46, 46)
-                        .addComponent(jButton3)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton2)
-                        .addGap(49, 49, 49)
-                        .addComponent(jButton1)
-                        .addGap(119, 119, 119))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-                            .addComponent(jTextField2))
-                        .addContainerGap(37, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(create)
+                        .addGap(50, 50, 50)
+                        .addComponent(view)
+                        .addGap(40, 40, 40)
+                        .addComponent(update)
+                        .addGap(44, 44, 44)
+                        .addComponent(delete))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(answer, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                        .addComponent(question)))
+                .addContainerGap(199, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(delete)
+                    .addComponent(update)
+                    .addComponent(view)
+                    .addComponent(create))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        int flag = 1;
+        String s1 = question.getText();
+        if(s1.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Question field cannot be empty");
+           return;                     
+        }
+        
+        String s2 = answer.getText();
+        if(s2.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Answer field cannot be empty");
+           return;                     
+        }
+        
+        if(flag == 1)
+        {
+            FAQ hh = s.getFaqdirectory().addNewFAQ();
+            hh.setQuestions(s1);
+            hh.setAnswers(s2);                
+            JOptionPane.showMessageDialog(this,"FAQ Profile created successfully"); 
+            populateTable();
+        } 
+        
+        question.setText("");
+        answer.setText("");
+        
+       
+        
+                     
+        
+    }//GEN-LAST:event_createActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        int row = tablefaq.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablefaq.getModel();
+        FAQ selectedep = (FAQ)model.getValueAt(row, 0);
+        
+                question.setText(String.valueOf(selectedep.getQuestions()));
+                answer.setText(String.valueOf(selectedep.getAnswers()));
+    }//GEN-LAST:event_viewActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+        
+        int row = tablefaq.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(this,"Please select row to delete");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tablefaq.getModel();
+        FAQ selectedep = (FAQ)model.getValueAt(row, 0);
+        s.getFaqdirectory().deleteFAQ(selectedep);
+        JOptionPane.showMessageDialog(this,"FAQ deleted");
+
+        populateTable();
+        
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        // TODO add your handling code here:
+        int row = tablefaq.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablefaq.getModel();
+        FAQ selectedep = (FAQ)model.getValueAt(row, 0);
+        s.getFaqdirectory().deleteFAQ(selectedep);
+        int flag = 1;
+        String s1 = question.getText();
+        if(s1.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Question field cannot be empty");
+           return;                     
+        }
+        
+        String s2 = answer.getText();
+        if(s2.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Answer field cannot be empty");
+           return;                     
+        }
+        
+        if(flag == 1)
+        {
+        FAQ hh = s.getFaqdirectory().addNewFAQ();
+        hh.setQuestions(s1);
+        hh.setAnswers(s2);                
+        JOptionPane.showMessageDialog(this,"FAQ Profile updated successfully");  
+        populateTable();
+        } 
+        
+        question.setText("");
+        answer.setText("");
+        
+    }//GEN-LAST:event_updateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JTextField answer;
+    private javax.swing.JButton create;
+    private javax.swing.JButton delete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private java.awt.TextArea textArea1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField question;
+    private javax.swing.JTable tablefaq;
+    private javax.swing.JButton update;
+    private javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
+private void populateTable() {
+    DefaultTableModel model = (DefaultTableModel) tablefaq.getModel();
+    model.setRowCount(0);
+//    tablefaq.setShowGrid(true);
+//    tablefaq.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    for (FAQ ep:s.getFaqdirectory().getFAQ()){
+            
+            Object[] row = new Object[2];
+            row[0] = ep;
+            row[1] = ep.getAnswers();  
+                
+                      
+            model.addRow(row);
+}     
+ 
+}
 }

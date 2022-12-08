@@ -4,6 +4,10 @@
  */
 package BloodDonationManagement.Receiver;
 
+import javax.swing.table.DefaultTableModel;
+import model.Notification;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +17,10 @@ public class BDReceiverNotificationsPanel extends javax.swing.JPanel {
     /**
      * Creates new form BDReceiverNotificationsPanel
      */
-    public BDReceiverNotificationsPanel() {
+    system s;
+    public BDReceiverNotificationsPanel(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -28,27 +34,40 @@ public class BDReceiverNotificationsPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        tablenoti = new javax.swing.JTable();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        tablenoti.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Notification"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablenoti);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -67,6 +86,23 @@ public class BDReceiverNotificationsPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTable tablenoti;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+    DefaultTableModel model = (DefaultTableModel) tablenoti.getModel();
+    model.setRowCount(0);
+//    tablefaq.setShowGrid(true);
+//    tablefaq.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    for (Notification ep:s.getNotificationdirectory().getNotification()){
+            
+            Object[] row = new Object[1];
+            row[0] = ep;
+            
+                
+                      
+            model.addRow(row);
+}     
+ 
+}
 }

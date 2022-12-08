@@ -4,6 +4,9 @@
  */
 package HospitalManagement.HospitalAdmin;
 
+import Main.MainLogin;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +16,10 @@ public class HMHospitalAdmin extends javax.swing.JFrame {
     /**
      * Creates new form HMHospitalAdmin
      */
-    public HMHospitalAdmin() {
+    system s;
+    public HMHospitalAdmin(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -26,11 +31,12 @@ public class HMHospitalAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
+        HMHospitalSplit = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -57,6 +63,13 @@ public class HMHospitalAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("Home");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -66,22 +79,25 @@ public class HMHospitalAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(146, 146, 146)
                 .addComponent(jButton1)
-                .addGap(72, 72, 72)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addGap(101, 101, 101)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(jButton4)
+                .addContainerGap(381, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setLeftComponent(jPanel1);
+        HMHospitalSplit.setLeftComponent(jPanel1);
 
         jLabel1.setText("Hospital Administration");
 
@@ -90,29 +106,29 @@ public class HMHospitalAdmin extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(160, 160, 160)
+                .addGap(336, 336, 336)
                 .addComponent(jLabel1)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(391, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(620, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setRightComponent(jPanel2);
+        HMHospitalSplit.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(HMHospitalSplit)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(HMHospitalSplit, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -120,24 +136,28 @@ public class HMHospitalAdmin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        HMHAHospital sapframe = new HMHAHospital();
-            sapframe.setVisible(true);
-            this.setVisible(false);
+        HMHAHospital sapframe = new HMHAHospital(s);
+        HMHospitalSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
          HMHADoctor sapframe = new HMHADoctor();
-            sapframe.setVisible(true);
-            this.setVisible(false);
+         HMHospitalSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         HMHAEmergencies sapframe = new HMHAEmergencies();
-            sapframe.setVisible(true);
-            this.setVisible(false);
+        HMHospitalSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,18 +189,19 @@ public class HMHospitalAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HMHospitalAdmin().setVisible(true);
+//                new HMHospitalAdmin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSplitPane HMHospitalSplit;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

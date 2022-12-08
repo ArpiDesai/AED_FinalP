@@ -4,6 +4,8 @@
  */
 package FoodManagement;
 
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +15,10 @@ public class FMManager extends javax.swing.JFrame {
     /**
      * Creates new form FMManager
      */
-    public FMManager() {
+    system s;
+    public FMManager(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -113,7 +117,7 @@ public class FMManager extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          FMMHotels sapframe = new FMMHotels();
+          FMMHotels sapframe = new FMMHotels(s);
         FMManagerSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -159,7 +163,7 @@ public class FMManager extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FMManager().setVisible(true);
+//                new FMManager().setVisible(true);
             }
         });
     }

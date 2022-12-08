@@ -4,6 +4,9 @@
  */
 package BloodDonationManagement;
 
+import model.DonorDirectory;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +16,10 @@ public class BDOrganization extends javax.swing.JFrame {
     /**
      * Creates new form BDOrganization
      */
-    public BDOrganization() {
+    system s;
+    public BDOrganization(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -94,7 +99,7 @@ public class BDOrganization extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        loginBD sapframe = new loginBD();
+        loginBD sapframe = new loginBD(s);
         sapframe.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -136,7 +141,7 @@ public class BDOrganization extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BDOrganization().setVisible(true);
+//                new BDOrganization().setVisible(true);
             }
         });
     }

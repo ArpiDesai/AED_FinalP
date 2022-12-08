@@ -4,6 +4,8 @@
  */
 package HospitalManagement.Pharmacy;
 
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +15,10 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
     /**
      * Creates new form HMPharmacyPage
      */
-    public HMPharmacyAdmin() {
+    system s;
+    public HMPharmacyAdmin(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -134,7 +138,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        HMPharmacy sapframe = new HMPharmacy();
+        HMPharmacy sapframe = new HMPharmacy(s);
         HMPharmacySplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -169,7 +173,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HMPharmacyAdmin().setVisible(true);
+//                new HMPharmacyAdmin().setVisible(true);
             }
         });
     }
