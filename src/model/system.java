@@ -18,7 +18,10 @@ public class system {
     private CentreDirectory centredirectory;
     private PharmacyDirectory pharmacydirectory;    
     private FAQDirectory faqdirectory;   
-    private NotificationDirectory notificationdirectory;
+    private NotificationDirectory notificationdirectory;    
+    private PatientDirectory emergencydirectory;    
+    private PatientDirectory patientdirectory;     
+    private BloodDonationEventDirectory blooddonationeventdirectory;
     
     public system()
     {
@@ -30,7 +33,35 @@ public class system {
         pharmacydirectory = new PharmacyDirectory();
         faqdirectory = new FAQDirectory();
         notificationdirectory = new NotificationDirectory();
+        emergencydirectory = new PatientDirectory();
+        patientdirectory = new PatientDirectory();
+        blooddonationeventdirectory = new BloodDonationEventDirectory();
         
+        
+    }
+    
+    public BloodDonationEventDirectory getBlooddonationeventdirectory() {
+        return blooddonationeventdirectory;
+    }
+
+    public void setBlooddonationeventdirectory(BloodDonationEventDirectory blooddonationeventdirectory) {
+        this.blooddonationeventdirectory = blooddonationeventdirectory;
+    }
+    
+    public PatientDirectory getPatientdirectory() {
+        return patientdirectory;
+    }
+
+    public void setPatientdirectory(PatientDirectory patientdirectory) {
+        this.patientdirectory = patientdirectory;
+    }
+    
+    public PatientDirectory getEmergencydirectory() {
+        return emergencydirectory;
+    }
+
+    public void setEmergencydirectory(PatientDirectory emergencydirectory) {
+        this.emergencydirectory = emergencydirectory;
     }
     
      public NotificationDirectory getNotificationdirectory() {

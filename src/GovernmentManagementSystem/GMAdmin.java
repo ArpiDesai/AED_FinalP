@@ -21,6 +21,7 @@ public class GMAdmin extends javax.swing.JFrame {
         initComponents();
         this.s = s;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -171,7 +172,7 @@ public class GMAdmin extends javax.swing.JFrame {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
-        GMEmergencyHistoryPanel sapframe = new GMEmergencyHistoryPanel();
+        GMEmergencyHistoryPanel sapframe = new GMEmergencyHistoryPanel(s);
         GMSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton19ActionPerformed
 

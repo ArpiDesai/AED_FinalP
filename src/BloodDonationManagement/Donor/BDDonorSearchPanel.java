@@ -4,6 +4,12 @@
  */
 package BloodDonationManagement.Donor;
 
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import model.Centre;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +19,11 @@ public class BDDonorSearchPanel extends javax.swing.JPanel {
     /**
      * Creates new form BDDonorSearchPanel
      */
-    public BDDonorSearchPanel() {
+    system s;
+    public BDDonorSearchPanel(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
     }
 
     /**
@@ -28,36 +37,41 @@ public class BDDonorSearchPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        search = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablesearch = new javax.swing.JTable();
 
         jLabel1.setText("Search");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        search.setColumns(20);
+        search.setRows(5);
+        search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(search);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablesearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Centre", "Location", "Date", "Time", "Contact"
+                "Centre", "Location", "Contact"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class
+                java.lang.String.class, java.lang.String.class, java.lang.Long.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tablesearch);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -92,12 +106,41 @@ public class BDDonorSearchPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tablesearch.getModel();
+        String value = search.getText();
+        TableRowSorter<DefaultTableModel> key = new TableRowSorter<DefaultTableModel>(model);
+        tablesearch.setRowSorter(key);
+        key.setRowFilter(RowFilter.regexFilter(value));
+    }//GEN-LAST:event_searchKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea search;
+    private javax.swing.JTable tablesearch;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+          DefaultTableModel model = (DefaultTableModel) tablesearch.getModel();
+          model.setRowCount(0);
+        
+        for (Centre ep:s.getCentredirectory().getCentre()){
+            
+            Object[] row = new Object[4];
+            row[0] = ep;
+            row[1] = ep.getLocation();
+            row[2] = ep.getContact();
+            
+            
+            
+            
+            
+            model.addRow(row);
+}     
+ 
+}
 }

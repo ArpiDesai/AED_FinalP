@@ -4,6 +4,10 @@
  */
 package BloodDonationManagement.Donor;
 
+import javax.swing.table.DefaultTableModel;
+import model.BloodDonationEvent;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +17,11 @@ public class BDDonorSlotPanel extends javax.swing.JPanel {
     /**
      * Creates new form BDDonorSlotPanel
      */
-    public BDDonorSlotPanel() {
+    system s;
+    public BDDonorSlotPanel(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
     }
 
     /**
@@ -57,7 +64,7 @@ public class BDDonorSlotPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableevent = new javax.swing.JTable();
 
         jLabel1.setText("Search");
 
@@ -67,7 +74,7 @@ public class BDDonorSlotPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Name:");
 
-        jLabel5.setText("User ID:");
+        jLabel5.setText("Donor ID:");
 
         jLabel3.setText("Age");
 
@@ -95,26 +102,26 @@ public class BDDonorSlotPanel extends javax.swing.JPanel {
 
         jButton2.setText("UPDATE");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableevent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Centre Name", "Location", "Date", "Time", "Contact", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"
+                "Centre Name", "Location", "Date", "Time", "Contact"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tableevent);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -279,7 +286,6 @@ public class BDDonorSlotPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
@@ -292,5 +298,27 @@ public class BDDonorSlotPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tableevent;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+          DefaultTableModel model = (DefaultTableModel) tableevent.getModel();
+          model.setRowCount(0);
+        
+        for (BloodDonationEvent ep:s.getBlooddonationeventdirectory().getBloodDonationEvent()){
+            
+            Object[] row = new Object[5];
+            row[0] = ep;
+            row[1] = ep.getLocation();
+            row[2] = ep.getDate();
+            row[3] = ep.getTime();
+            row[4] = ep.getContact();          
+            
+            
+            
+            model.addRow(row);
+}     
+ 
+}
+
 }

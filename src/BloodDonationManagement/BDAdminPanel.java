@@ -4,9 +4,10 @@
  */
 package BloodDonationManagement;
 
+import BloodDonationManagement.BDAdmin.BDBloodDonationEvent;
 import BloodDonationManagement.BDAdmin.BDCateringPanel;
 import BloodDonationManagement.BDAdmin.BDCentrePanel;
-import BloodDonationManagement.BDAdmin.BDEmergenciesPanel;
+import BloodDonationManagement.BDAdmin.BDPatientPanel;
 import BloodDonationManagement.BDAdmin.BDFAQPanel;
 import BloodDonationManagement.BDAdmin.BDHospitalPanel;
 import BloodDonationManagement.BDAdmin.BDNotificationsPanel;
@@ -52,6 +53,7 @@ public class BDAdminPanel extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -116,6 +118,13 @@ public class BDAdminPanel extends javax.swing.JFrame {
             }
         });
 
+        jButton9.setText("Blood Donation Event");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,10 +139,11 @@ public class BDAdminPanel extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 31, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -155,7 +165,9 @@ public class BDAdminPanel extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addGap(332, 332, 332))
+                .addGap(18, 18, 18)
+                .addComponent(jButton9)
+                .addGap(291, 291, 291))
         );
 
         BDAdminSplit.setLeftComponent(jPanel1);
@@ -244,7 +256,7 @@ public class BDAdminPanel extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        BDEmergenciesPanel sapframe = new BDEmergenciesPanel();
+        BDPatientPanel sapframe = new BDPatientPanel(s);
         BDAdminSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -254,6 +266,12 @@ public class BDAdminPanel extends javax.swing.JFrame {
         BDAdminSplit.setRightComponent(sapframe);
         
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        BDBloodDonationEvent sapframe = new BDBloodDonationEvent(s);
+        BDAdminSplit.setRightComponent(sapframe);
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,6 +319,7 @@ public class BDAdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
