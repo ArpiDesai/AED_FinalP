@@ -4,6 +4,7 @@
  */
 package BloodDonationManagement.Applicant;
 
+import model.Applicant;
 import model.system;
 
 /**
@@ -31,15 +32,40 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         BDApplicantSplit = new javax.swing.JSplitPane();
+        jPanel2 = new javax.swing.JPanel();
+        display = new javax.swing.JLabel();
+        display1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        display = new javax.swing.JLabel();
-        display1 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(298, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        BDApplicantSplit.setRightComponent(jPanel2);
 
         jButton1.setText("Job Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -48,7 +74,7 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Application ");
+        jButton2.setText("Apply");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -62,30 +88,45 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("Accepted Applications");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Rejected Applications");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(jButton2)
-                .addGap(43, 43, 43)
+                .addGap(164, 164, 164)
                 .addComponent(jButton1)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addContainerGap(249, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(123, 123, 123)
@@ -94,29 +135,6 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
         );
 
         BDApplicantSplit.setLeftComponent(jPanel1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(454, Short.MAX_VALUE))
-        );
-
-        BDApplicantSplit.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,7 +152,7 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        BDHiringApplicantJobSearch sapframe = new BDHiringApplicantJobSearch();
+        BDHiringApplicantJobSearch sapframe = new BDHiringApplicantJobSearch(s);
         BDApplicantSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -146,9 +164,38 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        BDHiringApplicantProfile sapframe = new BDHiringApplicantProfile();
+        BDHiringApplicantProfile sapframe = new BDHiringApplicantProfile(s);
         BDApplicantSplit.setRightComponent(sapframe);
+        
+        BDHiringApplicantProfile.username.setText(display1.getText());
+        for (Applicant epp:s.getApplicantdirectory().getApplicant()){
+            if(BDHiringApplicantProfile.username.getText().equals(epp.getUsername())){
+                BDHiringApplicantProfile.name.setText(String.valueOf(epp.getName()));
+                BDHiringApplicantProfile.age.setText(String.valueOf(epp.getAge()));
+                BDHiringApplicantProfile.gender.setSelectedItem(String.valueOf(epp.getGender()));
+                BDHiringApplicantProfile.usertype.setSelectedItem(String.valueOf(epp.getUsertype()));
+                BDHiringApplicantProfile.id.setText(String.valueOf(epp.getId()));
+                BDHiringApplicantProfile.emailid.setText(String.valueOf(epp.getEmailid()));
+                BDHiringApplicantProfile.bloodcentre.setText(String.valueOf(epp.getCentre()));
+                BDHiringApplicantProfile.contact.setText(String.valueOf(epp.getContact()));
+                BDHiringApplicantProfile.date.setText(String.valueOf(epp.getDate()));
+                BDHiringApplicantProfile.qualification.setText(String.valueOf(epp.getQualification()));
+                BDHiringApplicantProfile.username.setText(String.valueOf(epp.getUsername()));
+                BDHiringApplicantProfile.password.setText(String.valueOf(epp.getPassword()));
+                
+//                BDDonorSlotPanel.username.setText(String.valueOf(selectedep.getUsername()));
+               
+               }}
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        BDHiringAcceptedApplications sapframe = new BDHiringAcceptedApplications();
+        BDApplicantSplit.setRightComponent(sapframe);
+        
+        BDHiringApplicantProfile.username.setText(display1.getText());
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,6 +239,8 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

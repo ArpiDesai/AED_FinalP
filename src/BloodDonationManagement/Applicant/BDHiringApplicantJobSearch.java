@@ -4,6 +4,12 @@
  */
 package BloodDonationManagement.Applicant;
 
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import model.BloodDonationEvent;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +19,11 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
     /**
      * Creates new form BDHiringApplicantJobSearch
      */
-    public BDHiringApplicantJobSearch() {
+    system s;
+    public BDHiringApplicantJobSearch(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
     }
 
     /**
@@ -29,36 +38,42 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        search = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableevent = new javax.swing.JTable();
 
         jLabel1.setText("Search");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jScrollPane1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jScrollPane1KeyReleased(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        search.setColumns(20);
+        search.setRows(5);
+        jScrollPane1.setViewportView(search);
+
+        tableevent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Centre", "Location", "Start Date", "Salary", "Contact", "Job Type"
+                "Centre Name", "Location", "Date", "Time", "Contact"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tableevent);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -72,9 +87,9 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
                         .addGap(45, 45, 45)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,15 +103,16 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addGap(49, 49, 49)))
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 792, Short.MAX_VALUE)
+            .addGap(0, 821, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -108,13 +124,42 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jScrollPane1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jScrollPane1KeyReleased
+        // TODO add your handling code here:
+          DefaultTableModel model = (DefaultTableModel) tableevent.getModel();
+        String value = search.getText();
+        TableRowSorter<DefaultTableModel> key = new TableRowSorter<DefaultTableModel>(model);
+        tableevent.setRowSorter(key);
+        key.setRowFilter(RowFilter.regexFilter(value));
+    }//GEN-LAST:event_jScrollPane1KeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea search;
+    private javax.swing.JTable tableevent;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+          DefaultTableModel model = (DefaultTableModel) tableevent.getModel();
+          model.setRowCount(0);
+        
+        for (BloodDonationEvent ep:s.getBlooddonationeventdirectory().getBloodDonationEvent()){
+            
+            Object[] row = new Object[5];
+            row[0] = ep;
+            row[1] = ep.getLocation();
+            row[2] = ep.getDate();
+            row[3] = ep.getTime();
+            row[4] = ep.getContact();          
+            
+            
+            
+            model.addRow(row);
+}     
+ 
+}
 }

@@ -137,14 +137,14 @@ public class BDHiringAdminPanel extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        BDHiringAdminAcceptedPanel sapframe = new BDHiringAdminAcceptedPanel();
+        BDHiringAdminAcceptedPanel sapframe = new BDHiringAdminAcceptedPanel(s);
         BDHiringAdminSplit.setRightComponent(sapframe);
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        BDHiringRejectedResults sapframe = new BDHiringRejectedResults();
+        BDHiringRejectedResults sapframe = new BDHiringRejectedResults(s);
         BDHiringAdminSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton4ActionPerformed
 
