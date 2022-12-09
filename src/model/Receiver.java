@@ -89,6 +89,13 @@ public class Receiver {
     public void setPassword(String Password) {
         this.Password = Password;
     }
+    public String getReceiverContact() {
+        return ReceiverContact;
+    }
+
+    public void setReceiverContact(String ReceiverContact) {
+        this.ReceiverContact = ReceiverContact;
+    }
     private int Id;
     private String Name;
     private int Age;
@@ -98,7 +105,8 @@ public class Receiver {
     private String BloodGroup;
     private String UserType;
     private String Username;
-    private String Password;
+    private String Password;    
+    private String ReceiverContact;
     
     @Override
     public String toString()

@@ -22,6 +22,15 @@ public class system {
     private PatientDirectory emergencydirectory;    
     private PatientDirectory patientdirectory;     
     private BloodDonationEventDirectory blooddonationeventdirectory;
+    private DonorSlotDirectory  donorslotdirectory;    
+    private ReceiverSlotDirectory receiverslotdirectory;    
+    private ApplicantDirectory applicantdirectory;   
+    private AcceptDirectory acceptdirectory;    
+    private RejectDirectory rejectdirectory;
+    
+
+    
+    
     
     public system()
     {
@@ -36,8 +45,52 @@ public class system {
         emergencydirectory = new PatientDirectory();
         patientdirectory = new PatientDirectory();
         blooddonationeventdirectory = new BloodDonationEventDirectory();
+        donorslotdirectory = new DonorSlotDirectory();
+        receiverslotdirectory = new ReceiverSlotDirectory();
+        applicantdirectory = new ApplicantDirectory();
+        acceptdirectory = new AcceptDirectory();
+        rejectdirectory = new RejectDirectory();
         
         
+    }
+    
+    public RejectDirectory getRejectdirectory() {
+        return rejectdirectory;
+    }
+
+    public void setRejectdirectory(RejectDirectory rejectdirectory) {
+        this.rejectdirectory = rejectdirectory;
+    }
+    
+     public AcceptDirectory getAcceptdirectory() {
+        return acceptdirectory;
+    }
+
+    public void setAcceptdirectory(AcceptDirectory acceptdirectory) {
+        this.acceptdirectory = acceptdirectory;
+    }
+    public ApplicantDirectory getApplicantdirectory() {
+        return applicantdirectory;
+    }
+
+    public void setApplicantdirectory(ApplicantDirectory applicantdirectory) {
+        this.applicantdirectory = applicantdirectory;
+    }
+    
+    public ReceiverSlotDirectory getReceiverslotdirectory() {
+        return receiverslotdirectory;
+    }
+
+    public void setReceiverslotdirectory(ReceiverSlotDirectory receiverslotdirectory) {
+        this.receiverslotdirectory = receiverslotdirectory;
+    }
+    
+    public DonorSlotDirectory getDonorslotdirectory() {
+        return donorslotdirectory;
+    }
+
+    public void setDonorslotdirectory(DonorSlotDirectory donorslotdirectory) {
+        this.donorslotdirectory = donorslotdirectory;
     }
     
     public BloodDonationEventDirectory getBlooddonationeventdirectory() {

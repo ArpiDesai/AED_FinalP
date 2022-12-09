@@ -4,6 +4,12 @@
  */
 package BloodDonationManagement.Receiver;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.BloodDonationEvent;
+import model.ReceiverSlot;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +19,11 @@ public class BDReceiverSlotPanel extends javax.swing.JPanel {
     /**
      * Creates new form BDReceiverSlotPanel
      */
-    public BDReceiverSlotPanel() {
+    system s;
+    public BDReceiverSlotPanel(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
     }
 
     /**
@@ -30,34 +39,38 @@ public class BDReceiverSlotPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        receiverid = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        age = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        gender = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        contact = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        emailid = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        bloodgroup = new javax.swing.JTextField();
+        date = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        centre = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        location = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        time = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        slotid = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableevent = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        username = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        receivercontact = new javax.swing.JTextField();
 
         jLabel1.setText("Search");
 
@@ -65,36 +78,15 @@ public class BDReceiverSlotPanel extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Centre", "Location", "Date", "Time", "Contact"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable1);
-
         jLabel2.setText("Name:");
 
-        jLabel5.setText("User ID:");
+        jLabel5.setText("Receiver ID:");
 
         jLabel3.setText("Age");
 
         jLabel7.setText("Gender:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Female", "Male", "Other" }));
+        gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Female", "Male", "Other" }));
 
         jLabel4.setText("Contact:");
 
@@ -113,8 +105,43 @@ public class BDReceiverSlotPanel extends javax.swing.JPanel {
         jLabel13.setText("Slot ID");
 
         jButton1.setText("BOOK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("UPDATE");
+        tableevent.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Centre Name", "Location", "Date", "Time", "Contact"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tableevent);
+
+        jButton3.setText("SELECT THIS EVENT");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Username:");
+
+        jLabel15.setText("Receiver Contact:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,44 +155,62 @@ public class BDReceiverSlotPanel extends javax.swing.JPanel {
                         .addGap(27, 27, 27)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5))
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(bloodgroup, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(contact)
+                                            .addComponent(age)
+                                            .addComponent(name)
+                                            .addComponent(gender, 0, 154, Short.MAX_VALUE)
+                                            .addComponent(emailid))
+                                        .addGap(63, 63, 63))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(slotid)
+                                            .addComponent(centre)
+                                            .addComponent(location)
+                                            .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField5)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jComboBox1, 0, 152, Short.MAX_VALUE)
-                                    .addComponent(jTextField9)
-                                    .addComponent(jTextField10)
-                                    .addComponent(jTextField8))
-                                .addGap(108, 108, 108)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton2)))
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(219, Short.MAX_VALUE))
+                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(752, 752, 752))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(username)
+                            .addComponent(receiverid, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(receivercontact, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,59 +219,67 @@ public class BDReceiverSlotPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(receiverid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jButton1))
+                    .addComponent(jButton3))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jButton2))
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(centre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(slotid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(receivercontact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -240,22 +293,272 @@ public class BDReceiverSlotPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int flag =1;
+        String s1 = name.getText();
+        if(s1.equals(""))        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+            return;
+        }
+        char[] chars = s1.toCharArray();
+        for(char c : chars)
+        {
+            if(Character.isDigit(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+                return;
+            }
+        }
+        String ss2 = receiverid.getText();
+
+        if(ss2.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+            return;
+        }
+        char[] chars3 = ss2.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        int s2 = Integer.parseInt(ss2);
+
+        String ss3 = age.getText();
+
+        if(ss3.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Age field cannot be empty or contain alphabet");
+            return;
+        }
+        char[] chars1 = ss3.toCharArray();
+        for(char c : chars1)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Age field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        int s3 = Integer.parseInt(ss3);
+
+        String s4 = (String)gender.getSelectedItem();
+        if(s4.equals("select"))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Gender field cannot be empty");
+            return;
+        }
+
+        String ss5 =  contact.getText();
+
+        if(ss5.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet");
+            return;
+        }
+        if(ss5.length()!=10)
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Cell phone number must be 10 digits");
+            return;
+        }
+        char[] chars5 = ss5.toCharArray();
+        for(char c : chars5)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        long s5 = Long.parseLong(ss5);
+        String s6 = emailid.getText();
+        if(s6.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"EmailId field cannot be empty");
+            return;
+        }
+
+        String s7 = bloodgroup.getText();
+        if(s7.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"BloodGroup field cannot be empty");
+            return;
+        }
+
+        String s8 = centre.getText();
+        if(s1.equals(""))        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Centre field cannot be empty or contain numbers");
+            return;
+        }
+        char[] chars8 = s8.toCharArray();
+        for(char c : chars8)
+        {
+            if(Character.isDigit(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Centre field cannot be empty or contain numbers");
+                return;
+            }
+        }
+
+        String s9 = location.getText();
+
+        if(s9.equals("")){
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Location cannot be empty");
+            return;
+        }
+
+        String s10 = date.getText();
+
+        if(s10.equals("")){
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Date cannot be empty");
+            return;
+        }
+        String s11 = time.getText();
+
+        if(s11.equals("")){
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Time cannot be empty");
+            return;
+        }
+        String ss12 = slotid.getText();
+
+        if(ss12.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+            return;
+        }
+        char[] chars12 = ss12.toCharArray();
+        for(char c : chars12)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        int s12 = Integer.parseInt(ss12);
+        for (ReceiverSlot epp:s.getReceiverslotdirectory().getReceiverSlot()){
+            if (s12 == (epp.getSlotid())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+            }
+        }
+
+        String ss13 =  receivercontact.getText();
+
+        if(ss13.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet");
+            return;
+        }
+        if(ss13.length()!=10)
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Cell phone number must be 10 digits");
+            return;
+        }
+        char[] chars13 = ss13.toCharArray();
+        for(char c : chars5)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        long s13 = Long.parseLong(ss13);
+
+        if(flag == 1)
+        {
+            ReceiverSlot hh = s.getReceiverslotdirectory().addNewRSlot();
+            hh.setName(s1);
+            hh.setDonorid(s2);
+            hh.setAge(s3);
+            hh.setGender(s4);
+            hh.setContact(s5);
+            hh.setEmailId(s6);
+            hh.setBloodGroup(s7);
+            hh.setCentre(s8);
+            hh.setLocation(s9);
+            hh.setTime(s10);
+            hh.setDate(s11);
+            hh.setSlotid(s12);
+            hh.setReceiverContact(s13);
+
+            JOptionPane.showMessageDialog(this,"Slot booked successfully");
+
+            populateTable();
+        }
+
+        slotid.setText("");
+        contact.setText("");
+        location.setText("");
+        date.setText("");
+        time.setText("");
+        centre.setText("");
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int row = tableevent.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tableevent.getModel();
+        BloodDonationEvent selectedep = (BloodDonationEvent)model.getValueAt(row, 0);
+
+        centre.setText(String.valueOf(selectedep.getCentre()));
+        location.setText(String.valueOf(selectedep.getLocation()));
+        date.setText(String.valueOf(selectedep.getDate()));
+        time.setText(String.valueOf(selectedep.getTime()));
+        contact.setText(String.valueOf(selectedep.getContact()));
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTextField age;
+    public static javax.swing.JTextField bloodgroup;
+    public static javax.swing.JTextField centre;
+    public static javax.swing.JTextField contact;
+    public static javax.swing.JTextField date;
+    public static javax.swing.JTextField emailid;
+    public static javax.swing.JComboBox<String> gender;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -267,18 +570,34 @@ public class BDReceiverSlotPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    public static javax.swing.JTextField location;
+    public static javax.swing.JTextField name;
+    public static javax.swing.JTextField receivercontact;
+    public static javax.swing.JTextField receiverid;
+    private javax.swing.JTextField slotid;
+    private javax.swing.JTable tableevent;
+    public static javax.swing.JTextField time;
+    public static javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
+private void populateTable() {
+          DefaultTableModel model = (DefaultTableModel) tableevent.getModel();
+          model.setRowCount(0);
+        
+        for (BloodDonationEvent ep:s.getBlooddonationeventdirectory().getBloodDonationEvent()){
+            
+            Object[] row = new Object[5];
+            row[0] = ep;
+            row[1] = ep.getLocation();
+            row[2] = ep.getDate();
+            row[3] = ep.getTime();
+            row[4] = ep.getContact();          
+            
+            
+            
+            model.addRow(row);
+}     
+ 
+}
+
 }

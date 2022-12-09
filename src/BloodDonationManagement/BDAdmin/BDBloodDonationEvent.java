@@ -22,6 +22,7 @@ public class BDBloodDonationEvent extends javax.swing.JPanel {
     public BDBloodDonationEvent(system s) {
         initComponents();
         this.s = s;
+        populateTable();
     }
 
     /**

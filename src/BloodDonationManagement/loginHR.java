@@ -4,6 +4,13 @@
  */
 package BloodDonationManagement;
 
+import BloodDonationManagement.Applicant.BDHiringApplicantPanel;
+import BloodDonationManagement.HiringPanel.BDAdminNewApplicants;
+import BloodDonationManagement.HiringPanel.BDHiringAdminPanel;
+import javax.swing.JOptionPane;
+import model.Applicant;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +20,10 @@ public class loginHR extends javax.swing.JFrame {
     /**
      * Creates new form loginHR
      */
-    public loginHR() {
+    system s;
+    public loginHR(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -30,9 +39,9 @@ public class loginHR extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        role = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -48,10 +57,10 @@ public class loginHR extends javax.swing.JFrame {
 
         jLabel3.setText("Role:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Applicant ", "Hiring Manager " }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Applicant ", "Hiring Manager " }));
+        role.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                roleActionPerformed(evt);
             }
         });
 
@@ -64,7 +73,7 @@ public class loginHR extends javax.swing.JFrame {
 
         jLabel4.setText("Let's Hire!");
 
-        jButton2.setText("New User? Create Account");
+        jButton2.setText("New Applicant? Create Account");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -94,9 +103,9 @@ public class loginHR extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField2)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(username)
+                                .addComponent(password)
+                                .addComponent(role, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jLabel5)
@@ -112,18 +121,18 @@ public class loginHR extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -145,16 +154,53 @@ public class loginHR extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void roleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_roleActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String user = username.getText();
+        String pass = password.getText();
+        String rol = (String)role.getSelectedItem();
+        if(user.equals("admin") && pass.equals("123") && rol.equals("Hiring Manager "))
+        {
+            JOptionPane.showMessageDialog(null," Admin Login Successful");
+            BDHiringAdminPanel sapframe = new BDHiringAdminPanel(s);
+            sapframe.setVisible(true);
+            this.setVisible(false);
+//            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+//            this.dispose();          
+            
+        }
+        
+         else if(rol.equals("Applicant")){
+             for(Applicant ep2: s.getApplicantdirectory().getApplicant())
+            {
+                if(user.equals(ep2.getUsername()) && pass.equals(ep2.getPassword()))
+                {
+                    JOptionPane.showMessageDialog(null," Donor Login Successful");
+                    BDHiringApplicantPanel dframe = new BDHiringApplicantPanel(s);
+                    dframe.setVisible(true);
+                    this.setVisible(false);
+                    this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+                    this.dispose();
+                    BDHiringApplicantPanel x = new BDHiringApplicantPanel(s);
+                    BDHiringApplicantPanel.display.setText("Hi ");
+                    BDHiringApplicantPanel.display1.setText(username.getText());
+                    x.setVisible(true);
+                }
+            }
+         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        JOptionPane.showMessageDialog(null," Please fill up your application");
+            BDAdminNewApplicants sapframe = new BDAdminNewApplicants(s);
+            sapframe.setVisible(true);
+            this.setVisible(false);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -188,7 +234,7 @@ public class loginHR extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new loginHR().setVisible(true);
+//                new loginHR().setVisible(true);
             }
         });
     }
@@ -196,14 +242,14 @@ public class loginHR extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField password;
+    private javax.swing.JComboBox<String> role;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

@@ -89,6 +89,8 @@ public class Donor {
     private String EmailId;
     private String BloodGroup;
 
+    
+
     public String getUserType() {
         return UserType;
     }

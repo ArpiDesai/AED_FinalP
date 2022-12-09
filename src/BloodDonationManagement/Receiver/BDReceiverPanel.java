@@ -33,6 +33,9 @@ public class BDReceiverPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         BDReceiverSplit = new javax.swing.JSplitPane();
+        jPanel3 = new javax.swing.JPanel();
+        display = new javax.swing.JLabel();
+        display1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         notification = new javax.swing.JButton();
         faq = new javax.swing.JButton();
@@ -41,11 +44,32 @@ public class BDReceiverPanel extends javax.swing.JFrame {
         avilability = new javax.swing.JButton();
         profile = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        display = new javax.swing.JLabel();
-        display1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(237, 237, 237)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(492, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        BDReceiverSplit.setRightComponent(jPanel3);
 
         notification.setText("Notification");
         notification.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +120,8 @@ public class BDReceiverPanel extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Upcoming Events");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -107,6 +133,9 @@ public class BDReceiverPanel extends javax.swing.JFrame {
             .addComponent(notification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(slot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,33 +154,12 @@ public class BDReceiverPanel extends javax.swing.JFrame {
                 .addComponent(notification)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(458, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(417, Short.MAX_VALUE))
         );
 
         BDReceiverSplit.setLeftComponent(jPanel1);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(529, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(713, Short.MAX_VALUE))
-        );
-
-        BDReceiverSplit.setRightComponent(jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,8 +199,22 @@ public class BDReceiverPanel extends javax.swing.JFrame {
 
     private void slotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slotActionPerformed
         // TODO add your handling code here:
-        BDReceiverSlotPanel sapframe = new BDReceiverSlotPanel();
+        BDReceiverSlotPanel sapframe = new BDReceiverSlotPanel(s);
         BDReceiverSplit.setRightComponent(sapframe);
+         for (Receiver epp:s.getReceiverdirectory().getReceiver()){
+            if(BDReceiverSlotPanel.username.getText().equals(epp.getUsername())){
+                BDReceiverSlotPanel.name.setText(String.valueOf(epp.getName()));
+                BDReceiverSlotPanel.age.setText(String.valueOf(epp.getAge()));
+                BDReceiverSlotPanel.gender.setSelectedItem(String.valueOf(epp.getGender()));                
+                BDReceiverSlotPanel.receiverid.setText(String.valueOf(epp.getId()));
+                BDReceiverSlotPanel.emailid.setText(String.valueOf(epp.getEmailId()));
+                BDReceiverSlotPanel.bloodgroup.setText(String.valueOf(epp.getBloodGroup()));
+                BDReceiverSlotPanel.contact.setText(String.valueOf(epp.getContact()));
+//                BDDonorProfilePanel.username.setText(String.valueOf(selectedep.getUsername()));
+                
+               }
+        }
+        
     }//GEN-LAST:event_slotActionPerformed
 
     private void avilabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avilabilityActionPerformed
@@ -272,6 +294,7 @@ public class BDReceiverPanel extends javax.swing.JFrame {
     private javax.swing.JButton faq;
     private javax.swing.JButton history;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton notification;

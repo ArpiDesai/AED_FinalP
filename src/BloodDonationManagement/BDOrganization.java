@@ -4,7 +4,7 @@
  */
 package BloodDonationManagement;
 
-import model.DonorDirectory;
+
 import model.system;
 
 /**
@@ -135,7 +135,7 @@ public class BDOrganization extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         loginHR sapframe = new loginHR();
+         loginHR sapframe = new loginHR(s);
         sapframe.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

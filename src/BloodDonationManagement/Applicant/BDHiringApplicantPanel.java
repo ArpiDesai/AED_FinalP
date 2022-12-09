@@ -4,6 +4,8 @@
  */
 package BloodDonationManagement.Applicant;
 
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +15,10 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
     /**
      * Creates new form BDHiringApplicantPanel
      */
-    public BDHiringApplicantPanel() {
+    system s;
+    public BDHiringApplicantPanel(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -32,7 +36,8 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        display = new javax.swing.JLabel();
+        display1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,23 +95,25 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
 
         BDApplicantSplit.setLeftComponent(jPanel1);
 
-        jLabel1.setText("Join Us");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(226, 226, 226)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(445, Short.MAX_VALUE))
+                .addGap(187, 187, 187)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(353, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(498, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(454, Short.MAX_VALUE))
         );
 
         BDApplicantSplit.setRightComponent(jPanel2);
@@ -133,7 +140,7 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        BDHiringApplicantApplicationsPanel sapframe = new BDHiringApplicantApplicationsPanel();
+        BDHiringApplicantApplicationsPanel sapframe = new BDHiringApplicantApplicationsPanel(s);
         BDApplicantSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -173,17 +180,18 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BDHiringApplicantPanel().setVisible(true);
+//                new BDHiringApplicantPanel().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane BDApplicantSplit;
+    public static javax.swing.JLabel display;
+    public static javax.swing.JLabel display1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
