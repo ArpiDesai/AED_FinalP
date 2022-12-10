@@ -4,6 +4,12 @@
  */
 package HospitalManagement.Pharmacy;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Inventory;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +19,13 @@ public class HMPInventory extends javax.swing.JPanel {
     /**
      * Creates new form HMPInventory
      */
-    public HMPInventory() {
+    system s;
+    public HMPInventory(system s) {
         initComponents();
+        this.s = s;
+        populatePharmacyusername();
+        populatePharmacyname();
+        populateTable();
     }
 
     /**
@@ -28,29 +39,29 @@ public class HMPInventory extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablephar = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        itemid = new javax.swing.JTextField();
+        itemname = new javax.swing.JTextField();
+        create = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        view = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        quantity = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        date = new javax.swing.JTextField();
+        price = new javax.swing.JTextField();
+        itemtype = new javax.swing.JComboBox<>();
+        pharmacyname = new javax.swing.JComboBox<>();
+        pharmacyusername = new javax.swing.JComboBox<>();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablephar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -69,7 +80,7 @@ public class HMPInventory extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablephar);
 
         jLabel1.setText("Pharmacy Name");
 
@@ -77,18 +88,33 @@ public class HMPInventory extends javax.swing.JPanel {
 
         jLabel3.setText("Quantity");
 
-        jButton1.setText("Create");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        create.setText("Create");
+        create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                createActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Update");
+        update.setText("Update");
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("View");
+        view.setText("View");
+        view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Delete");
+        delete.setText("Delete");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Pharmacy Username:");
 
@@ -100,7 +126,11 @@ public class HMPInventory extends javax.swing.JPanel {
 
         jLabel9.setText("Date");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Tablet", "Syrup", "Injection", "Other" }));
+        itemtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Tablet", "Syrup", "Injection", "Other" }));
+
+        pharmacyname.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        pharmacyusername.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -133,21 +163,22 @@ public class HMPInventory extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField9)
-                                    .addComponent(jTextField10))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(itemname, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(itemid, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(quantity, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(date)
+                                        .addComponent(price)
+                                        .addComponent(pharmacyname, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(pharmacyusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(52, 52, 52)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(create, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(update, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(view, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(delete, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(itemtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -161,46 +192,46 @@ public class HMPInventory extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jButton1)
+                        .addComponent(create)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
+                        .addComponent(update)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
+                        .addComponent(view)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4))
+                        .addComponent(delete))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addComponent(pharmacyusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel1)
+                            .addComponent(pharmacyname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(itemid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(itemname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(itemtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -216,17 +247,346 @@ public class HMPInventory extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        int flag =1;
+        String s1 = (String)pharmacyusername.getSelectedItem();
+        if(s1.equals("Select"))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Pharmacy Username cannot be empty");
+           return;                     
+        }
+        String s2 = (String)pharmacyname.getSelectedItem();
+        if(s2.equals("Select"))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Pharmacy Name cannot be empty");
+           return;                     
+        }
+        
+        String ss3 = itemid.getText();
+        
+        if(ss3.equals(""))
+            {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+           return;
+            }
+        char[] chars3 = ss3.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s3 = Integer.parseInt(ss3);
+        
+            for (Inventory epp:s.getInventorydirectory().getInventory()){
+                if (s3 == (epp.getItemid())){
+                   flag=0;                
+                 JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+                }
+            
+        }
+        
+        String s4 = itemname.getText(); 
+        if(s4.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Item Name cannot be empty or contain numbers");
+           return;                     
+        }   
+        char[] chars = s4.toCharArray();
+        for(char c : chars)
+        {
+            if(Character.isDigit(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Item Name field cannot be empty or contain numbers");
+               return;   
+            }
+        }
+        String s5 = (String)itemtype.getSelectedItem();
+        if(s5.equals("Select"))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Item type cannot be empty");
+           return;                     
+        }
+        
+        String ss6 = quantity.getText();             
+        
+        if(ss6.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Quantity field cannot be empty or contain alphabet"); 
+           return;
+        }
+        char[] chars1 = ss6.toCharArray();
+        for(char c : chars1)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Quantity field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s6 = Integer.parseInt(ss6);
+        String ss7 = price.getText();             
+        
+        if(ss7.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Price field cannot be empty or contain alphabet"); 
+           return;
+        }
+        char[] chars4 = ss7.toCharArray();
+        for(char c : chars4)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Price field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s7 = Integer.parseInt(ss7);
+        String s8 = (String)date.getText();
+        if(s8.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+           return;                     
+        }
+        if(flag == 1)
+        {
+            
+                Inventory pp = s.getInventorydirectory().addNewInventory();
+                pp.setPharmacyusername(s1);   
+                pp.setPharmacyname(s2);
+                pp.setItemid(s3);
+                pp.setItemname(s4);
+                pp.setItemtype(s5);   
+                pp.setQuantity(s6);
+                pp.setPrice(s7);
+                pp.setDate(s8);                  
+                         
+         
+                JOptionPane.showMessageDialog(this,"Inventory created successfully");  
+                populateTable();
+         }
+        
+        pharmacyusername.setSelectedItem("Select");
+        pharmacyname.setSelectedItem("Select");
+        itemid.setText("");
+        itemname.setText("");
+        itemtype.setSelectedItem("Select");
+        quantity.setText("");
+        price.setText("");                    
+        date.setText("");
+        
+        
+    }//GEN-LAST:event_createActionPerformed
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        // TODO add your handling code here:
+        int row = tablephar.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablephar.getModel();
+        Inventory selectedep = (Inventory)model.getValueAt(row, 0);
+        s.getInventorydirectory().deleteInventory(selectedep);
+        
+        int flag =1;
+        String s1 = (String)pharmacyusername.getSelectedItem();
+        if(s1.equals("Select"))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Pharmacy Username cannot be empty");
+           return;                     
+        }
+        String s2 = (String)pharmacyname.getSelectedItem();
+        if(s2.equals("Select"))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Pharmacy Name cannot be empty");
+           return;                     
+        }
+        
+        String ss3 = itemid.getText();
+        
+        if(ss3.equals(""))
+            {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+           return;
+            }
+        char[] chars3 = ss3.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s3 = Integer.parseInt(ss3);
+        
+            for (Inventory epp:s.getInventorydirectory().getInventory()){
+                if (s3 == (epp.getItemid())){
+                   flag=0;                
+                 JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+                }
+            
+        }
+        
+        String s4 = itemname.getText(); 
+        if(s4.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Item Name cannot be empty or contain numbers");
+           return;                     
+        }   
+        char[] chars = s4.toCharArray();
+        for(char c : chars)
+        {
+            if(Character.isDigit(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Item Name field cannot be empty or contain numbers");
+               return;   
+            }
+        }
+        String s5 = (String)itemtype.getSelectedItem();
+        if(s5.equals("Select"))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Item type cannot be empty");
+           return;                     
+        }
+        
+        String ss6 = quantity.getText();             
+        
+        if(ss6.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Quantity field cannot be empty or contain alphabet"); 
+           return;
+        }
+        char[] chars1 = ss6.toCharArray();
+        for(char c : chars1)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Quantity field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s6 = Integer.parseInt(ss6);
+        String ss7 = price.getText();             
+        
+        if(ss7.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Price field cannot be empty or contain alphabet"); 
+           return;
+        }
+        char[] chars4 = ss7.toCharArray();
+        for(char c : chars4)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Price field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s7 = Integer.parseInt(ss7);
+        String s8 = (String)date.getText();
+        if(s8.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+           return;                     
+        }
+        if(flag == 1)
+        {
+            
+                Inventory pp = s.getInventorydirectory().addNewInventory();
+                pp.setPharmacyusername(s1);   
+                pp.setPharmacyname(s2);
+                pp.setItemid(s3);
+                pp.setItemname(s4);
+                pp.setItemtype(s5);   
+                pp.setQuantity(s6);
+                pp.setPrice(s7);
+                pp.setDate(s8);                  
+                         
+         
+                JOptionPane.showMessageDialog(this,"Inventory updated successfully");  
+                populateTable();
+         }
+        
+        pharmacyusername.setSelectedItem("Select");
+        pharmacyname.setSelectedItem("Select");
+        itemid.setText("");
+        itemname.setText("");
+        itemtype.setSelectedItem("Select");
+        quantity.setText("");
+        price.setText("");                    
+        date.setText("");
+        
+    }//GEN-LAST:event_updateActionPerformed
+
+    private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
+        // TODO add your handling code here:
+         int row = tablephar.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablephar.getModel();
+        Inventory selectedep = (Inventory)model.getValueAt(row, 0);
+        
+                pharmacyusername.setSelectedItem(String.valueOf(selectedep.getPharmacyusername()));
+                pharmacyname.setSelectedItem(String.valueOf(selectedep.getPharmacyname()));
+                itemid.setText(String.valueOf(selectedep.getItemid()));
+                itemname.setText(String.valueOf(selectedep.getItemname()));
+                itemtype.setSelectedItem(String.valueOf(selectedep.getItemtype()));
+                quantity.setText(String.valueOf(selectedep.getQuantity()));
+                price.setText(String.valueOf(selectedep.getPrice()));  
+                date.setText(String.valueOf(selectedep.getDate()));  
+               
+    }//GEN-LAST:event_viewActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+         int row = tablephar.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(this,"Please select row to delete");
+            return;
+
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tablephar.getModel();
+        Inventory selectedep = (Inventory)model.getValueAt(row, 0);
+
+        s.getInventorydirectory().deleteInventory(selectedep);
+        JOptionPane.showMessageDialog(this,"Inventory Profile deleted");
+
+        populateTable();
+    }//GEN-LAST:event_deleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton create;
+    private javax.swing.JTextField date;
+    private javax.swing.JButton delete;
+    private javax.swing.JTextField itemid;
+    private javax.swing.JTextField itemname;
+    private javax.swing.JComboBox<String> itemtype;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -237,13 +597,47 @@ public class HMPInventory extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JComboBox<String> pharmacyname;
+    private javax.swing.JComboBox<String> pharmacyusername;
+    private javax.swing.JTextField price;
+    private javax.swing.JTextField quantity;
+    private javax.swing.JTable tablephar;
+    private javax.swing.JButton update;
+    private javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
+
+
+private void populatePharmacyname(){
+     String[] cc = s.getPharmacydirectory().PharmacynameArray();
+     DefaultComboBoxModel c = new DefaultComboBoxModel(cc);
+     pharmacyname.setModel(c);
+}
+
+private void populatePharmacyusername(){
+     String[] cc = s.getPharmacydirectory().PharmacyusernameArray();
+     DefaultComboBoxModel c = new DefaultComboBoxModel(cc);
+     pharmacyusername.setModel(c);
+}
+
+private void populateTable() {
+          DefaultTableModel model = (DefaultTableModel) tablephar.getModel();
+          model.setRowCount(0);
+        
+        for (Inventory ep:s.getInventorydirectory().getInventory()){
+            
+            Object[] row = new Object[5];
+            row[0] = ep;
+            row[1] = ep.getItemname();
+            row[2] = ep.getPrice();
+            row[3] = ep.getDate();
+            row[4] = ep.getQuantity();
+            
+            
+            
+            
+            model.addRow(row);
+}     
+ 
+}
+
 }

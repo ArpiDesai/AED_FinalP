@@ -5,6 +5,8 @@
 package Main;
 
 import model.system;
+import DB4OUtilConn.DB40Util;
+
 
 /**
  *
@@ -16,9 +18,12 @@ public class MAIN extends javax.swing.JFrame {
      * Creates new form MAIN
      */
     system s;
+    private DB40Util db4oUtil = DB40Util.getInstance();
     public MAIN() {
         initComponents();
         s = new system();
+        s = db4oUtil.retrieveSystem();
+        System.out.println(s);
         this.setExtendedState(MAIN.MAXIMIZED_BOTH);
     }
 

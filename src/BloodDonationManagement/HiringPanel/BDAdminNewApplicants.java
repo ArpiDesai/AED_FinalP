@@ -111,6 +111,12 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
             }
         });
 
+        bloodcentre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bloodcentreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -438,6 +444,10 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
         sapframe.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void bloodcentreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloodcentreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bloodcentreActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,7 @@
  */
 package HospitalManagement;
 
+import DB4OUtilConn.DB40Util;
 import HospitalManagement.Doctor.HMHDoctor;
 import HospitalManagement.HospitalAdmin.HMHospitalAdmin;
 import javax.swing.JOptionPane;
@@ -20,9 +21,11 @@ public class HMHospitalLogin extends javax.swing.JFrame {
      * Creates new form HMHospitalLogin
      */
     system s;
+    private DB40Util dB4OUtil = DB40Util.getInstance();
     public HMHospitalLogin(system s) {
         initComponents();
         this.s = s;
+        s = dB4OUtil.retrieveSystem();
     }
 
     /**
@@ -44,6 +47,8 @@ public class HMHospitalLogin extends javax.swing.JFrame {
         login = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        logout = new javax.swing.JButton();
+        home = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 255));
@@ -66,7 +71,6 @@ public class HMHospitalLogin extends javax.swing.JFrame {
             }
         });
 
-        login.setBackground(new java.awt.Color(255, 255, 255));
         login.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
         login.setForeground(new java.awt.Color(51, 102, 255));
         login.setText("LOGIN");
@@ -82,6 +86,15 @@ public class HMHospitalLogin extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HospitalManagement/00.gif"))); // NOI18N
         jLabel5.setText("jLabel5");
+
+        logout.setText("LOGOUT");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+
+        home.setText("HOME");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,8 +113,11 @@ public class HMHospitalLogin extends javax.swing.JFrame {
                             .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(97, 97, 97)
-                        .addComponent(login))
+                        .addGap(89, 89, 89)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(login)
+                            .addComponent(logout)
+                            .addComponent(home)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -118,16 +134,18 @@ public class HMHospitalLogin extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login))
-                .addGap(26, 26, 26)
+                    .addComponent(logout))
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(home))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -187,6 +205,21 @@ public class HMHospitalLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loginActionPerformed
 
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        // TODO add your handling code here:
+        logout.setEnabled(false);
+        username.setEnabled(true);
+        password.setEnabled(true);
+        role.setEnabled(true);
+        login.setEnabled(true);
+
+        username.setText("");
+        password.setText("");
+        role.setSelectedItem("Select");
+        
+        dB4OUtil.storeSystem(s);
+    }//GEN-LAST:event_logoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,6 +256,7 @@ public class HMHospitalLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton home;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -230,6 +264,7 @@ public class HMHospitalLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
+    private javax.swing.JButton logout;
     private javax.swing.JTextField password;
     private javax.swing.JComboBox<String> role;
     private javax.swing.JTextField username;

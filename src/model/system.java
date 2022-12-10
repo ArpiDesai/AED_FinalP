@@ -29,7 +29,10 @@ public class system {
     private RejectDirectory rejectdirectory;   
     private DoctorDirectory doctordirectory;    
     private BloodBankDirectory bloodbankdirectory;    
-    private FundDirectory funddirectory;
+    private FundDirectory funddirectory;    
+    private InventoryDirectory inventorydirectory;
+    private static system data;
+     
     
 
     
@@ -56,7 +59,25 @@ public class system {
         doctordirectory = new DoctorDirectory();
         bloodbankdirectory = new BloodBankDirectory();
         funddirectory = new FundDirectory();
+        inventorydirectory = new InventoryDirectory();
         
+    }
+    
+    public InventoryDirectory getInventorydirectory() {
+        return inventorydirectory;
+    }
+
+    public void setInventorydirectory(InventoryDirectory inventorydirectory) {
+        this.inventorydirectory = inventorydirectory;
+    }
+    
+    public static system getInstance()
+    {
+        if(data == null){
+            data = new system();
+        }
+        
+        return data;
     }
     
     public FundDirectory getFunddirectory() {

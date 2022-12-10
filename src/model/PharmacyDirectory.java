@@ -36,4 +36,28 @@ public class PharmacyDirectory {
     
   }  
     
+     public String[] PharmacynameArray(){
+        String[] c = new String[pharmacy.size()+1];
+        int count=1;
+        c[0] = "Select";
+        for(Pharmacy cc: pharmacy){
+            c[count] = cc.getName();
+            count++ ;
+        }
+        return c;
+     }
+     
+     public String[] PharmacyusernameArray(){
+        String[] c = new String[pharmacy.size()+1];
+        int count=1;
+        c[0] = "Select";
+        for(Pharmacy cc: pharmacy){
+            c[count] = cc.getUsername();
+            count++ ;
+        }
+        return c;
+     }
+     
+     
+    
 }

@@ -7,6 +7,7 @@ package BloodDonationManagement;
 import BloodDonationManagement.Donor.BDDonorPanel;
 import BloodDonationManagement.Donor.BDNewUserPanel;
 import BloodDonationManagement.Receiver.BDReceiverPanel;
+import DB4OUtilConn.DB40Util;
 import javax.swing.JOptionPane;
 import model.Donor;
 import model.Receiver;
@@ -23,9 +24,11 @@ public class loginBD extends javax.swing.JFrame {
      */
    
     private system s;
+    private DB40Util dB4OUtil = DB40Util.getInstance();
     public loginBD(system s) {
         initComponents();        
         this.s = s;
+        s = dB4OUtil.retrieveSystem();
     }
 
     /**
@@ -48,6 +51,7 @@ public class loginBD extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         newuser = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +90,13 @@ public class loginBD extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/login-icon.png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
+        logout.setText("LOGOUT");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -115,11 +126,13 @@ public class loginBD extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(login))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(newuser)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(login)
+                                .addGap(18, 18, 18)
+                                .addComponent(logout))
+                            .addComponent(newuser))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -144,9 +157,11 @@ public class loginBD extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(login)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(login)
+                    .addComponent(logout))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(newuser)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -233,6 +248,21 @@ public class loginBD extends javax.swing.JFrame {
             this.setVisible(false);
     }//GEN-LAST:event_newuserActionPerformed
 
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        // TODO add your handling code here:
+        logout.setEnabled(false);
+        username.setEnabled(true);
+        password.setEnabled(true);
+        role.setEnabled(true);
+        login.setEnabled(true);
+
+        username.setText("");
+        password.setText("");
+        role.setSelectedItem("Select");
+        
+        dB4OUtil.storeSystem(s);
+    }//GEN-LAST:event_logoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -276,6 +306,7 @@ public class loginBD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
+    private javax.swing.JButton logout;
     private javax.swing.JButton newuser;
     private javax.swing.JTextField password;
     private javax.swing.JComboBox<String> role;
