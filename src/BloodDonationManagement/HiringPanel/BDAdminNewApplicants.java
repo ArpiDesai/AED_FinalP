@@ -5,6 +5,7 @@
 package BloodDonationManagement.HiringPanel;
 
 import Main.MainLogin;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import model.Applicant;
 import model.system;
@@ -22,6 +23,7 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
     public BDAdminNewApplicants(system s) {
         initComponents();
         this.s = s;
+        populateCentre();
     }
 
     /**
@@ -45,7 +47,6 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
-        bloodcentre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         gender = new javax.swing.JComboBox<>();
@@ -61,6 +62,7 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
         password = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        bloodcentre = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,7 +145,7 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
                             .addComponent(usertype, javax.swing.GroupLayout.Alignment.LEADING, 0, 154, Short.MAX_VALUE)
                             .addComponent(username, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(date, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bloodcentre, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)))
+                            .addComponent(bloodcentre, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(230, 230, 230)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -189,8 +191,8 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bloodcentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(bloodcentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -343,7 +345,7 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"EmailId field cannot be empty");
             return;
         }
-        String s8 = bloodcentre.getText();
+        String s8 = (String)bloodcentre.getSelectedItem();
         if(s8.equals(""))
         {
             flag=0;
@@ -421,7 +423,7 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
         id.setText("");
         contact.setText("");
         emailid.setText("");
-        bloodcentre.setText("");
+        bloodcentre.setSelectedItem("Select");
         usertype.setSelectedItem("Select");
         date.setText("");
         qualification.setText("");
@@ -474,7 +476,7 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField age;
-    private javax.swing.JTextField bloodcentre;
+    private javax.swing.JComboBox<String> bloodcentre;
     private javax.swing.JTextField contact;
     private javax.swing.JTextField date;
     private javax.swing.JTextField emailid;
@@ -502,4 +504,11 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
     private javax.swing.JTextField username;
     private javax.swing.JComboBox<String> usertype;
     // End of variables declaration//GEN-END:variables
+
+private void populateCentre(){
+     String[] cc = s.getCentredirectory().CentreArray();
+     DefaultComboBoxModel c = new DefaultComboBoxModel(cc);
+     bloodcentre.setModel(c);
+}
+
 }

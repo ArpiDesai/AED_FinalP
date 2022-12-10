@@ -170,7 +170,7 @@ public class BDFAQPanel extends javax.swing.JPanel {
             FAQ hh = s.getFaqdirectory().addNewFAQ();
             hh.setQuestions(s1);
             hh.setAnswers(s2);                
-            JOptionPane.showMessageDialog(this,"FAQ Profile created successfully"); 
+            JOptionPane.showMessageDialog(this,"FAQ created successfully"); 
             populateTable();
         } 
         
@@ -239,7 +239,7 @@ public class BDFAQPanel extends javax.swing.JPanel {
         FAQ hh = s.getFaqdirectory().addNewFAQ();
         hh.setQuestions(s1);
         hh.setAnswers(s2);                
-        JOptionPane.showMessageDialog(this,"FAQ Profile updated successfully");  
+        JOptionPane.showMessageDialog(this,"FAQ updated successfully");  
         populateTable();
         } 
         

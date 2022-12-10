@@ -22,6 +22,7 @@ public class BDCentrePanel extends javax.swing.JPanel {
     public BDCentrePanel(system s) {
         initComponents();
         this.s = s;
+        populateTable();
     }
 
     /**

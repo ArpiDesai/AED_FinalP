@@ -89,7 +89,6 @@
                               <Component id="jButton2" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton3" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton4" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="home" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -148,7 +147,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="emailid" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="home" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -238,10 +236,9 @@
         <Component class="javax.swing.JComboBox" name="usertype">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="2">
                 <StringItem index="0" value="Select"/>
-                <StringItem index="1" value="Donor"/>
-                <StringItem index="2" value="Receiver"/>
+                <StringItem index="1" value="Receiver"/>
               </StringArray>
             </Property>
           </Properties>
@@ -328,14 +325,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="password">
-        </Component>
-        <Component class="javax.swing.JButton" name="home">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="HOME"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homeActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

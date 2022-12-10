@@ -22,6 +22,7 @@ public class BDNotificationsPanel extends javax.swing.JPanel {
     public BDNotificationsPanel(system s) {
         initComponents();
         this.s = s;
+        populateTable();
     }
 
     /**
@@ -238,7 +239,7 @@ public class BDNotificationsPanel extends javax.swing.JPanel {
             Notification hh = s.getNotificationdirectory().addNewNotification();
             hh.setNotification(s1);
                         
-            JOptionPane.showMessageDialog(this,"Notification created successfully"); 
+            JOptionPane.showMessageDialog(this,"Notification updated successfully"); 
             populateTable();
         } 
         

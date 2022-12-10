@@ -37,6 +37,8 @@ public class ApplicantDirectory {
     public void deleteApplicant(Applicant d){
         applicant.remove(d);
     
-  }  
+  }
+   
+    
     
 }

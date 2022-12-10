@@ -4,6 +4,11 @@
  */
 package BloodDonationManagement.Applicant;
 
+import javax.swing.table.DefaultTableModel;
+import model.Accept;
+import model.BloodDonationEvent;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +18,11 @@ public class BDHiringAcceptedApplications extends javax.swing.JPanel {
     /**
      * Creates new form BDHiringAcceptedApplications
      */
-    public BDHiringAcceptedApplications() {
+    system s;
+    public BDHiringAcceptedApplications(system s) {
         initComponents();
+        this.s = s;
+        
     }
 
     /**
@@ -27,42 +35,59 @@ public class BDHiringAcceptedApplications extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableevent = new javax.swing.JTable();
+        tableaccept = new javax.swing.JTable();
+        username = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        tableevent.setModel(new javax.swing.table.DefaultTableModel(
+        tableaccept.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Centre Name", "Location", "Date", "Time", "Contact"
+                "Name", "Centre Name", "Application ID", "Date"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Long.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tableevent);
+        jScrollPane2.setViewportView(tableaccept);
+
+        jLabel2.setText("USERNAME");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(336, 336, 336)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel2))
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(76, Short.MAX_VALUE))
         );
@@ -70,7 +95,29 @@ public class BDHiringAcceptedApplications extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tableevent;
+    public static javax.swing.JTable tableaccept;
+    public static javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+          DefaultTableModel model = (DefaultTableModel) tableaccept.getModel();
+          model.setRowCount(0);
+        
+        for (Accept ep:s.getAcceptdirectory().getAccept()){
+                                                     
+            if(BDHiringAcceptedApplications.username.equals(ep.getUsername()))
+            {            
+                Object[] row = new Object[4];
+                row[0] = ep;
+                row[1] = ep.getCentre();
+                row[2] = ep.getId();
+                row[3] = ep.getDate();                  
+                       
+                model.addRow(row);
+            }
+        }
+}
+
 }

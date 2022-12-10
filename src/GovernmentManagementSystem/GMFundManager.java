@@ -4,6 +4,8 @@
  */
 package GovernmentManagementSystem;
 
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +15,11 @@ public class GMFundManager extends javax.swing.JFrame {
     /**
      * Creates new form GMFundManager
      */
-    public GMFundManager() {
+    system s;
+    public GMFundManager(system s) {
         initComponents();
+        this.s = s;
+        
     }
 
     /**
@@ -100,13 +105,13 @@ public class GMFundManager extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          GMFund sapframe = new GMFund();
+          GMFund sapframe = new GMFund(s);
         GMFundSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         GMFundsHistoryPanel sapframe = new GMFundsHistoryPanel();
+         GMFundsHistoryPanel sapframe = new GMFundsHistoryPanel(s);
         GMFundSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -140,7 +145,7 @@ public class GMFundManager extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GMFundManager().setVisible(true);
+//                new GMFundManager().setVisible(true);
             }
         });
     }

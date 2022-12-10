@@ -4,6 +4,12 @@
  */
 package HospitalManagement.HospitalAdmin;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Doctor;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +19,13 @@ public class HMHADoctor extends javax.swing.JPanel {
     /**
      * Creates new form HMHADoctor
      */
-    public HMHADoctor() {
+    system s;
+    public HMHADoctor(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
+        populateHospital();
+        
     }
 
     /**
@@ -28,27 +39,33 @@ public class HMHADoctor extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabledoctor = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        doctorid = new javax.swing.JTextField();
+        age = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        hospitalid = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        doctorname = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        location = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        gender = new javax.swing.JComboBox<>();
+        hospitalname = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        contact = new javax.swing.JTextField();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabledoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -56,26 +73,22 @@ public class HMHADoctor extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Location", "Contact", "Email ID"
+                "Name", "Hospital Name", "Location", "Contact"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class
+                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Long.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabledoctor);
 
-        jLabel1.setText("Location");
+        jLabel1.setText("Age:");
 
-        jLabel2.setText("Doctor ID");
-
-        jLabel3.setText("Contact:");
-
-        jLabel4.setText("Email ID:");
+        jLabel2.setText("Doctor ID:");
 
         jButton1.setText("Create");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,16 +98,43 @@ public class HMHADoctor extends javax.swing.JPanel {
         });
 
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("View");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Delete");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Hospital ID:");
 
         jLabel6.setText("Hospital Name:");
 
-        jLabel7.setText("Doctor Name");
+        jLabel7.setText("Doctor Name:");
+
+        jLabel8.setText("Location:");
+
+        jLabel9.setText("Username:");
+
+        jLabel10.setText("Password:");
+
+        jLabel11.setText("Gender:");
+
+        gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Female", "Male", "Others" }));
+
+        jLabel12.setText("Contact:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,93 +143,113 @@ public class HMHADoctor extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(271, 271, 271)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(196, 196, 196)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(hospitalid, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                    .addComponent(hospitalname, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(52, 52, 52))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel4))
-                                        .addGap(23, 23, 23))
-                                    .addComponent(jLabel6)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(17, 17, 17))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(30, 30, 30)))))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7))
-                        .addGap(52, 52, 52)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel12))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(gender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(username)
+                                            .addComponent(password)
+                                            .addComponent(location, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel2)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel7)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(doctorid, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                            .addComponent(doctorname, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(age, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(66, 66, 66)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(hospitalid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(hospitalname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(doctorid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(doctorname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13))
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4)))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -206,30 +266,483 @@ public class HMHADoctor extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int flag =1;
+        String ss1 = hospitalid.getText();
+        
+        if(ss1.equals(""))
+            {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+           return;
+            }
+        char[] chars3 = ss1.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s1 = Integer.parseInt(ss1);
+        String s2 = (String)hospitalname.getSelectedItem(); 
+        if(s2.equals("Select"))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+           return;                     
+        }   
+        
+        String ss3 = doctorid.getText();
+        
+        if(ss3.equals(""))
+            {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+           return;
+            }
+        char[] chars6 = ss3.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s3 = Integer.parseInt(ss3);
+        for (Doctor epp:s.getDoctordirectory().getDoctor()){
+                if (s3 == (epp.getDoctorid())){
+                   flag=0;                
+                 JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+                }
+            }
+        
+        String s4 = doctorname.getText(); 
+        if(s4.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+           return;                     
+        }   
+        
+        
+        String ss5 = age.getText();             
+        
+        if(ss5.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Age field cannot be empty or contain alphabet"); 
+           return;
+        }
+        char[] chars1 = ss5.toCharArray();
+        for(char c : chars1)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Age field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s5 = Integer.parseInt(ss5);
+          
+        String s6 = (String)gender.getSelectedItem();
+        if(s6.equals("Select"))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Gender field cannot be empty");  
+           return;
+        }
+        
+        String ss7 =  contact.getText();
+        
+        if(ss7.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet"); 
+           return;
+         }
+        if(ss7.length()!=10)
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Cell phone number must be 10 digits");  
+            return;
+        }
+        char[] chars5 = ss7.toCharArray();
+        for(char c : chars5)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        long s7 = Long.parseLong(ss7);
+        
+        String s8 = location.getText();
+        if(s8.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Location field cannot be empty");
+           return;                     
+        } 
+        
+        
+        String s9 = username.getText();
+        if(s9.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Username field cannot be empty");
+           return;                     
+        }                  
+        
+            for (Doctor ep:s.getDoctordirectory().getDoctor()){
+               if (s9.equals(ep.getUsername())){
+                  flag=0;                
+                JOptionPane.showMessageDialog(this,"Username already exists, please try again");
+               }           
+        
+       
+        }
+            String s10 = password.getText();
+        if(s10.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Password field cannot be empty");
+           return;                     
+        } 
+        
+            for (Doctor ep1:s.getDoctordirectory().getDoctor()){
+                if (s10.equals(ep1.getPassword())){
+                  flag=0;                
+                JOptionPane.showMessageDialog(this,"Password already exists, please try again");
+               }
+        }         
+               
+       
+        if(flag == 1)
+        {
+            
+                Doctor pp = s.getDoctordirectory().addNewDoctor();
+                pp.setHospitalid(s1);   
+                pp.setHospitalname(s2);
+                pp.setDoctorid(s3);
+                pp.setDoctorname(s4);
+                pp.setAge(s5);   
+                pp.setGender(s6);
+                pp.setContact(s7);
+                pp.setLocation(s8);                  
+                pp.setUsername(s9);
+                pp.setPassword(s10);             
+         
+                JOptionPane.showMessageDialog(this,"Doctor Profile created successfully");  
+                populateTable();
+        }
+        hospitalname.setSelectedItem("");
+        hospitalid.setText("");
+        age.setText("");
+        gender.setSelectedItem("Select");
+        doctorid.setText("");
+        doctorname.setText("");
+        contact.setText("");
+        location.setText("");        
+        username.setText("");
+        password.setText("");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         int row = tabledoctor.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tabledoctor.getModel();
+        Doctor selectedep = (Doctor)model.getValueAt(row, 0);
+
+        hospitalname.setSelectedItem(String.valueOf(selectedep.getHospitalname()));
+        hospitalid.setText(String.valueOf(selectedep.getHospitalid()));
+        age.setText(String.valueOf(selectedep.getAge()));
+        gender.setSelectedItem(String.valueOf(selectedep.getGender()));
+        doctorname.setText(String.valueOf(selectedep.getDoctorname()));
+        doctorid.setText(String.valueOf(selectedep.getDoctorid()));
+        contact.setText(String.valueOf(selectedep.getContact()));
+        location.setText(String.valueOf(selectedep.getLocation()));
+        username.setText(String.valueOf(selectedep.getUsername()));
+        password.setText(String.valueOf(selectedep.getPassword()));
+                                        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+           int row = tabledoctor.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(this,"Please select row to delete");
+            return;
+
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tabledoctor.getModel();
+        Doctor selectedep = (Doctor)model.getValueAt(row, 0);
+
+        s.getDoctordirectory().deleteDoctor(selectedep);
+        JOptionPane.showMessageDialog(this,"Doctor Profile deleted");
+
+        populateTable();
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         int row = tabledoctor.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tabledoctor.getModel();
+        Doctor selectedep = (Doctor)model.getValueAt(row, 0);
+        s.getDoctordirectory().deleteDoctor(selectedep);
+        
+        int flag =1;
+        String ss1 = hospitalid.getText();
+        
+        if(ss1.equals(""))
+            {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+           return;
+            }
+        char[] chars3 = ss1.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s1 = Integer.parseInt(ss1);
+        String s2 = (String)hospitalname.getSelectedItem(); 
+        if(s2.equals("Select"))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+           return;                     
+        }   
+        
+        String ss3 = doctorid.getText();
+        
+        if(ss3.equals(""))
+            {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+           return;
+            }
+        char[] chars6 = ss3.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s3 = Integer.parseInt(ss3);
+        for (Doctor epp:s.getDoctordirectory().getDoctor()){
+                if (s3 == (epp.getDoctorid())){
+                   flag=0;                
+                 JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+                }
+            }
+        
+        String s4 = doctorname.getText(); 
+        if(s4.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+           return;                     
+        }   
+        
+        
+        String ss5 = age.getText();             
+        
+        if(ss5.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Age field cannot be empty or contain alphabet"); 
+           return;
+        }
+        char[] chars1 = ss5.toCharArray();
+        for(char c : chars1)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Age field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s5 = Integer.parseInt(ss5);
+          
+        String s6 = (String)gender.getSelectedItem();
+        if(s6.equals("Select"))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Gender field cannot be empty");  
+           return;
+        }
+        
+        String ss7 =  contact.getText();
+        
+        if(ss7.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet"); 
+           return;
+         }
+        if(ss7.length()!=10)
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Cell phone number must be 10 digits");  
+            return;
+        }
+        char[] chars5 = ss7.toCharArray();
+        for(char c : chars5)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        long s7 = Long.parseLong(ss7);
+        
+        String s8 = location.getText();
+        if(s8.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Location field cannot be empty");
+           return;                     
+        } 
+        
+        
+        String s9 = username.getText();
+        if(s9.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Username field cannot be empty");
+           return;                     
+        }                  
+        
+            for (Doctor ep:s.getDoctordirectory().getDoctor()){
+               if (s9.equals(ep.getUsername())){
+                  flag=0;                
+                JOptionPane.showMessageDialog(this,"Username already exists, please try again");
+               }           
+        
+       
+        }
+            String s10 = password.getText();
+        if(s10.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Password field cannot be empty");
+           return;                     
+        } 
+        
+            for (Doctor ep1:s.getDoctordirectory().getDoctor()){
+                if (s10.equals(ep1.getPassword())){
+                  flag=0;                
+                JOptionPane.showMessageDialog(this,"Password already exists, please try again");
+               }
+        }         
+               
+       
+        if(flag == 1)
+        {
+            
+                Doctor pp = s.getDoctordirectory().addNewDoctor();
+                pp.setHospitalid(s1);   
+                pp.setHospitalname(s2);
+                pp.setDoctorid(s3);
+                pp.setDoctorname(s4);
+                pp.setAge(s5);   
+                pp.setGender(s6);
+                pp.setContact(s7);
+                pp.setLocation(s8);                  
+                pp.setUsername(s9);
+                pp.setPassword(s10);             
+         
+                JOptionPane.showMessageDialog(this,"Doctor Profile created successfully");  
+                populateTable();
+        }
+        hospitalname.setSelectedItem("");
+        hospitalid.setText("");
+        age.setText("");
+        gender.setSelectedItem("Select");
+        doctorid.setText("");
+        doctorname.setText("");
+        contact.setText("");
+        location.setText("");        
+        username.setText("");
+        password.setText("");
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField age;
+    private javax.swing.JTextField contact;
+    private javax.swing.JTextField doctorid;
+    private javax.swing.JTextField doctorname;
+    private javax.swing.JComboBox<String> gender;
+    private javax.swing.JTextField hospitalid;
+    private javax.swing.JComboBox<String> hospitalname;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField location;
+    private javax.swing.JTextField password;
+    private javax.swing.JTable tabledoctor;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
+
+
+private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tabledoctor.getModel();
+        model.setRowCount(0);
+        
+        for (Doctor ep:s.getDoctordirectory().getDoctor()){
+            
+            Object[] row = new Object[4];
+                row[0] = ep;
+                row[1] = ep.getHospitalname();
+                row[2] = ep.getLocation();
+                row[3] = ep.getContact();                
+                      
+            
+            model.addRow(row);
+}     
+ 
+}
+private void populateHospital(){
+     String[] cc = s.getHospitaldirectory().HospitalArray();
+     DefaultComboBoxModel c = new DefaultComboBoxModel(cc);
+     hospitalname.setModel(c);
+}
+
+
 }

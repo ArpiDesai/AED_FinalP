@@ -4,9 +4,11 @@
  */
 package BloodDonationManagement.Applicant;
 
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import model.Applicant;
 import model.BloodDonationEvent;
 import model.system;
 
@@ -35,24 +37,143 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
+        usertype = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        name = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        age = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        gender = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        id = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        contact = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        emailid = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        bloodcentre = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        date = new javax.swing.JTextField();
+        qualification = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        search = new javax.swing.JTextArea();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        name1 = new javax.swing.JTextField();
+        age1 = new javax.swing.JTextField();
+        emailid1 = new javax.swing.JTextField();
+        contact1 = new javax.swing.JTextField();
+        apply = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        id1 = new javax.swing.JTextField();
+        bloodcentre1 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        gender1 = new javax.swing.JComboBox<>();
+        jLabel20 = new javax.swing.JLabel();
+        usertype1 = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        qualification1 = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        username1 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        date1 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableevent = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
 
-        jLabel1.setText("Search");
+        jLabel8.setText("User Type:");
 
-        jScrollPane1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jScrollPane1KeyReleased(evt);
+        usertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Donor", "Receiver" }));
+
+        jLabel2.setText("Name:");
+
+        jLabel3.setText("Age");
+
+        jLabel7.setText("Gender:");
+
+        gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Female", "Male", "Other" }));
+
+        jLabel5.setText("Applicant ID:");
+
+        jLabel4.setText("Contact:");
+
+        jLabel6.setText("Email ID:");
+
+        jLabel9.setText("Blood Center:");
+
+        jLabel12.setText("Date:");
+
+        jLabel11.setText("Qualification:");
+
+        jLabel10.setText("Username:");
+
+        jLabel13.setText("Password:");
+
+        jButton1.setText("APPLY");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
-        search.setColumns(20);
-        search.setRows(5);
-        jScrollPane1.setViewportView(search);
+        jLabel1.setText("Name:");
+
+        jLabel14.setText("Age");
+
+        jLabel15.setText("Contact:");
+
+        jLabel16.setText("Email ID:");
+
+        contact1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contact1ActionPerformed(evt);
+            }
+        });
+
+        apply.setText("APPLY");
+        apply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                applyActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Applicant ID:");
+
+        jLabel18.setText("Blood Center:");
+
+        jLabel19.setText("Gender:");
+
+        gender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Female", "Male", "Other" }));
+        gender1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gender1ActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("User Type:");
+
+        usertype1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Donor", "Receiver" }));
+
+        jLabel22.setText("Username:");
+
+        qualification1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qualification1ActionPerformed(evt);
+            }
+        });
+
+        jLabel23.setText("Qualification:");
+
+        jLabel24.setText("Date:");
 
         tableevent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,6 +196,13 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableevent);
 
+        jButton3.setText("SELECT THIS JOB");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -82,65 +210,377 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addComponent(jLabel1)
-                        .addGap(45, 45, 45)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(169, 169, 169)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel17))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(id1)
+                            .addComponent(contact1)
+                            .addComponent(age1)
+                            .addComponent(name1)
+                            .addComponent(emailid1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gender1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(usertype1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(username1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(date1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bloodcentre1)
+                            .addComponent(qualification1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(77, 77, 77)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(apply, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(42, 42, 42)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(usertype1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(age1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19)
+                    .addComponent(apply, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(49, 49, 49)))
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(contact1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(emailid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(bloodcentre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(date1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel24))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel23)
+                                    .addComponent(qualification1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(username1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel22)))))
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(365, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 821, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 589, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(49, 49, 49))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jScrollPane1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jScrollPane1KeyReleased
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          DefaultTableModel model = (DefaultTableModel) tableevent.getModel();
-        String value = search.getText();
-        TableRowSorter<DefaultTableModel> key = new TableRowSorter<DefaultTableModel>(model);
-        tableevent.setRowSorter(key);
-        key.setRowFilter(RowFilter.regexFilter(value));
-    }//GEN-LAST:event_jScrollPane1KeyReleased
+        
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void applyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyActionPerformed
+        // TODO add your handling code here:
+        int flag =1;
+        String s1 = (String)usertype1.getSelectedItem();
+        if(s1.equals("select"))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"UserType field cannot be empty");
+            return;
+        }
+        String s2 = name1.getText();
+        if(s2.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+            return;
+        }
+        char[] chars = s2.toCharArray();
+        for(char c : chars)
+        {
+            if(Character.isDigit(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+                return;
+            }
+        }
+
+        String ss3 = age1.getText();
+
+        if(ss3.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Age field cannot be empty or contain alphabet");
+            return;
+        }
+        char[] chars1 = ss3.toCharArray();
+        for(char c : chars1)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Age field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        int s3 = Integer.parseInt(ss3);
+
+        String s4 = (String)gender1.getSelectedItem();
+        if(s4.equals("select"))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Gender field cannot be empty");
+            return;
+        }
+        String ss5 = id1.getText();
+
+        if(ss5.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+            return;
+        }
+        char[] chars3 = ss5.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        int s5 = Integer.parseInt(ss5);
+
+        for (Applicant epp:s.getApplicantdirectory().getApplicant()){
+            if (s5 == (epp.getId())){
+                flag=0;
+                JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+
+            }
+        }
+
+        String ss6 =  contact1.getText();
+
+        if(ss6.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet");
+            return;
+        }
+        if(ss6.length()!=10)
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Cell phone number must be 10 digits");
+            return;
+        }
+        char[] chars5 = ss6.toCharArray();
+        for(char c : chars5)
+        {
+            if(Character.isAlphabetic(c))
+            {
+                flag=0;
+                JOptionPane.showMessageDialog(this,"Cell phone number field cannot be empty or contain alphabet");
+                return;
+            }
+        }
+        long s6 = Long.parseLong(ss6);
+        String s7 = emailid1.getText();
+        if(s7.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"EmailId field cannot be empty");
+            return;
+        }
+        String s8 = bloodcentre1.getText();
+        if(s8.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"BloodCentre field cannot be empty");
+            return;
+        }
+        String s9 = date1.getText();
+        if(s9.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+            return;
+        }
+        String s10 = qualification1.getText();
+        if(s10.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Qualification field cannot be empty");
+            return;
+        }
+
+        String s11 = username1.getText();
+        if(s11.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Username field cannot be empty");
+            return;
+        }
+
+        
+       
+        if(flag == 1)
+        {
+
+            Applicant pp = s.getApplicantdirectory().addNewApplicant();
+            pp.setUsertype(s1);
+            pp.setName(s2);
+            pp.setAge(s3);
+            pp.setGender(s4);
+            pp.setId(s5);
+            pp.setContact(s6);
+            pp.setEmailid(s7);
+            pp.setCentre(s8);
+            pp.setDate(s9);
+            pp.setQualification(s10);
+            pp.setUsername(s11);
+            
+
+            JOptionPane.showMessageDialog(this,"Applicant Profile created successfully");
+        }
+
+        
+        id.setText("");        
+        bloodcentre.setText("");
+        usertype.setSelectedItem("Select");
+        date.setText("");
+        
+     
+
+    }//GEN-LAST:event_applyActionPerformed
+
+    private void gender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gender1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gender1ActionPerformed
+
+    private void qualification1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qualification1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_qualification1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int row = tableevent.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tableevent.getModel();
+        BloodDonationEvent selectedep = (BloodDonationEvent)model.getValueAt(row, 0);
+
+        bloodcentre1.setText(String.valueOf(selectedep.getCentre()));  
+        date1.setText(String.valueOf(selectedep.getDate()));
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void contact1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contact1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contact1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField age;
+    public static javax.swing.JTextField age1;
+    private javax.swing.JButton apply;
+    private javax.swing.JTextField bloodcentre;
+    public static javax.swing.JTextField bloodcentre1;
+    private javax.swing.JTextField contact;
+    public static javax.swing.JTextField contact1;
+    private javax.swing.JTextField date;
+    public static javax.swing.JTextField date1;
+    private javax.swing.JTextField emailid;
+    public static javax.swing.JTextField emailid1;
+    private javax.swing.JComboBox<String> gender;
+    public static javax.swing.JComboBox<String> gender1;
+    private javax.swing.JTextField id;
+    public static javax.swing.JTextField id1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea search;
+    private javax.swing.JTextField name;
+    public static javax.swing.JTextField name1;
+    private javax.swing.JTextField password;
+    private javax.swing.JTextField qualification;
+    public static javax.swing.JTextField qualification1;
     private javax.swing.JTable tableevent;
+    private javax.swing.JTextField username;
+    public static javax.swing.JTextField username1;
+    private javax.swing.JComboBox<String> usertype;
+    public static javax.swing.JComboBox<String> usertype1;
     // End of variables declaration//GEN-END:variables
 
 private void populateTable() {
@@ -154,9 +594,7 @@ private void populateTable() {
             row[1] = ep.getLocation();
             row[2] = ep.getDate();
             row[3] = ep.getTime();
-            row[4] = ep.getContact();          
-            
-            
+            row[4] = ep.getContact(); 
             
             model.addRow(row);
 }     

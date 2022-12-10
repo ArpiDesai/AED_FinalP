@@ -32,5 +32,19 @@ public class CentreDirectory {
     }
     public void deleteCentre(Centre d){
         centre.remove(d);
-    } 
+    }
+
+    
+     public String[] CentreArray(){
+        String[] c = new String[centre.size()+1];
+        int count=1;
+        c[0] = "Select";
+        for(Centre cc: centre){
+            c[count] = cc.getName();
+            count++ ;
+        }
+        return c;
+     }
+    
 }
+     

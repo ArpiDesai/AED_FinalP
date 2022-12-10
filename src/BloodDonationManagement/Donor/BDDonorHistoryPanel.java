@@ -4,6 +4,9 @@
  */
 package BloodDonationManagement.Donor;
 
+import javax.swing.table.DefaultTableModel;
+import model.BloodDonationEvent;
+
 /**
  *
  * @author arpid
@@ -113,4 +116,7 @@ public class BDDonorHistoryPanel extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+
+
 }

@@ -145,9 +145,17 @@ public class GMLoginPanel extends javax.swing.JFrame {
             sapframe.setVisible(true);
             this.setVisible(false);
 //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-//            this.dispose();
-
+//            this.dispose();            
             
+        }
+        else if(user.equals("fundadmin") && pass.equals("123") && rol.equals("Fund Manager"))
+        {
+            JOptionPane.showMessageDialog(null," Fund Admin Login Successful");
+            GMFundManager sapframe = new GMFundManager(s);
+            sapframe.setVisible(true);
+            this.setVisible(false);
+//            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+//            this.dispose();            
             
         }
     }//GEN-LAST:event_jButton1ActionPerformed

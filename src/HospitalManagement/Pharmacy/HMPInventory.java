@@ -90,7 +90,7 @@ public class HMPInventory extends javax.swing.JPanel {
 
         jButton4.setText("Delete");
 
-        jLabel5.setText("Pharmacy ID");
+        jLabel5.setText("Pharmacy Username:");
 
         jLabel6.setText("Item Name");
 

@@ -91,6 +91,24 @@ public class Patient {
     private String emergencycause;
     private String date;
     private String time;
+
+    public String getDoctorname() {
+        return doctorname;
+    }
+
+    public void setDoctorname(String doctorname) {
+        this.doctorname = doctorname;
+    }
+
+    public String getDoctorusername() {
+        return doctorusername;
+    }
+
+    public void setDoctorusername(String doctorusername) {
+        this.doctorusername = doctorusername;
+    }
+    private String doctorname;
+    private String doctorusername;
     
     @Override
     public String toString()

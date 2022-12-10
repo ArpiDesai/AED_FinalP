@@ -48,7 +48,7 @@ public class MainLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        GMS.setBackground(new java.awt.Color(255, 0, 0));
+        GMS.setBackground(new java.awt.Color(153, 255, 153));
         GMS.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         GMS.setText("Government Management System");
         GMS.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +66,7 @@ public class MainLogin extends javax.swing.JFrame {
             }
         });
 
-        HMS.setBackground(new java.awt.Color(102, 102, 102));
+        HMS.setBackground(new java.awt.Color(153, 153, 255));
         HMS.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         HMS.setText("Hospital Management System");
         HMS.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +75,7 @@ public class MainLogin extends javax.swing.JFrame {
             }
         });
 
-        BDMS.setBackground(new java.awt.Color(255, 0, 0));
+        BDMS.setBackground(new java.awt.Color(255, 102, 102));
         BDMS.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         BDMS.setText("Blood Donation Management System");
         BDMS.addActionListener(new java.awt.event.ActionListener() {

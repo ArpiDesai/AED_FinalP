@@ -4,6 +4,12 @@
  */
 package HospitalManagement.Doctor;
 
+import BloodDonationManagement.Applicant.BDHiringAcceptedApplications;
+import javax.swing.table.DefaultTableModel;
+import model.Doctor;
+import model.Patient;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +19,10 @@ public class HMHDoctor extends javax.swing.JFrame {
     /**
      * Creates new form HMHDoctor
      */
-    public HMHDoctor() {
+    system s;
+    public HMHDoctor(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -31,6 +39,8 @@ public class HMHDoctor extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        display = new javax.swing.JLabel();
+        display1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,11 +87,21 @@ public class HMHDoctor extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(385, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(497, Short.MAX_VALUE))
         );
 
         HMHDoctorSplit.setRightComponent(jPanel2);
@@ -102,14 +122,51 @@ public class HMHDoctor extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         HMHDProfile sapframe = new HMHDProfile();
+        HMHDProfile sapframe = new HMHDProfile(s);
         HMHDoctorSplit.setRightComponent(sapframe);
+        HMHDProfile.username.setText(display1.getText());
+        for (Doctor epp:s.getDoctordirectory().getDoctor()){
+            if(HMHDProfile.username.getText().equals(epp.getUsername())){
+                HMHDProfile.hospitalname.setSelectedItem(String.valueOf(epp.getHospitalname()));
+                HMHDProfile.hospitalid.setText(String.valueOf(epp.getHospitalid()));
+                HMHDProfile.age.setText(String.valueOf(epp.getAge()));
+                    HMHDProfile.gender.setSelectedItem(String.valueOf(epp.getGender()));
+                    HMHDProfile.doctorname.setText(String.valueOf(epp.getDoctorname()));
+                    HMHDProfile.doctorid.setText(String.valueOf(epp.getDoctorid()));
+                    HMHDProfile.contact.setText(String.valueOf(epp.getContact()));
+                    HMHDProfile.location.setText(String.valueOf(epp.getLocation()));
+                    HMHDProfile.username.setText(String.valueOf(epp.getUsername()));
+                    HMHDProfile.password.setText(String.valueOf(epp.getPassword()));
+               }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        HMHDEmergencies sapframe = new HMHDEmergencies();
+        HMHDEmergencies sapframe = new HMHDEmergencies(s);
         HMHDoctorSplit.setRightComponent(sapframe);
+        HMHDEmergencies.doctorusername.setSelectedItem(display1.getText());
+        DefaultTableModel model = (DefaultTableModel) BDHiringAcceptedApplications.tableaccept.getModel();
+        model.setRowCount(0);
+        String user = display1.getText();
+        for (Patient ep:s.getPatientdirectory().getPatient()){
+            if(user.equals(ep.getDoctorusername()))
+            {
+            Object[] row = new Object[6];
+            row[0] = ep;
+            row[1] = ep.getBloodcentrename();
+            row[2] = ep.getHospitalname();
+            row[3] = ep.getDate();
+            row[4] = ep.getTime();
+            row[5] = ep.getEmergencycause();
+            
+                
+                      
+            model.addRow(row);
+        }
+     
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -142,13 +199,15 @@ public class HMHDoctor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HMHDoctor().setVisible(true);
+//                new HMHDoctor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane HMHDoctorSplit;
+    public static javax.swing.JLabel display;
+    public static javax.swing.JLabel display1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;

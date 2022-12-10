@@ -4,6 +4,10 @@
  */
 package GovernmentManagementSystem;
 
+import javax.swing.table.DefaultTableModel;
+import model.Fund;
+import model.system;
+
 /**
  *
  * @author sindhuripallapothu
@@ -13,8 +17,11 @@ public class GMFundsHistoryPanel extends javax.swing.JPanel {
     /**
      * Creates new form GMFundsHistoryPanel
      */
-    public GMFundsHistoryPanel() {
+    system s;
+    public GMFundsHistoryPanel(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
     }
 
     /**
@@ -27,9 +34,9 @@ public class GMFundsHistoryPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablefund = new javax.swing.JTable();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablefund.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -48,7 +55,7 @@ public class GMFundsHistoryPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablefund);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,6 +78,29 @@ public class GMFundsHistoryPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablefund;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+    DefaultTableModel model = (DefaultTableModel) tablefund.getModel();
+    model.setRowCount(0);
+//    tablefaq.setShowGrid(true);
+//    tablefaq.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    for (Fund ep:s.getFunddirectory().getFund()){
+            
+            Object[] row = new Object[6];
+            row[0] = ep;
+            row[1] = ep.getCentre();
+            row[2] = ep.getAmount();
+            row[3] = ep.getDate();
+            row[4] = ep.getTime();
+            row[5] = ep.getDonationtype();
+            
+                
+                      
+            model.addRow(row);
+}     
+ 
+}
+
 }

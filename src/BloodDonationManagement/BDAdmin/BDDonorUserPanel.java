@@ -63,7 +63,6 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
         username = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
-        home = new javax.swing.JButton();
 
         tabledonor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,7 +115,7 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
 
         jLabel8.setText("User Type:");
 
-        usertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Donor", "Receiver" }));
+        usertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Donor", " " }));
 
         jLabel1.setText("Name:");
 
@@ -148,13 +147,6 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
         jLabel11.setText("Username:");
 
         jLabel10.setText("Password:");
-
-        home.setText("HOME");
-        home.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -202,8 +194,7 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(home))))
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(192, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -249,8 +240,7 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(emailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(home))
+                            .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,7 +253,7 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))))
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -504,13 +494,6 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
     private void ageKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ageKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_ageKeyPressed
-
-    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
-        // TODO add your handling code here:
-        MainLogin sapframe = new MainLogin(s);
-        sapframe.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_homeActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -777,7 +760,6 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
     private javax.swing.JTextField contact;
     private javax.swing.JTextField emailid;
     private javax.swing.JComboBox<String> gender;
-    private javax.swing.JButton home;
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -4,6 +4,7 @@
  */
 package GovernmentManagementSystem;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Centre;
@@ -25,6 +26,8 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
         initComponents();
         this.s = s;
         populateTable();
+        populateDoctorUsername();
+        populateDoctorName();
     }
 
     /**
@@ -61,6 +64,10 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         time = new javax.swing.JTextField();
         date = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        doctorusername = new javax.swing.JComboBox<>();
+        doctorname = new javax.swing.JComboBox<>();
 
         tablepatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,6 +136,14 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
 
         jLabel9.setText("Time");
 
+        jLabel11.setText("Doctor Username:");
+
+        jLabel10.setText("Doctor Name:");
+
+        doctorusername.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        doctorname.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -136,17 +151,22 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3))
+                        .addGap(70, 70, 70)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(32, 32, 32)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(hospitalname, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
@@ -157,16 +177,15 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
                             .addComponent(emergencycause, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(patientname, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(time)
-                            .addComponent(date))
+                            .addComponent(date)
+                            .addComponent(doctorusername, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(doctorname, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(52, 52, 52)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(create)
                             .addComponent(update)
                             .addComponent(view)
-                            .addComponent(delete)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(delete))))
                 .addContainerGap(197, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -222,7 +241,15 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(doctorusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(doctorname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -392,6 +419,21 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,"Time field cannot be empty");
             return;
         }
+        String s10 = (String)doctorusername.getSelectedItem();
+        if(s10.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Username field cannot be empty");
+            return;
+        }
+
+        String s11 = (String)doctorname.getSelectedItem();
+        if(s11.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Name field cannot be empty");
+            return;
+        }
 
         if(flag == 1)
         {
@@ -405,6 +447,8 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
             hh.setEmergencycause(s7);
             hh.setDate(s8);
             hh.setTime(s9);
+            hh.setDoctorusername(s10);
+            hh.setDoctorname(s11);
 
             JOptionPane.showMessageDialog(this,"Patient Profile created successfully");
 
@@ -419,6 +463,8 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
         emergencycause.setText("");
         date.setText("");
         time.setText("");
+        doctorname.setSelectedItem("Select");
+        doctorusername.setSelectedItem("Select");
     }//GEN-LAST:event_createActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
@@ -582,6 +628,22 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
             return;
         }
 
+        String s10 = (String)doctorusername.getSelectedItem();
+        if(s10.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Username field cannot be empty");
+            return;
+        }
+
+        String s11 = (String)doctorname.getSelectedItem();
+        if(s11.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Name field cannot be empty");
+            return;
+        }
+
         if(flag == 1)
         {
             Patient hh = s.getPatientdirectory().addNewPatient();
@@ -594,6 +656,8 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
             hh.setEmergencycause(s7);
             hh.setDate(s8);
             hh.setTime(s9);
+            hh.setDoctorusername(s10);
+            hh.setDoctorname(s11);
 
             JOptionPane.showMessageDialog(this,"Patient Profile updated successfully");
 
@@ -608,6 +672,8 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
         emergencycause.setText("");
         date.setText("");
         time.setText("");
+        doctorusername.setSelectedItem("Select");
+        doctorname.setSelectedItem("Select");
 
     }//GEN-LAST:event_updateActionPerformed
 
@@ -626,6 +692,8 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
         emergencycause.setText(String.valueOf(selectedep.getEmergencycause()));
         date.setText(String.valueOf(selectedep.getDate()));
         time.setText(String.valueOf(selectedep.getTime()));
+        doctorname.setSelectedItem(String.valueOf(selectedep.getDoctorname()));
+        doctorusername.setSelectedItem(String.valueOf(selectedep.getDoctorusername()));
 
     }//GEN-LAST:event_viewActionPerformed
 
@@ -653,10 +721,14 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
     private javax.swing.JButton create;
     private javax.swing.JTextField date;
     private javax.swing.JButton delete;
+    private javax.swing.JComboBox<String> doctorname;
+    private javax.swing.JComboBox<String> doctorusername;
     private javax.swing.JTextField emergencycause;
     private javax.swing.JTextField hospitalid;
     private javax.swing.JTextField hospitalname;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -695,5 +767,16 @@ private void populateTable() {
             model.addRow(row);
 }     
  
+}
+private void populateDoctorUsername(){
+     String[] cc = s.getDoctordirectory().DoctorUserNameArray();
+     DefaultComboBoxModel c = new DefaultComboBoxModel(cc);
+     doctorusername.setModel(c);
+}
+
+private void populateDoctorName(){
+     String[] cc = s.getDoctordirectory().DoctorNameArray();
+     DefaultComboBoxModel c = new DefaultComboBoxModel(cc);
+     doctorname.setModel(c);
 }
 }

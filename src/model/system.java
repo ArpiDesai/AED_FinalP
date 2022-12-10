@@ -26,7 +26,10 @@ public class system {
     private ReceiverSlotDirectory receiverslotdirectory;    
     private ApplicantDirectory applicantdirectory;   
     private AcceptDirectory acceptdirectory;    
-    private RejectDirectory rejectdirectory;
+    private RejectDirectory rejectdirectory;   
+    private DoctorDirectory doctordirectory;    
+    private BloodBankDirectory bloodbankdirectory;    
+    private FundDirectory funddirectory;
     
 
     
@@ -50,8 +53,33 @@ public class system {
         applicantdirectory = new ApplicantDirectory();
         acceptdirectory = new AcceptDirectory();
         rejectdirectory = new RejectDirectory();
+        doctordirectory = new DoctorDirectory();
+        bloodbankdirectory = new BloodBankDirectory();
+        funddirectory = new FundDirectory();
         
-        
+    }
+    
+    public FundDirectory getFunddirectory() {
+        return funddirectory;
+    }
+
+    public void setFunddirectory(FundDirectory funddirectory) {
+        this.funddirectory = funddirectory;
+    }
+    public BloodBankDirectory getBloodbankdirectory() {
+        return bloodbankdirectory;
+    }
+
+    public void setBloodbankdirectory(BloodBankDirectory bloodbankdirectory) {
+        this.bloodbankdirectory = bloodbankdirectory;
+    }
+    
+     public DoctorDirectory getDoctordirectory() {
+        return doctordirectory;
+    }
+
+    public void setDoctordirectory(DoctorDirectory doctordirectory) {
+        this.doctordirectory = doctordirectory;
     }
     
     public RejectDirectory getRejectdirectory() {

@@ -4,6 +4,11 @@
  */
 package GovernmentManagementSystem;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Fund;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +18,11 @@ public class GMFund extends javax.swing.JPanel {
     /**
      * Creates new form GMFund
      */
-    public GMFund() {
+    system s;
+    public GMFund(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
     }
 
     /**
@@ -28,31 +36,27 @@ public class GMFund extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablefund = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        donorname = new javax.swing.JTextField();
+        centre = new javax.swing.JTextField();
+        create = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        view = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        donationid = new javax.swing.JTextField();
+        amount = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        time = new javax.swing.JTextField();
+        date = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        donationtype = new javax.swing.JComboBox<>();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablefund.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -60,7 +64,7 @@ public class GMFund extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Blood Center", "Donor Name", "Amount", "Date", "Time", "Donation Type"
+                "Donor Name", "Blood Center", "Amount", "Date", "Time", "Donation Type"
             }
         ) {
             Class[] types = new Class [] {
@@ -71,7 +75,7 @@ public class GMFund extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablefund);
 
         jLabel1.setText("Donor Name:");
 
@@ -79,22 +83,33 @@ public class GMFund extends javax.swing.JPanel {
 
         jLabel3.setText("Donation Type");
 
-        jButton1.setText("Create");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        create.setText("Create");
+        create.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                createActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Update");
+        update.setText("Update");
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("View");
+        view.setText("View");
+        view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Delete");
-
-        jLabel5.setText("Donor ID:");
-
-        jLabel6.setText("Blood Center ID");
+        delete.setText("Delete");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Amount");
 
@@ -104,7 +119,7 @@ public class GMFund extends javax.swing.JPanel {
 
         jLabel4.setText("Donation ID");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Govt Funding", "Charity", " ", " " }));
+        donationtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Govt Funding", "Charity", " ", " " }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -116,12 +131,10 @@ public class GMFund extends javax.swing.JPanel {
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
+                        .addGap(203, 203, 203)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel9)
                             .addComponent(jLabel8)
@@ -129,21 +142,19 @@ public class GMFund extends javax.swing.JPanel {
                             .addComponent(jLabel4))
                         .addGap(32, 32, 32)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10)
-                            .addComponent(jComboBox1, 0, 1, Short.MAX_VALUE))
+                            .addComponent(centre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(donorname, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(donationid, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(amount, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(time)
+                            .addComponent(date)
+                            .addComponent(donationtype, 0, 1, Short.MAX_VALUE))
                         .addGap(101, 101, 101)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4))))
+                            .addComponent(update)
+                            .addComponent(create)
+                            .addComponent(view)
+                            .addComponent(delete))))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -153,45 +164,39 @@ public class GMFund extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jButton4))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(create)
+                    .addComponent(donationid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(donorname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(update))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(centre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(view))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(delete)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(donationtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -211,36 +216,339 @@ public class GMFund extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        int flag = 1;
+        String ss1 = donationid.getText();
+        
+        if(ss1.equals(""))
+            {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+           return;
+            }
+        char[] chars3 = ss1.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s1 = Integer.parseInt(ss1);
+        
+            for (Fund epp:s.getFunddirectory().getFund()){
+                if (s1 == (epp.getDonationid())){
+                   flag=0;                
+                 JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+                }
+            
+        }
+         
+            String s2 = donorname.getText(); 
+        if(s2.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+           return;                     
+        }   
+        char[] chars = s2.toCharArray();
+        for(char c : chars)
+        {
+            if(Character.isDigit(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+               return;   
+            }
+        }
+        
+        String s3 = centre.getText();
+        if(s3.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"BloodCentre field cannot be empty");
+           return;                     
+        } 
+        
+        String ss4 = amount.getText();             
+        
+        if(ss4.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Amount field cannot be empty or contain alphabet"); 
+           return;
+        }
+        char[] chars1 = ss4.toCharArray();
+        for(char c : chars1)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Amount field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s4 = Integer.parseInt(ss4);
+        
+         String s5 = (String)donationtype.getSelectedItem();
+        if(s5.equals("Select"))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Donation Type field cannot be empty");  
+           return;
+        }
+        String s6 = date.getText();
+        if(s6.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+            return;
+        }
+
+        String s7 = time.getText();
+        if(s7.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Time field cannot be empty");
+            return;
+        }
+        
+        if(flag == 1)
+        {
+            Fund hh = s.getFunddirectory().addNewFund();
+            hh.setDonationid(s1);
+            hh.setDonorname(s2);
+            hh.setCentre(s3);
+            hh.setAmount(s4);
+            hh.setDonationtype(s5);
+            hh.setDate(s6);
+            hh.setTime(s7);
+           
+
+            JOptionPane.showMessageDialog(this,"Fund created successfully");
+
+            populateTable();
+        }
+        donationid.setText("");
+        donorname.setText("");
+        centre.setText("");
+        amount.setText("");
+        date.setText("");
+        time.setText("");        
+        donationtype.setSelectedItem("Select");
+
+    }//GEN-LAST:event_createActionPerformed
+
+    private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
+        // TODO add your handling code here:
+            int row = tablefund.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablefund.getModel();
+        Fund selectedep = (Fund)model.getValueAt(row, 0);
+        
+                donationid.setText(String.valueOf(selectedep.getDonationid()));
+                donorname.setText(String.valueOf(selectedep.getDonorname()));
+                centre.setText(String.valueOf(selectedep.getCentre()));
+                amount.setText(String.valueOf(selectedep.getAmount()));
+                donationtype.setSelectedItem(String.valueOf(selectedep.getDonationtype()));
+                date.setText(String.valueOf(selectedep.getDate()));
+                time.setText(String.valueOf(selectedep.getTime()));
+                
+                
+    }//GEN-LAST:event_viewActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+         int row = tablefund.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(this,"Please select row to delete");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tablefund.getModel();
+        Fund selectedep = (Fund)model.getValueAt(row, 0);
+        s.getFunddirectory().deleteFund(selectedep);
+        JOptionPane.showMessageDialog(this,"Fund deleted");
+
+        populateTable();
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        // TODO add your handling code here:
+        int row = tablefund.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablefund.getModel();
+        Fund selectedep = (Fund)model.getValueAt(row, 0);
+        s.getFunddirectory().deleteFund(selectedep);
+        
+        int flag = 1;
+        String ss1 = donationid.getText();
+        
+        if(ss1.equals(""))
+            {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+           return;
+            }
+        char[] chars3 = ss1.toCharArray();
+        for(char c : chars3)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Id field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s1 = Integer.parseInt(ss1);
+        
+            for (Fund epp:s.getFunddirectory().getFund()){
+                if (s1 == (epp.getDonationid())){
+                   flag=0;                
+                 JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
+                }
+            
+        }
+         
+            String s2 = donorname.getText(); 
+        if(s2.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+           return;                     
+        }   
+        char[] chars = s2.toCharArray();
+        for(char c : chars)
+        {
+            if(Character.isDigit(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Name field cannot be empty or contain numbers");
+               return;   
+            }
+        }
+        
+        String s3 = centre.getText();
+        if(s3.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"BloodCentre field cannot be empty");
+           return;                     
+        } 
+        
+        String ss4 = amount.getText();             
+        
+        if(ss4.equals(""))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Amount field cannot be empty or contain alphabet"); 
+           return;
+        }
+        char[] chars1 = ss4.toCharArray();
+        for(char c : chars1)
+        {
+            if(Character.isAlphabetic(c))
+            {
+               flag=0;
+               JOptionPane.showMessageDialog(this,"Amount field cannot be empty or contain alphabet"); 
+               return;   
+            }
+        }
+        int s4 = Integer.parseInt(ss4);
+        
+         String s5 = (String)donationtype.getSelectedItem();
+        if(s5.equals("Select"))
+        {
+            flag=0;
+           JOptionPane.showMessageDialog(this,"Donation Type field cannot be empty");  
+           return;
+        }
+        String s6 = date.getText();
+        if(s6.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+            return;
+        }
+
+        String s7 = time.getText();
+        if(s7.equals(""))
+        {
+            flag=0;
+            JOptionPane.showMessageDialog(this,"Time field cannot be empty");
+            return;
+        }
+        
+        if(flag == 1)
+        {
+            Fund hh = s.getFunddirectory().addNewFund();
+            hh.setDonationid(s1);
+            hh.setDonorname(s2);
+            hh.setCentre(s3);
+            hh.setAmount(s4);
+            hh.setDonationtype(s5);
+            hh.setDate(s6);
+            hh.setTime(s7);
+           
+
+            JOptionPane.showMessageDialog(this,"Fund updated successfully");
+
+            populateTable();
+        }
+        donationid.setText("");
+        donorname.setText("");
+        centre.setText("");
+        amount.setText("");
+        date.setText("");
+        time.setText("");        
+        donationtype.setSelectedItem("Select");
+    }//GEN-LAST:event_updateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField amount;
+    private javax.swing.JTextField centre;
+    private javax.swing.JButton create;
+    private javax.swing.JTextField date;
+    private javax.swing.JButton delete;
+    private javax.swing.JTextField donationid;
+    private javax.swing.JComboBox<String> donationtype;
+    private javax.swing.JTextField donorname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tablefund;
+    private javax.swing.JTextField time;
+    private javax.swing.JButton update;
+    private javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
+private void populateTable() {
+    DefaultTableModel model = (DefaultTableModel) tablefund.getModel();
+    model.setRowCount(0);
+//    tablefaq.setShowGrid(true);
+//    tablefaq.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    for (Fund ep:s.getFunddirectory().getFund()){
+            
+            Object[] row = new Object[6];
+            row[0] = ep;
+            row[1] = ep.getCentre();
+            row[2] = ep.getAmount();
+            row[3] = ep.getDate();
+            row[4] = ep.getTime();
+            row[5] = ep.getDonationtype();
+            
+                
+                      
+            model.addRow(row);
+}     
+ 
+}
+
 }

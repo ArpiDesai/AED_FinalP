@@ -95,7 +95,7 @@ public class BDHiringAdminApplicationsPanel extends javax.swing.JPanel {
 
         jLabel8.setText("User Type:");
 
-        usertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Donor", "Receiver" }));
+        usertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Volunteer", "Paid Job" }));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         jLabel9.setText("Applications");

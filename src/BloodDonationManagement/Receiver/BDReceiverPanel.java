@@ -39,12 +39,11 @@ public class BDReceiverPanel extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         notification = new javax.swing.JButton();
         faq = new javax.swing.JButton();
-        history = new javax.swing.JButton();
         slot = new javax.swing.JButton();
-        avilability = new javax.swing.JButton();
         profile = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,24 +84,10 @@ public class BDReceiverPanel extends javax.swing.JFrame {
             }
         });
 
-        history.setText("History");
-        history.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                historyActionPerformed(evt);
-            }
-        });
-
         slot.setText("Book a Slot");
         slot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 slotActionPerformed(evt);
-            }
-        });
-
-        avilability.setText("Availability");
-        avilability.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                avilabilityActionPerformed(evt);
             }
         });
 
@@ -121,14 +106,19 @@ public class BDReceiverPanel extends javax.swing.JFrame {
         });
 
         jButton2.setText("Upcoming Events");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Logout");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(history, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(profile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(avilability, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(faq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(notification, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(slot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -136,27 +126,29 @@ public class BDReceiverPanel extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addContainerGap()
+                .addComponent(jButton3)
+                .addGap(97, 97, 97)
                 .addComponent(profile)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(avilability)
                 .addGap(18, 18, 18)
                 .addComponent(slot)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(history)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(12, 12, 12)
                 .addComponent(faq)
                 .addGap(18, 18, 18)
                 .addComponent(notification)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(417, Short.MAX_VALUE))
+                .addContainerGap(458, Short.MAX_VALUE))
         );
 
         BDReceiverSplit.setLeftComponent(jPanel1);
@@ -191,16 +183,11 @@ public class BDReceiverPanel extends javax.swing.JFrame {
         BDReceiverSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_faqActionPerformed
 
-    private void historyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyActionPerformed
-        // TODO add your handling code here:
-        BDReceiverHistoryPanel sapframe = new BDReceiverHistoryPanel();
-        BDReceiverSplit.setRightComponent(sapframe);
-    }//GEN-LAST:event_historyActionPerformed
-
     private void slotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slotActionPerformed
         // TODO add your handling code here:
         BDReceiverSlotPanel sapframe = new BDReceiverSlotPanel(s);
         BDReceiverSplit.setRightComponent(sapframe);
+        BDReceiverSlotPanel.username.setText(display1.getText());
          for (Receiver epp:s.getReceiverdirectory().getReceiver()){
             if(BDReceiverSlotPanel.username.getText().equals(epp.getUsername())){
                 BDReceiverSlotPanel.name.setText(String.valueOf(epp.getName()));
@@ -208,20 +195,14 @@ public class BDReceiverPanel extends javax.swing.JFrame {
                 BDReceiverSlotPanel.gender.setSelectedItem(String.valueOf(epp.getGender()));                
                 BDReceiverSlotPanel.receiverid.setText(String.valueOf(epp.getId()));
                 BDReceiverSlotPanel.emailid.setText(String.valueOf(epp.getEmailId()));
-                BDReceiverSlotPanel.bloodgroup.setText(String.valueOf(epp.getBloodGroup()));
-                BDReceiverSlotPanel.contact.setText(String.valueOf(epp.getContact()));
+//                BDReceiverSlotPanel.bloodgroup.setText(String.valueOf(epp.getBloodGroup()));
+                BDReceiverSlotPanel.receivercontact.setText(String.valueOf(epp.getContact()));
 //                BDDonorProfilePanel.username.setText(String.valueOf(selectedep.getUsername()));
                 
                }
         }
         
     }//GEN-LAST:event_slotActionPerformed
-
-    private void avilabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avilabilityActionPerformed
-        // TODO add your handling code here:
-        BDReceiverAvailabilityPanel sapframe = new BDReceiverAvailabilityPanel();
-        BDReceiverSplit.setRightComponent(sapframe);
-    }//GEN-LAST:event_avilabilityActionPerformed
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
         // TODO add your handling code here:
@@ -250,6 +231,12 @@ public class BDReceiverPanel extends javax.swing.JFrame {
         sapframe.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        ReceiverUpcomingEvent sapframe = new  ReceiverUpcomingEvent(s);
+        BDReceiverSplit.setRightComponent(sapframe);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,13 +275,12 @@ public class BDReceiverPanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane BDReceiverSplit;
-    private javax.swing.JButton avilability;
     public static javax.swing.JLabel display;
     public static javax.swing.JLabel display1;
     private javax.swing.JButton faq;
-    private javax.swing.JButton history;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton notification;

@@ -163,23 +163,25 @@ public class loginHR extends javax.swing.JFrame {
         String user = username.getText();
         String pass = password.getText();
         String rol = (String)role.getSelectedItem();
+        System.out.print(1);
         if(user.equals("admin") && pass.equals("123") && rol.equals("Hiring Manager "))
-        {
+        { 
+            System.out.print(2);
             JOptionPane.showMessageDialog(null," Admin Login Successful");
             BDHiringAdminPanel sapframe = new BDHiringAdminPanel(s);
             sapframe.setVisible(true);
             this.setVisible(false);
 //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-//            this.dispose();          
-            
-        }
-        
-         else if(rol.equals("Applicant")){
-             for(Applicant ep2: s.getApplicantdirectory().getApplicant())
+//            this.dispose();      
+        } 
+        else if(rol.equals("Applicant ")){
+            System.out.print(3);
+            for(Applicant ep2: s.getApplicantdirectory().getApplicant())
             {
                 if(user.equals(ep2.getUsername()) && pass.equals(ep2.getPassword()))
                 {
-                    JOptionPane.showMessageDialog(null," Donor Login Successful");
+                    System.out.print(2);
+                    JOptionPane.showMessageDialog(null," Applicant Login Successful");
                     BDHiringApplicantPanel dframe = new BDHiringApplicantPanel(s);
                     dframe.setVisible(true);
                     this.setVisible(false);

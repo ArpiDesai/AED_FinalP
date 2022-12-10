@@ -35,6 +35,17 @@ public class HospitalDirectory {
     
   }  
     
+  public String[] HospitalArray(){
+        String[] c = new String[hospital.size()+1];
+        int count=1;
+        c[0] = "Select";
+        for(Hospital cc: hospital){
+            c[count] = cc.getName();
+            count++ ;
+        }
+        return c;
+     }
+    
    
     
 }

@@ -36,8 +36,6 @@ public class BDHiringAdminAcceptedPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableaccept = new javax.swing.JTable();
-        username = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         tableaccept.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -52,8 +50,6 @@ public class BDHiringAdminAcceptedPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tableaccept);
 
-        jLabel2.setText("USERNAME");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -62,24 +58,11 @@ public class BDHiringAdminAcceptedPanel extends javax.swing.JPanel {
                 .addGap(86, 86, 86)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(344, 344, 344))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(80, 80, 80)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(171, Short.MAX_VALUE))
         );
@@ -102,11 +85,9 @@ public class BDHiringAdminAcceptedPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableaccept;
-    private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 
 private void populateTable() {
@@ -115,14 +96,12 @@ private void populateTable() {
         
         for (Accept ep:s.getAcceptdirectory().getAccept()){
             
-            Object[] row = new Object[5];
-            row[0] = ep;
-            row[1] = ep.getAge();
-            row[2] = ep.getUsertype();
-            row[3] = ep.getQualification();
-            
-            
-            
+            Object[] row = new Object[4];
+                row[0] = ep;
+                row[1] = ep.getAge();
+                row[2] = ep.getUsertype();
+                row[3] = ep.getQualification();                
+                      
             
             model.addRow(row);
 }     

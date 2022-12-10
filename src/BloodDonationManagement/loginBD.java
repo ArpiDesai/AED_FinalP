@@ -176,10 +176,8 @@ public class loginBD extends javax.swing.JFrame {
             BDAdminPanel sapframe = new BDAdminPanel(s);
             sapframe.setVisible(true);
             this.setVisible(false);
-//            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-//            this.dispose();
-
-            
+            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+            this.dispose();           
             
         }
         else if(rol.equals("Donor")){
@@ -229,7 +227,7 @@ public class loginBD extends javax.swing.JFrame {
 
     private void newuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newuserActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null," New User Login Successful");
+        JOptionPane.showMessageDialog(null,"Please enter you details");
             BDNewUserPanel sapframe = new BDNewUserPanel(s);
             sapframe.setVisible(true);
             this.setVisible(false);
