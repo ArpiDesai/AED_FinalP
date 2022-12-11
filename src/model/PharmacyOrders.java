@@ -8,15 +8,9 @@ package model;
  *
  * @author arpid
  */
-public class Inventory {
+public class PharmacyOrders {
 
-    public String getPharmacyusername() {
-        return pharmacyusername;
-    }
-
-    public void setPharmacyusername(String pharmacyusername) {
-        this.pharmacyusername = pharmacyusername;
-    }
+    
 
     public String getPharmacyname() {
         return pharmacyname;
@@ -24,6 +18,22 @@ public class Inventory {
 
     public void setPharmacyname(String pharmacyname) {
         this.pharmacyname = pharmacyname;
+    }
+
+    public int getCenterid() {
+        return centerid;
+    }
+
+    public void setCenterid(int centerid) {
+        this.centerid = centerid;
+    }
+
+    public String getCentrename() {
+        return centrename;
+    }
+
+    public void setCentrename(String centrename) {
+        this.centrename = centrename;
     }
 
     public int getItemid() {
@@ -50,12 +60,12 @@ public class Inventory {
         this.itemtype = itemtype;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getQunatity() {
+        return qunatity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQunatity(int qunatity) {
+        this.qunatity = qunatity;
     }
 
     public int getPrice() {
@@ -67,25 +77,37 @@ public class Inventory {
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
-    public void setDate(String Date) {
-        this.Date = Date;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getPharmacyusername() {
+        return pharmacyusername;
+    }
+
+    public void setPharmacyusername(String pharmacyusername) {
+        this.pharmacyusername = pharmacyusername;
     }
     private String pharmacyusername;
     private String pharmacyname;
+    private int centerid;
+    private String centrename;
     private int itemid;
     private String itemname;
     private String itemtype;
-    private int quantity;
+    private int qunatity;
     private int price;
-    private String Date;
+    private String date;
     
     @Override
     public String toString()
     {
         return pharmacyname;
     }
+    
+    
     
 }

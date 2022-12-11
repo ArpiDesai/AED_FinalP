@@ -138,7 +138,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        HMPOwnerOrders sapframe = new HMPOwnerOrders();
+        HMPOwnerOrders sapframe = new HMPOwnerOrders(s);
         HMPharmacySplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton1ActionPerformed
 

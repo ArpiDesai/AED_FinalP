@@ -301,16 +301,7 @@ public class HMPInventory extends javax.swing.JPanel {
            JOptionPane.showMessageDialog(this,"Item Name cannot be empty or contain numbers");
            return;                     
         }   
-        char[] chars = s4.toCharArray();
-        for(char c : chars)
-        {
-            if(Character.isDigit(c))
-            {
-               flag=0;
-               JOptionPane.showMessageDialog(this,"Item Name field cannot be empty or contain numbers");
-               return;   
-            }
-        }
+        
         String s5 = (String)itemtype.getSelectedItem();
         if(s5.equals("Select"))
         {

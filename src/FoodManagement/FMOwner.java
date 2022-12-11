@@ -4,6 +4,9 @@
  */
 package FoodManagement;
 
+import model.Hotel;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +16,10 @@ public class FMOwner extends javax.swing.JFrame {
     /**
      * Creates new form FMOwner
      */
-    public FMOwner() {
+    system s;
+    public FMOwner(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -31,6 +36,8 @@ public class FMOwner extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        display1 = new javax.swing.JLabel();
+        display = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,15 +78,33 @@ public class FMOwner extends javax.swing.JFrame {
 
         FMOwnerSplit.setLeftComponent(jPanel1);
 
+        display.setText("Hi");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 614, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(239, 239, 239)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(307, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(142, 142, 142)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(404, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(400, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(80, 80, 80)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(400, Short.MAX_VALUE)))
         );
 
         FMOwnerSplit.setRightComponent(jPanel2);
@@ -100,8 +125,24 @@ public class FMOwner extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         FMOProfile sapframe = new FMOProfile();
+         FMOProfile sapframe = new FMOProfile(s);
         FMOwnerSplit.setRightComponent(sapframe);
+        FMOProfile.username.setText(display1.getText());
+        for (Hotel epp:s.getHoteldirectory().getHotel()){
+            if(FMOProfile.username.getText().equals(epp.getUsername())){
+                FMOProfile.name.setText(String.valueOf(epp.getName()));
+                FMOProfile.hotelid.setText(String.valueOf(epp.getHotelId()));
+                FMOProfile.emailid.setText(String.valueOf(epp.getEmailid()));
+                FMOProfile.location.setText(String.valueOf(epp.getLocation()));
+                FMOProfile.contact.setText(String.valueOf(epp.getContact()));
+                FMOProfile.username.setText(String.valueOf(epp.getUsername()));
+                FMOProfile.password.setText(String.valueOf(epp.getPassword()));
+                FMOProfile.ownername.setText(String.valueOf(epp.getOwnername()));
+            
+        
+            
+        }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -140,13 +181,15 @@ public class FMOwner extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FMOwner().setVisible(true);
+//                new FMOwner().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane FMOwnerSplit;
+    private javax.swing.JLabel display;
+    private javax.swing.JLabel display1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;

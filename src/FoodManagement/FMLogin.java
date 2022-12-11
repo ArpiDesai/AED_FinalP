@@ -176,7 +176,7 @@ public class FMLogin extends javax.swing.JFrame {
         if(user.equals("admin") && pass.equals("123") && rol.equals("Blood Donation Admin"))
         {
             JOptionPane.showMessageDialog(null," System Admin Login Successful");
-            FMOwner sapframe = new FMOwner();
+            FMOwner sapframe = new FMOwner(s);
             sapframe.setVisible(true);
             this.setVisible(false);
             //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);

@@ -32,6 +32,7 @@ public class system {
     private FundDirectory funddirectory;    
     private InventoryDirectory inventorydirectory;
     private static system data;
+    private PharmacyOrdersDirectory pharmacyordersdirectory;
      
     
 
@@ -60,7 +61,16 @@ public class system {
         bloodbankdirectory = new BloodBankDirectory();
         funddirectory = new FundDirectory();
         inventorydirectory = new InventoryDirectory();
+        pharmacyordersdirectory = new PharmacyOrdersDirectory();
         
+    }
+
+    public PharmacyOrdersDirectory getPharmacyordersdirectory() {
+        return pharmacyordersdirectory;
+    }
+
+    public void setPharmacyordersdirectory(PharmacyOrdersDirectory pharmacyordersdirectory) {
+        this.pharmacyordersdirectory = pharmacyordersdirectory;
     }
     
     public InventoryDirectory getInventorydirectory() {

@@ -4,6 +4,9 @@
  */
 package HospitalManagement.Pharmacy;
 
+import model.Pharmacy;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +16,10 @@ public class HMPharmacyOwner extends javax.swing.JFrame {
     /**
      * Creates new form HMPharmacyOwner
      */
-    public HMPharmacyOwner() {
+    system s;
+    public HMPharmacyOwner(system s) {
         initComponents();
+        this.s = s;
     }
 
     /**
@@ -31,6 +36,8 @@ public class HMPharmacyOwner extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        display1 = new javax.swing.JLabel();
+        display = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,15 +78,33 @@ public class HMPharmacyOwner extends javax.swing.JFrame {
 
         HMPOwnerSplit.setLeftComponent(jPanel1);
 
+        display.setText("Hi");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 659, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(274, 274, 274)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(319, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(193, 193, 193)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(400, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(display1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(432, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(56, 56, 56)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(431, Short.MAX_VALUE)))
         );
 
         HMPOwnerSplit.setRightComponent(jPanel2);
@@ -100,14 +125,27 @@ public class HMPharmacyOwner extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          HMPOwnerProfile sapframe = new HMPOwnerProfile();
+        HMPOwnerProfile sapframe = new HMPOwnerProfile(s);
         HMPOwnerSplit.setRightComponent(sapframe);
+        HMPOwnerProfile.username.setText(display1.getText());
+        for (Pharmacy epp:s.getPharmacydirectory().getPharmacy()){
+             if(HMPOwnerProfile.username.getText().equals(epp.getUsername())){
+                HMPOwnerProfile.name.setText(String.valueOf(epp.getName()));
+                HMPOwnerProfile.pharmacyid.setText(String.valueOf(epp.getPharmacyId()));
+                HMPOwnerProfile.emailid.setText(String.valueOf(epp.getEmailid()));
+                HMPOwnerProfile.location.setText(String.valueOf(epp.getLocation()));
+                HMPOwnerProfile.contact.setText(String.valueOf(epp.getContact()));
+                HMPOwnerProfile.username.setText(String.valueOf(epp.getUsername()));
+                HMPOwnerProfile.password.setText(String.valueOf(epp.getPassword()));
+             }
+            
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        HMPOwnerOrders sapframe = new HMPOwnerOrders();
+        HMPOwnerOrders sapframe = new HMPOwnerOrders(s);
         HMPOwnerSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -141,13 +179,15 @@ public class HMPharmacyOwner extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HMPharmacyOwner().setVisible(true);
+//                new HMPharmacyOwner().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane HMPOwnerSplit;
+    private javax.swing.JLabel display;
+    private javax.swing.JLabel display1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
