@@ -23,7 +23,7 @@ public class MainLogin extends javax.swing.JFrame {
     public MainLogin(system s) {
         initComponents();
         this.s = s;
-        this.setExtendedState(MainLogin.MAXIMIZED_BOTH);
+//        this.setExtendedState(MainLogin.MAXIMIZED_BOTH);
         
     }
 

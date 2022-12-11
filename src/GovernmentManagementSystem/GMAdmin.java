@@ -41,9 +41,17 @@ public class GMAdmin extends javax.swing.JFrame {
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1200, 800));
+
+        GMSplit.setMinimumSize(new java.awt.Dimension(1200, 800));
+
+        jPanel4.setPreferredSize(new java.awt.Dimension(200, 800));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton16.setText("Hospital");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +59,7 @@ public class GMAdmin extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 100, -1));
 
         jButton17.setText("Blood Center");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -58,6 +67,7 @@ public class GMAdmin extends javax.swing.JFrame {
                 jButton17ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 149, -1, -1));
 
         jButton18.setText("Hotel");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +75,7 @@ public class GMAdmin extends javax.swing.JFrame {
                 jButton18ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 206, 100, -1));
 
         jButton19.setText("Emergencies");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +83,7 @@ public class GMAdmin extends javax.swing.JFrame {
                 jButton19ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 262, 100, -1));
 
         jButton20.setText("Pharmacy");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +91,7 @@ public class GMAdmin extends javax.swing.JFrame {
                 jButton20ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 319, 100, -1));
 
         jButton21.setText("Home");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
@@ -86,55 +99,18 @@ public class GMAdmin extends javax.swing.JFrame {
                 jButton21ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 370, 100, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jButton16)
-                .addGap(36, 36, 36)
-                .addComponent(jButton17)
-                .addGap(34, 34, 34)
-                .addComponent(jButton18)
-                .addGap(33, 33, 33)
-                .addComponent(jButton19)
-                .addGap(34, 34, 34)
-                .addComponent(jButton20)
-                .addGap(28, 28, 28)
-                .addComponent(jButton21)
-                .addContainerGap(148, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GovernmentManagementSystem/gov pages.jpg"))); // NOI18N
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, -1));
 
         GMSplit.setLeftComponent(jPanel4);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 541, Short.MAX_VALUE)
-        );
+        jPanel5.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GovernmentManagementSystem/gov pages.jpg"))); // NOI18N
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         GMSplit.setRightComponent(jPanel5);
 
@@ -142,11 +118,11 @@ public class GMAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(GMSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+            .addComponent(GMSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(GMSplit)
+            .addComponent(GMSplit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -233,6 +209,8 @@ public class GMAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables

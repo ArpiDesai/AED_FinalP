@@ -24,7 +24,7 @@ public class MAIN extends javax.swing.JFrame {
         s = new system();
         s = db4oUtil.retrieveSystem();
         System.out.println(s);
-        this.setExtendedState(MAIN.MAXIMIZED_BOTH);
+//        this.setExtendedState(MAIN.MAXIMIZED_BOTH);
     }
 
     /**
