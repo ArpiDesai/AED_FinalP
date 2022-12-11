@@ -20,7 +20,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
     public HMPharmacyAdmin(system s) {
         initComponents();
         this.s = s;
-        this.setExtendedState(HMPharmacyAdmin.MAXIMIZED_BOTH);
+//        this.setExtendedState(HMPharmacyAdmin.MAXIMIZED_BOTH);
     }
 
     /**
@@ -38,9 +38,16 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         home = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1200, 800));
+
+        HMPharmacySplit.setPreferredSize(new java.awt.Dimension(1200, 800));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Orders");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -48,6 +55,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 176, 81, -1));
 
         jButton2.setText("Inventory");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +63,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 93, -1, -1));
 
         jButton3.setText("Pharmacy");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +71,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 256, -1, -1));
 
         home.setText("Home");
         home.addActionListener(new java.awt.event.ActionListener() {
@@ -69,53 +79,20 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
                 homeActionPerformed(evt);
             }
         });
+        jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 328, 81, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(16, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addGap(5, 5, 5)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(jButton1)
-                .addGap(57, 57, 57)
-                .addComponent(jButton3)
-                .addGap(49, 49, 49)
-                .addComponent(home)
-                .addContainerGap(423, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(93, 93, 93)
-                    .addComponent(jButton2)
-                    .addContainerGap(658, Short.MAX_VALUE)))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HospitalManagement/Pharmacy/p pages.png"))); // NOI18N
+        jLabel3.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
 
         HMPharmacySplit.setLeftComponent(jPanel1);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 963, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 774, Short.MAX_VALUE)
-        );
+        jPanel3.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HospitalManagement/Pharmacy/p pages.png"))); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         HMPharmacySplit.setRightComponent(jPanel3);
 
@@ -129,7 +106,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(HMPharmacySplit)
+            .addComponent(HMPharmacySplit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -202,6 +179,8 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
