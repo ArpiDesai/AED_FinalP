@@ -19,6 +19,7 @@ public class FMManager extends javax.swing.JFrame {
     public FMManager(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(FMManager.MAXIMIZED_BOTH);
     }
 
     /**

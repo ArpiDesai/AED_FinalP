@@ -4,6 +4,7 @@
  */
 package HospitalManagement.Pharmacy;
 
+import Main.MainLogin;
 import model.system;
 
 /**
@@ -19,6 +20,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
     public HMPharmacyAdmin(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(HMPharmacyAdmin.MAXIMIZED_BOTH);
     }
 
     /**
@@ -36,7 +38,7 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         home = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +64,11 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
         });
 
         home.setText("Home");
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,42 +96,40 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addGap(49, 49, 49)
                 .addComponent(home)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(423, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(93, 93, 93)
                     .addComponent(jButton2)
-                    .addContainerGap(337, Short.MAX_VALUE)))
+                    .addContainerGap(658, Short.MAX_VALUE)))
         );
 
         HMPharmacySplit.setLeftComponent(jPanel1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 549, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 963, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 774, Short.MAX_VALUE)
         );
 
-        HMPharmacySplit.setRightComponent(jPanel2);
+        HMPharmacySplit.setRightComponent(jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(HMPharmacySplit, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(HMPharmacySplit, javax.swing.GroupLayout.PREFERRED_SIZE, 1068, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(HMPharmacySplit, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(HMPharmacySplit)
         );
 
         pack();
@@ -147,6 +152,13 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
         HMPharmacy sapframe = new HMPharmacy(s);
         HMPharmacySplit.setRightComponent(sapframe);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+        // TODO add your handling code here:
+          MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,6 +203,6 @@ public class HMPharmacyAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

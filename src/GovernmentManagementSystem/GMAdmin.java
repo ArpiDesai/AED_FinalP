@@ -20,6 +20,7 @@ public class GMAdmin extends javax.swing.JFrame {
     public GMAdmin(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(GMAdmin.MAXIMIZED_BOTH);
     }
     
 

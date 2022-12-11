@@ -26,6 +26,8 @@ public class BDNewUserPanel extends javax.swing.JFrame {
     public BDNewUserPanel(system s ){
         initComponents();
         this.s = s;
+         this.setExtendedState(BDNewUserPanel.MAXIMIZED_BOTH);
+
         
     }
 

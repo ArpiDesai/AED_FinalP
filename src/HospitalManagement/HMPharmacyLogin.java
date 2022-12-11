@@ -6,7 +6,9 @@ package HospitalManagement;
 
 import DB4OUtilConn.DB40Util;
 import HospitalManagement.Pharmacy.HMPharmacyAdmin;
+import HospitalManagement.Pharmacy.HMPharmacyOwner;
 import javax.swing.JOptionPane;
+import model.Pharmacy;
 import model.system;
 
 /**
@@ -24,6 +26,7 @@ public class HMPharmacyLogin extends javax.swing.JFrame {
         initComponents();
         this.s = s;
         s = dB4OUtil.retrieveSystem();
+        this.setExtendedState(HMPharmacyLogin.MAXIMIZED_BOTH);
     }
 
     /**
@@ -179,6 +182,23 @@ public class HMPharmacyLogin extends javax.swing.JFrame {
             this.setVisible(false);
                         
         }
+         else if(rol.equals("Pharmacy Owner")){
+             for(Pharmacy ep2: s.getPharmacydirectory().getPharmacy())
+            {
+                if(user.equals(ep2.getUsername()) && pass.equals(ep2.getPassword()))
+                {
+                    JOptionPane.showMessageDialog(null," Donor Login Successful");
+                    HMPharmacyOwner dframe = new HMPharmacyOwner(s);
+                    dframe.setVisible(true);
+                    this.setVisible(false);
+                    this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+                    this.dispose();
+                    HMPharmacyOwner x = new HMPharmacyOwner(s);
+                    HMPharmacyOwner.display1.setText(username.getText());
+                    x.setVisible(true);
+                }
+            }  
+         }
     }//GEN-LAST:event_loginActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed

@@ -65,28 +65,22 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="itemname" alignment="1" max="32767" attributes="0"/>
+                              <Component id="itemid" alignment="1" max="32767" attributes="0"/>
+                              <Component id="quantity" alignment="1" max="32767" attributes="0"/>
+                              <Component id="date" alignment="0" max="32767" attributes="0"/>
+                              <Component id="price" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pharmacyname" max="32767" attributes="0"/>
+                              <Component id="pharmacyusername" max="32767" attributes="0"/>
+                              <Component id="itemtype" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="itemname" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="itemid" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="quantity" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="date" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="price" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="pharmacyname" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="pharmacyusername" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="create" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="update" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="view" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="delete" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="itemtype" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="create" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="update" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="view" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="delete" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">

@@ -20,6 +20,8 @@ public class HMHospitalAdmin extends javax.swing.JFrame {
     public HMHospitalAdmin(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(HMHospitalAdmin.MAXIMIZED_BOTH);
+
     }
 
     /**

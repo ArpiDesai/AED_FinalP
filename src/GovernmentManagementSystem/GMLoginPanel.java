@@ -23,6 +23,7 @@ public class GMLoginPanel extends javax.swing.JFrame {
         initComponents();
         this.s = s;
         s = dB4OUtil.retrieveSystem();
+        this.setExtendedState(GMLoginPanel.MAXIMIZED_BOTH);
     }
 
     /**

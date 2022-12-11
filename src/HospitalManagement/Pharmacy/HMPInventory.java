@@ -161,24 +161,21 @@ public class HMPInventory extends javax.swing.JPanel {
                                             .addGap(19, 19, 19)))
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(itemname, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(itemid, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(quantity, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(date)
+                            .addComponent(price)
+                            .addComponent(pharmacyname, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pharmacyusername, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(itemtype, 0, 1, Short.MAX_VALUE))
+                        .addGap(52, 52, 52)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(itemname, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(itemid, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(quantity, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(date)
-                                        .addComponent(price)
-                                        .addComponent(pharmacyname, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(pharmacyusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(52, 52, 52)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(create, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(update, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(view, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(delete, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addComponent(itemtype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(create, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(update, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(view, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(delete, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -358,7 +355,7 @@ public class HMPInventory extends javax.swing.JPanel {
         if(flag == 1)
         {
             
-                Inventory pp = s.getInventorydirectory().addNewInventory();
+                Inventory pp = s.getInventorydirectory().addNewInventory() ;
                 pp.setPharmacyusername(s1);   
                 pp.setPharmacyname(s2);
                 pp.setItemid(s3);
@@ -537,7 +534,7 @@ public class HMPInventory extends javax.swing.JPanel {
 
     private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
         // TODO add your handling code here:
-         int row = tablephar.getSelectedRow();
+        int row = tablephar.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) tablephar.getModel();
         Inventory selectedep = (Inventory)model.getValueAt(row, 0);
         

@@ -22,6 +22,7 @@ public class BDDonorPanel extends javax.swing.JFrame {
     public BDDonorPanel(system s) {
         initComponents();
         this.s = s;
+         this.setExtendedState(BDDonorPanel.MAXIMIZED_BOTH);
     }
 
     /**

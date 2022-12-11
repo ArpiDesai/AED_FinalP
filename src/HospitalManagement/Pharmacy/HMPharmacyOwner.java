@@ -20,6 +20,7 @@ public class HMPharmacyOwner extends javax.swing.JFrame {
     public HMPharmacyOwner(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(HMPharmacyOwner.MAXIMIZED_BOTH);
     }
 
     /**
@@ -48,7 +49,7 @@ public class HMPharmacyOwner extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Orders");
+        jButton2.setText("Billing");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -187,7 +188,7 @@ public class HMPharmacyOwner extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane HMPOwnerSplit;
     private javax.swing.JLabel display;
-    private javax.swing.JLabel display1;
+    public static javax.swing.JLabel display1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;

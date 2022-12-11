@@ -20,6 +20,7 @@ public class BDOrganization extends javax.swing.JFrame {
     public BDOrganization(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(BDOrganization.MAXIMIZED_BOTH);
     }
 
     /**

@@ -21,6 +21,8 @@ public class BDReceiverPanel extends javax.swing.JFrame {
     public BDReceiverPanel(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(BDReceiverPanel.MAXIMIZED_BOTH);
+
     }
 
     /**

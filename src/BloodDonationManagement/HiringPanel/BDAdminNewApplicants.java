@@ -24,6 +24,8 @@ public class BDAdminNewApplicants extends javax.swing.JFrame {
         initComponents();
         this.s = s;
         populateCentre();
+                 this.setExtendedState(BDAdminNewApplicants.MAXIMIZED_BOTH);
+
     }
 
     /**

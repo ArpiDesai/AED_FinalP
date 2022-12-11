@@ -19,6 +19,7 @@ public class HMOrganizationPage extends javax.swing.JFrame {
     public HMOrganizationPage(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(HMOrganizationPage.MAXIMIZED_BOTH);
     }
 
     /**

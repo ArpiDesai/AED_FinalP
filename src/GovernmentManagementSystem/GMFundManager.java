@@ -19,6 +19,7 @@ public class GMFundManager extends javax.swing.JFrame {
     public GMFundManager(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(GMFundManager.MAXIMIZED_BOTH);
         
     }
 

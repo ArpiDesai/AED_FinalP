@@ -29,6 +29,7 @@ public class loginBD extends javax.swing.JFrame {
         initComponents();        
         this.s = s;
         s = dB4OUtil.retrieveSystem();
+        this.setExtendedState(loginBD.MAXIMIZED_BOTH);
     }
 
     /**

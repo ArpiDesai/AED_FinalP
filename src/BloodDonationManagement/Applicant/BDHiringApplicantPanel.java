@@ -24,6 +24,7 @@ public class BDHiringApplicantPanel extends javax.swing.JFrame {
     public BDHiringApplicantPanel(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(BDHiringApplicantPanel.MAXIMIZED_BOTH);
     }
 
     /**

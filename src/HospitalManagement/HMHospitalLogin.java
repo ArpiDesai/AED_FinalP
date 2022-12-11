@@ -26,6 +26,8 @@ public class HMHospitalLogin extends javax.swing.JFrame {
         initComponents();
         this.s = s;
         s = dB4OUtil.retrieveSystem();
+        this.setExtendedState(HMHospitalLogin.MAXIMIZED_BOTH);
+
     }
 
     /**

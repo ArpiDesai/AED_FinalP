@@ -20,6 +20,8 @@ public class BDHiringAdminPanel extends javax.swing.JFrame {
     public BDHiringAdminPanel(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(BDHiringAdminPanel.MAXIMIZED_BOTH);
+
     }
 
     /**

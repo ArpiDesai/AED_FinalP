@@ -6,6 +6,7 @@ package FoodManagement;
 
 import DB4OUtilConn.DB40Util;
 import javax.swing.JOptionPane;
+import model.Hotel;
 import model.system;
 
 /**
@@ -23,6 +24,7 @@ public class FMLogin extends javax.swing.JFrame {
         initComponents();
         this.s = s;
          s = dB4OUtil.retrieveSystem();
+         this.setExtendedState(FMLogin.MAXIMIZED_BOTH);
     }
 
     /**
@@ -173,16 +175,23 @@ public class FMLogin extends javax.swing.JFrame {
             //            this.dispose();
 
         }
-        if(user.equals("admin") && pass.equals("123") && rol.equals("Blood Donation Admin"))
-        {
-            JOptionPane.showMessageDialog(null," System Admin Login Successful");
-            FMOwner sapframe = new FMOwner(s);
-            sapframe.setVisible(true);
-            this.setVisible(false);
-            //            this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-            //            this.dispose();
-
-        }
+         else if(rol.equals("Owner")){
+             for(Hotel ep2: s.getHoteldirectory().getHotel())
+            {
+                if(user.equals(ep2.getUsername()) && pass.equals(ep2.getPassword()))
+                {
+                    JOptionPane.showMessageDialog(null," Owner Login Successful");
+                    FMOwner dframe = new FMOwner(s);
+                    dframe.setVisible(true);
+                    this.setVisible(false);
+                    this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+                    this.dispose();
+                    FMOwner x = new FMOwner(s);
+                    FMOwner.display1.setText(username.getText());
+                    x.setVisible(true);
+                }
+            }  
+         }
     }//GEN-LAST:event_loginActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed

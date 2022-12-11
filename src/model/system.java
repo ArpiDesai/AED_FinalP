@@ -73,13 +73,6 @@ public class system {
         this.pharmacyordersdirectory = pharmacyordersdirectory;
     }
     
-    public InventoryDirectory getInventorydirectory() {
-        return inventorydirectory;
-    }
-
-    public void setInventorydirectory(InventoryDirectory inventorydirectory) {
-        this.inventorydirectory = inventorydirectory;
-    }
     
     public static system getInstance()
     {
@@ -89,6 +82,14 @@ public class system {
         
         return data;
     }
+    
+    public InventoryDirectory getInventorydirectory() {
+        return inventorydirectory;
+    }
+
+    public void setInventorydirectory(InventoryDirectory inventorydirectory) {
+        this.inventorydirectory = inventorydirectory;
+    }    
     
     public FundDirectory getFunddirectory() {
         return funddirectory;

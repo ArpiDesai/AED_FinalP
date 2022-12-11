@@ -23,6 +23,7 @@ public class HMHDoctor extends javax.swing.JFrame {
     public HMHDoctor(system s) {
         initComponents();
         this.s = s;
+        this.setExtendedState(HMHDoctor.MAXIMIZED_BOTH);
     }
 
     /**
