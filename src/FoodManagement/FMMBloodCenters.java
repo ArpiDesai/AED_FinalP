@@ -41,6 +41,8 @@ public class FMMBloodCenters extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
 
+        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -96,12 +98,11 @@ public class FMMBloodCenters extends javax.swing.JPanel {
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

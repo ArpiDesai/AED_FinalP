@@ -60,6 +60,8 @@ public class FMMOrders extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
 
+        jPanel2.setBackground(new java.awt.Color(153, 255, 153));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
