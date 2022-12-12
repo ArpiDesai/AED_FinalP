@@ -4,6 +4,10 @@
  */
 package FoodManagement;
 
+import javax.swing.table.DefaultTableModel;
+import model.Centre;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +17,11 @@ public class FMMBloodCenters extends javax.swing.JPanel {
     /**
      * Creates new form FMMBloodCenters
      */
-    public FMMBloodCenters() {
+    system s;
+    public FMMBloodCenters(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
     }
 
     /**
@@ -28,7 +35,7 @@ public class FMMBloodCenters extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablecentre = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -46,7 +53,7 @@ public class FMMBloodCenters extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablecentre.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,7 +72,7 @@ public class FMMBloodCenters extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablecentre);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, 154));
 
@@ -103,7 +110,6 @@ public class FMMBloodCenters extends javax.swing.JPanel {
         jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 100, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FoodManagement/food pages.jpg"))); // NOI18N
-        jLabel6.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -129,11 +135,32 @@ public class FMMBloodCenters extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTable tablecentre;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+          DefaultTableModel model = (DefaultTableModel) tablecentre.getModel();
+          model.setRowCount(0);
+        
+        for (Centre ep:s.getCentredirectory().getCentre()){
+            
+            Object[] row = new Object[4];
+            row[0] = ep;
+            row[1] = ep.getLocation();
+            row[2] = ep.getContact();
+            row[3] = ep.getEmailid();
+            
+            
+            
+            
+            model.addRow(row);
+}     
+ 
+}
+
 }

@@ -22,6 +22,7 @@ public class GMHospitalPanel extends javax.swing.JPanel {
     public GMHospitalPanel(system s) {
         initComponents();
         this. s= s;
+        populateTable();
     }
 
     /**

@@ -21,6 +21,7 @@ public class BDReceiverNotificationsPanel extends javax.swing.JPanel {
     public BDReceiverNotificationsPanel(system s) {
         initComponents();
         this.s = s;
+        populateTable();
     }
 
     /**

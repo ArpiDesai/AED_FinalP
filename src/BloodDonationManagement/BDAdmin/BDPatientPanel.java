@@ -302,13 +302,7 @@ public class BDPatientPanel extends javax.swing.JPanel {
             }
         }
         int s2 = Integer.parseInt(ss2);
-        for (Hospital epp:s.getHospitaldirectory().getHospital()){
-            if (s2 == (epp.getHospitalId())){
-                flag=0;
-                JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
-            }
-        }
-
+        
         String s3 = bloodcentrename.getText();
         if(s1.equals(""))        {
             flag=0;
@@ -345,13 +339,7 @@ public class BDPatientPanel extends javax.swing.JPanel {
             }
         }
         int s4 = Integer.parseInt(ss4);
-        for (Centre epp:s.getCentredirectory().getCentre()){
-            if (s2 == (epp.getCentreId())){
-                flag=0;
-                JOptionPane.showMessageDialog(this,"ID already exists, please fill the details again");
-            }
-        }
-
+        
         String s5 = patientname.getText();
         if(s5.equals(""))        {
             flag=0;

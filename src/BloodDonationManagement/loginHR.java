@@ -49,18 +49,28 @@ public class loginHR extends javax.swing.JFrame {
         login = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("Username:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 114, 90, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel2.setText("Password:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 154, 70, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel3.setText("Role:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 194, 50, -1));
+        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 111, 120, -1));
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 151, 120, -1));
 
         role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Applicant ", "Hiring Manager " }));
         role.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +78,7 @@ public class loginHR extends javax.swing.JFrame {
                 roleActionPerformed(evt);
             }
         });
+        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 191, -1, -1));
 
         login.setText("LOGIN");
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -75,8 +86,11 @@ public class loginHR extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         jLabel4.setText("Let's Hire!");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 360, -1));
 
         jButton2.setText("New Applicant? Create Account");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -84,8 +98,7 @@ public class loginHR extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/blue.jpg"))); // NOI18N
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 230, 30));
 
         logout.setText("LOGOUT");
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -93,69 +106,11 @@ public class loginHR extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(username)
-                                .addComponent(password)
-                                .addComponent(role, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(108, 108, 108)
-                            .addComponent(logout))
-                        .addComponent(jButton2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(login)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(31, 31, 31))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel4)
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login)
-                    .addComponent(logout))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/hirelogin.jpeg"))); // NOI18N
+        jLabel5.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 810));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,7 +120,7 @@ public class loginHR extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
         );
 
         pack();

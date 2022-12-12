@@ -10,7 +10,7 @@ import model.system;
 
 /**
  *
- * @author sindhuripallapothu
+ * 
  */
 public class GMLoginPanel extends javax.swing.JFrame {
 

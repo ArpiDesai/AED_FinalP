@@ -22,6 +22,7 @@ public class GMBloodCentresPanel extends javax.swing.JPanel {
     public GMBloodCentresPanel(system s) {
         initComponents();
         this.s = s;
+        populateTable();
     }
 
     /**

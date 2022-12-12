@@ -30,7 +30,7 @@ public class BDAdminPanel extends javax.swing.JFrame {
     public BDAdminPanel(system s) {
         initComponents();
         this.s = s;
-        this.setExtendedState(BDAdminPanel.MAXIMIZED_BOTH);
+//        this.setExtendedState(BDAdminPanel.MAXIMIZED_BOTH);
         
         
     }
@@ -45,6 +45,9 @@ public class BDAdminPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         BDAdminSplit = new javax.swing.JSplitPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -56,173 +59,143 @@ public class BDAdminPanel extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         home = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel1.setPreferredSize(new java.awt.Dimension(200, 600));
-
-        jButton1.setText("Blood Donation Centres");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Hospital");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Donors");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("Catering");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setText("FAQ");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton6.setText("Notification");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jButton7.setText("Emergency");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        jButton8.setText("Receivers");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setText("Blood Donation Event");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        home.setText("Home");
-        home.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
-                .addComponent(home)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7)
-                .addGap(18, 18, 18)
-                .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6)
-                .addGap(24, 24, 24)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton9)
-                .addGap(291, 291, 291))
-        );
-
-        BDAdminSplit.setLeftComponent(jPanel1);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 0));
         jPanel2.setMaximumSize(null);
         jPanel2.setPreferredSize(new java.awt.Dimension(400, 600));
 
         jLabel1.setText("jLabel1");
+        jLabel1.setPreferredSize(new java.awt.Dimension(1200, 800));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/a6.jpg"))); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(1200, 800));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(541, 541, 541)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         BDAdminSplit.setRightComponent(jPanel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(BDAdminSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 1072, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(BDAdminSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setPreferredSize(new java.awt.Dimension(200, 600));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButton1.setText("Blood Donation Centres");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 133, 200, -1));
+
+        jButton2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButton2.setText("Hospital");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 367, 190, -1));
+
+        jButton3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButton3.setText("Donors");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 408, 190, -1));
+
+        jButton4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButton4.setText("Catering");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 244, 188, -1));
+
+        jButton5.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButton5.setText("FAQ");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 279, 188, -1));
+
+        jButton6.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButton6.setText("Notification");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 320, 188, -1));
+
+        jButton7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButton7.setText("Emergency");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 168, 188, -1));
+
+        jButton8.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButton8.setText("Receivers");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 209, 188, -1));
+
+        jButton9.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jButton9.setText("Blood Donation Event");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 190, -1));
+
+        home.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        home.setText("Home");
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 98, 188, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/a6.jpg"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, -1));
+
+        BDAdminSplit.setLeftComponent(jPanel1);
+
+        getContentPane().add(BDAdminSplit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1072, 763));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -341,6 +314,8 @@ public class BDAdminPanel extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

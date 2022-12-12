@@ -23,6 +23,7 @@ public class GMHotelPanel extends javax.swing.JPanel {
     public GMHotelPanel(system s) {
         initComponents();
         this.s = s;
+        populateTable();
     }
 
     /**

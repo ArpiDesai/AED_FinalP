@@ -22,6 +22,7 @@ public class GMPharmacyPanel extends javax.swing.JPanel {
     public GMPharmacyPanel(system s) {
         initComponents();
         this.s = s;
+        populateTable();
     }
 
     /**

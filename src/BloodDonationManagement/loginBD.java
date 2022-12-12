@@ -51,18 +51,28 @@ public class loginBD extends javax.swing.JFrame {
         login = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         newuser = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 67, 52));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setText("Username:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 130, 60));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel2.setText("Password:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 90, 60));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel3.setText("Role:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 110, 50));
+        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 129, -1));
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 129, -1));
 
         role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Blood Donation Admin", "Donor", "Receiver" }));
         role.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +80,7 @@ public class loginBD extends javax.swing.JFrame {
                 roleActionPerformed(evt);
             }
         });
+        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 140, -1));
 
         login.setText("LOGIN");
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -77,9 +88,11 @@ public class loginBD extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 170, 30));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 3, 36)); // NOI18N
         jLabel4.setText("Welcome to Blood Camp!");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 570, -1));
 
         newuser.setText("New User? Create Account");
         newuser.addActionListener(new java.awt.event.ActionListener() {
@@ -87,9 +100,7 @@ public class loginBD extends javax.swing.JFrame {
                 newuserActionPerformed(evt);
             }
         });
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/login-icon.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
+        jPanel1.add(newuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, -1, 30));
 
         logout.setText("LOGOUT");
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -97,85 +108,25 @@ public class loginBD extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 170, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(login)
-                                .addGap(18, 18, 18)
-                                .addComponent(logout))
-                            .addComponent(newuser))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login)
-                    .addComponent(logout))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(newuser)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/a7.jpg"))); // NOI18N
+        jLabel6.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -304,7 +255,7 @@ public class loginBD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JButton logout;

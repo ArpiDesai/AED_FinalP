@@ -21,6 +21,7 @@ public class BDReceiverFAQPanel extends javax.swing.JPanel {
     public BDReceiverFAQPanel(system s) {
         initComponents();
         this.s = s;
+        populateTable();
     }
 
     /**
