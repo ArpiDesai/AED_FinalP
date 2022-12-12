@@ -306,13 +306,7 @@ public class HMPOwnerProfile extends javax.swing.JPanel {
 
             
         }
-        name.setText("");
-        pharmacyid.setText("");
-        contact.setText("");
-        location.setText("");
-        emailid.setText("");
-        username.setText("");
-        password.setText("");
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void pharmacyidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmacyidActionPerformed

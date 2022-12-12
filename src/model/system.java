@@ -32,7 +32,9 @@ public class system {
     private FundDirectory funddirectory;    
     private InventoryDirectory inventorydirectory;
     private static system data;
-    private PharmacyOrdersDirectory pharmacyordersdirectory;
+    private PharmacyOrdersDirectory pharmacyordersdirectory;    
+    private HotelOrdersDirectory hotelordersdirectory;    
+    private MenuDirectory menudirectory;
      
     
 
@@ -62,7 +64,25 @@ public class system {
         funddirectory = new FundDirectory();
         inventorydirectory = new InventoryDirectory();
         pharmacyordersdirectory = new PharmacyOrdersDirectory();
+        hotelordersdirectory = new HotelOrdersDirectory();
+        menudirectory = new MenuDirectory();
         
+    }
+    
+    public MenuDirectory getMenudirectory() {
+        return menudirectory;
+    }
+
+    public void setMenudirectory(MenuDirectory menudirectory) {
+        this.menudirectory = menudirectory;
+    }
+    
+    public HotelOrdersDirectory getHotelordersdirectory() {
+        return hotelordersdirectory;
+    }
+
+    public void setHotelordersdirectory(HotelOrdersDirectory hotelordersdirectory) {
+        this.hotelordersdirectory = hotelordersdirectory;
     }
 
     public PharmacyOrdersDirectory getPharmacyordersdirectory() {

@@ -297,14 +297,7 @@ public class FMOProfile extends javax.swing.JPanel {
 
             
         }
-        name.setText("");
-        hotelid.setText("");
-        contact.setText("");
-        location.setText("");
-        emailid.setText("");
-        username.setText("");
-        password.setText("");
-        ownername.setText("");
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void hotelidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotelidActionPerformed

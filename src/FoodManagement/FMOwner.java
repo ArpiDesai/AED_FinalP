@@ -36,6 +36,7 @@ public class FMOwner extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Billing = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        Menu = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         display1 = new javax.swing.JLabel();
@@ -62,6 +63,14 @@ public class FMOwner extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        Menu.setText("Menu");
+        Menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FoodManagement/food pages.jpg"))); // NOI18N
         jLabel5.setPreferredSize(new java.awt.Dimension(100, 300));
@@ -90,7 +99,7 @@ public class FMOwner extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FMOwnerSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 1365, Short.MAX_VALUE)
+            .addComponent(FMOwnerSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 1385, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,9 +133,15 @@ public class FMOwner extends javax.swing.JFrame {
 
     private void BillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingActionPerformed
         // TODO add your handling code here:
-        FMOOrders sapframe = new FMOOrders();
+        FMOOrders sapframe = new FMOOrders(s);
         FMOwnerSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_BillingActionPerformed
+
+    private void MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActionPerformed
+        // TODO add your handling code here:
+         MenuInfo sapframe = new MenuInfo(s);
+        FMOwnerSplit.setRightComponent(sapframe);
+    }//GEN-LAST:event_MenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +181,7 @@ public class FMOwner extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Billing;
     private javax.swing.JSplitPane FMOwnerSplit;
+    private javax.swing.JButton Menu;
     private javax.swing.JLabel display;
     public static javax.swing.JLabel display1;
     private javax.swing.JButton jButton2;

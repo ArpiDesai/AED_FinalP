@@ -111,19 +111,15 @@ public class FMMHotels extends javax.swing.JPanel {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, -1, -1));
 
         name.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        name.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 80, -1));
+        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 80, -1));
 
         location.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        location.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(location, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 80, -1));
 
         emailid.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        emailid.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(emailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 80, -1));
 
         contact.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        contact.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, 80, -1));
 
         jButton1.setText("Create");
@@ -164,13 +160,12 @@ public class FMMHotels extends javax.swing.JPanel {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
 
         hotelid.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        hotelid.setForeground(new java.awt.Color(255, 255, 255));
         hotelid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hotelidActionPerformed(evt);
             }
         });
-        jPanel1.add(hotelid, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 80, -1));
+        jPanel1.add(hotelid, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 80, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -183,7 +178,6 @@ public class FMMHotels extends javax.swing.JPanel {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, -1, -1));
 
         username.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        username.setForeground(new java.awt.Color(255, 255, 255));
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
@@ -192,7 +186,6 @@ public class FMMHotels extends javax.swing.JPanel {
         jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 80, -1));
 
         password.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        password.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 83, -1));
 
         jButton5.setText("Home");
@@ -209,11 +202,9 @@ public class FMMHotels extends javax.swing.JPanel {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 620, -1, -1));
 
         ownername.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        ownername.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(ownername, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 620, 85, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FoodManagement/food pages.jpg"))); // NOI18N
-        jLabel10.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -36,5 +36,26 @@ public class HotelDirectory {
         hotel.remove(d);
     
   }  
+    public String[] HotelnameArray(){
+        String[] c = new String[hotel.size()+1];
+        int count=1;
+        c[0] = "Select";
+        for(Hotel cc: hotel){
+            c[count] = cc.getName();
+            count++ ;
+        }
+        return c;
+     }
+     
+     public String[] HotelusernameArray(){
+        String[] c = new String[hotel.size()+1];
+        int count=1;
+        c[0] = "Select";
+        for(Hotel cc: hotel){
+            c[count] = cc.getUsername();
+            count++ ;
+        }
+        return c;
+     }
     
 }

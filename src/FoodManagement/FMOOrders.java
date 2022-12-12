@@ -4,6 +4,12 @@
  */
 package FoodManagement;
 
+import javax.swing.table.DefaultTableModel;
+import model.Hotel;
+import model.HotelOrders;
+import model.Menu;
+import model.system;
+
 /**
  *
  * @author arpid
@@ -13,8 +19,53 @@ public class FMOOrders extends javax.swing.JPanel {
     /**
      * Creates new form FMOOrders
      */
-    public FMOOrders() {
+    system s;
+    public void getsum(){
+        int q = 0;
+        int p =0;
+        int summ = 0;
+        for(int i =0; i<tableorder.getRowCount();i++)
+        {
+            
+            String quant = tableorder.getValueAt(i, 5).toString();
+            String pric = tableorder.getValueAt(i, 4).toString();
+            q = Integer.parseInt(quant);
+            p = Integer.parseInt(pric);            
+            summ = summ + (q*p);
+            
+        }
+        
+        bill.setText(Integer.toString(summ));
+    }
+    public void bill()
+    {
+         billarea.setText(billarea.getText()+"****************************************************\n");
+         billarea.setText(billarea.getText()+"                       "+pharmacyname.getText()+"\n");
+         billarea.setText(billarea.getText()+"****************************************************\n");
+         billarea.setText(billarea.getText()+"Invoice Number:"+orderid.getText()+"\n"+"Date:"+date.getText()+"\n"+"Order To:"+centrename.getText()+"\n"+"\n");
+         billarea.setText(billarea.getText()+"ITEMS              QUANTITY                PRICE\n"+"\n");
+        
+        for(int i =0; i<tableorder.getRowCount();i++)
+        {
+            String item = tableorder.getValueAt(i, 3).toString();
+            String quant = tableorder.getValueAt(i, 5).toString();
+            String price = tableorder.getValueAt(i, 4).toString();
+            billarea.setText(billarea.getText()+item+"                           "+quant+"                    "+price+"\n");
+            
+        }
+         billarea.setText(billarea.getText()+itemname.getText()+"                        "+ quantity.getText()+"                                "+price.getText()+
+          "\n"+"\n"+"\n"+"\n"+"\n"+"\n"+"\n"+"\n"+
+         "TOTAL:"+"                                                      "+bill.getText());
+         billarea.setText(billarea.getText()+"\n"+"\n"+"\n"+"\n"+"\n"+"\n");
+         billarea.setText(billarea.getText()+"****************************************************\n");
+         billarea.setText(billarea.getText()+"                          Thank you"+"\n");
+         billarea.setText(billarea.getText()+"****************************************************\n");
+         
+    }
+    public FMOOrders(system s) {
         initComponents();
+        this.s = s;
+        populateTable();
     }
 
     /**
@@ -26,229 +77,342 @@ public class FMOOrders extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        pharmacyname = new javax.swing.JTextField();
+        itemid = new javax.swing.JTextField();
+        itemname = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        pharmacyusername = new javax.swing.JTextField();
+        quantity = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField11 = new javax.swing.JTextField();
+        date = new javax.swing.JTextField();
+        price = new javax.swing.JTextField();
+        itemtype = new javax.swing.JComboBox<>();
+        bill = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        centrename = new javax.swing.JTextField();
+        orderid = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablephar = new javax.swing.JTable();
+        jButton6 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        billarea = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableorder = new javax.swing.JTable();
+        generate = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(1200, 800));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Hotel Name");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 324, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Item ID");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 423, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Quantity");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 361, -1, -1));
+        jPanel2.add(pharmacyname, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 324, 80, -1));
+        jPanel2.add(itemid, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 420, 80, -1));
+
+        itemname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemnameActionPerformed(evt);
+            }
+        });
+        jPanel2.add(itemname, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 284, 80, -1));
+
+        jButton2.setText("Select this Item");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 234, 118, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Hotel Username:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        jPanel2.add(pharmacyusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 284, 80, -1));
+        jPanel2.add(quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 358, 80, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Item Name");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 287, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Item Type");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 327, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Price");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 392, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Date");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 426, -1, -1));
+        jPanel2.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 423, 80, -1));
+        jPanel2.add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 389, 80, -1));
+
+        itemtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Tablet", "Syrup", "Injection", "Other" }));
+        jPanel2.add(itemtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 324, -1, -1));
+        jPanel2.add(bill, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, 165, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Total Bill");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 470, 70, -1));
+        jPanel2.add(centrename, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 392, 80, -1));
+
+        orderid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderidActionPerformed(evt);
+            }
+        });
+        jPanel2.add(orderid, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 358, 80, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Order ID:");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 70, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Centre Name:");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+
+        tablephar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Blood Center", "Item Name", "Price", "Date", "Quantity"
+                "Hotel Name", "Hotel Id", "Item Id", "Item Name", "Item Price", "Quantity", "Date"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
+                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+        });
+        jScrollPane1.setViewportView(tablephar);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 47, 504, 154));
+
+        jButton6.setText("Add");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 234, 113, -1));
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 35, 716, 154));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Hotel Name");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Item ID");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Quantity");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 307, 80, -1));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 267, 80, -1));
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 307, 80, -1));
-
-        jButton1.setText("Create");
+        jButton1.setText("PRINT BILL");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 201, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(885, 648, 154, 31));
 
-        jButton2.setText("Update");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 201, -1, -1));
+        billarea.setColumns(20);
+        billarea.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        billarea.setRows(5);
+        jScrollPane3.setViewportView(billarea);
 
-        jButton3.setText("View");
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(471, 201, -1, -1));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(646, 47, 413, 583));
 
-        jButton4.setText("Delete");
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(605, 201, -1, -1));
+        tableorder.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Hotel Name", "Hotel Id", "Item Id", "Item Name", "Item Price", "Quantity", "Date"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Hotel ID");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 267, 80, -1));
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 341, 80, -1));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tableorder);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Item Name");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, -1, -1));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 525, 504, 154));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Item Type");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, -1, -1));
+        generate.setText("GENERATE BILL");
+        generate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateActionPerformed(evt);
+            }
+        });
+        jPanel2.add(generate, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 648, 137, 31));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Price");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Date");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, -1, -1));
-        jPanel2.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 440, 80, -1));
-        jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 406, 80, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Tablet", "Syrup", "Injection", "Other" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 375, -1, -1));
-        jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 491, 165, -1));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Total Bill");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 80, -1));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 375, 80, -1));
-        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 341, 80, -1));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Blood Center ID");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Blood Center Name");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Order ID");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, -1, -1));
-        jPanel2.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 406, 80, -1));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Time");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, -1, -1));
-        jPanel2.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 440, 80, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FoodManagement/food pages.jpg"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2130, -1));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel4.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 1190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 151, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void itemnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemnameActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int row = tablephar.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tablephar.getModel();
+        Menu selectedep = (Menu)model.getValueAt(row, 0);
+
+        pharmacyusername.setText(String.valueOf(selectedep.getHotelusername()));
+        pharmacyname.setText(String.valueOf(selectedep.getHotelname()));
+        itemid.setText(String.valueOf(selectedep.getItemid()));
+        itemname.setText(String.valueOf(selectedep.getItemname()));
+        itemtype.setSelectedItem(String.valueOf(selectedep.getItemtype()));
+        //                quantity.setText(String.valueOf(selectedep.getQuantity()));
+        price.setText(String.valueOf(selectedep.getPrice()));
+        //                date.setText(String.valueOf(selectedep.getDate()));
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void orderidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderidActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+
+        int sitem = Integer.parseInt(itemid.getText());
+
+        for (Menu epp:s.getMenudirectory().getMenu()){
+            if (sitem == (epp.getItemid())){
+                int s1 = epp.getQuantity();
+                int s3 = Integer.parseInt(quantity.getText());
+                epp.setQuantity(s1-s3);
+
+            }
+
+        }
+        populateTable();
+        String s1 = pharmacyusername.getText();
+        String s2 = pharmacyname.getText();
+        int s3 = Integer.parseInt(orderid.getText());
+        String s4 = centrename.getText();
+        int s5 = Integer.parseInt(itemid.getText());
+        String s6 = itemname.getText();
+        String s7 = (String)itemtype.getSelectedItem();
+        int s8 = Integer.parseInt(quantity.getText());
+        int s9 = Integer.parseInt(price.getText());
+        String s10 = date.getText();
+
+        HotelOrders pp = s.getHotelordersdirectory().addNewHO();
+        pp.setHotelusername(s1);
+        pp.setHotelname(s2);
+        pp.setCenterid(s3);
+        pp.setCentrename(s4);
+        pp.setItemid(s5);
+        pp.setItemname(s6);
+        pp.setItemtype(s7);
+        pp.setQunatity(s8);
+        pp.setPrice(s9);
+        pp.setDate(s10);
+
+        populateOrderTable();
+
+        //        pharmacyusername.setText("");
+        //        pharmacyname.setText("Select");
+        itemid.setText("");
+        itemname.setText("");
+        itemtype.setSelectedItem("Select");
+        quantity.setText("");
+        price.setText("");
+        //        date.setText("");
+        //        orderid.setText("");
+        //        centrename.setText("");
+        bill.setText("");
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try{
+
+            billarea.print();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateActionPerformed
+        // TODO add your handling code here:
+        getsum();
+        bill();
+    }//GEN-LAST:event_generateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTextField bill;
+    private javax.swing.JTextArea billarea;
+    private javax.swing.JTextField centrename;
+    private javax.swing.JTextField date;
+    private javax.swing.JButton generate;
+    private javax.swing.JTextField itemid;
+    private javax.swing.JTextField itemname;
+    private javax.swing.JComboBox<String> itemtype;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -257,21 +421,63 @@ public class FMOOrders extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField orderid;
+    private javax.swing.JTextField pharmacyname;
+    private javax.swing.JTextField pharmacyusername;
+    private javax.swing.JTextField price;
+    private javax.swing.JTextField quantity;
+    private javax.swing.JTable tableorder;
+    private javax.swing.JTable tablephar;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+          DefaultTableModel model = (DefaultTableModel) tablephar.getModel();
+          model.setRowCount(0);
+        
+        for (Menu ep:s.getMenudirectory().getMenu()){
+            
+            Object[] row = new Object[7];
+            row[0] = ep;
+            row[1] = ep.getHotelusername();
+            row[2] = ep.getItemid();
+            row[3] = ep.getItemname();
+            row[4] = ep.getPrice();
+            row[5] = ep.getQuantity();
+            row[6] = ep.getDate();
+            
+            
+            
+            
+            model.addRow(row);
+}     
+ 
+}
+
+private void populateOrderTable() {
+          DefaultTableModel model = (DefaultTableModel) tableorder.getModel();
+          model.setRowCount(0);
+        
+        for (HotelOrders ep:s.getHotelordersdirectory().getHotelorders()){
+            
+            Object[] row = new Object[7];
+            row[0] = ep;
+            row[1] = ep.getHotelusername();
+            row[2] = ep.getItemid();
+            row[3] = ep.getItemname();
+            row[4] = ep.getPrice();
+            row[5] = ep.getQunatity();
+            row[6] = ep.getDate();
+            
+            
+            
+            
+            model.addRow(row);
+}     
+ 
+}
+
 }
