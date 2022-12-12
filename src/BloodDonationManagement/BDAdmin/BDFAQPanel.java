@@ -52,12 +52,12 @@ public class BDFAQPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("Question:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel2.setText("Answer:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, -1, -1));
-        add(answer, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 467, 488, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 610, -1, -1));
+        add(answer, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, 488, -1));
 
         delete.setText("DELETE");
         delete.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +65,7 @@ public class BDFAQPanel extends javax.swing.JPanel {
                 deleteActionPerformed(evt);
             }
         });
-        add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 507, -1, -1));
+        add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 640, -1, -1));
 
         update.setText("UPDATE");
         update.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +73,7 @@ public class BDFAQPanel extends javax.swing.JPanel {
                 updateActionPerformed(evt);
             }
         });
-        add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 507, -1, -1));
+        add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 640, -1, -1));
 
         view.setText("VIEW");
         view.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +81,7 @@ public class BDFAQPanel extends javax.swing.JPanel {
                 viewActionPerformed(evt);
             }
         });
-        add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 507, -1, -1));
+        add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 640, -1, -1));
 
         create.setText("CREATE");
         create.addActionListener(new java.awt.event.ActionListener() {
@@ -89,8 +89,8 @@ public class BDFAQPanel extends javax.swing.JPanel {
                 createActionPerformed(evt);
             }
         });
-        add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 507, -1, -1));
-        add(question, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 420, 488, -1));
+        add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 640, -1, -1));
+        add(question, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, 488, -1));
 
         tablefaq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -113,10 +113,9 @@ public class BDFAQPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tablefaq);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 893, 384));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 24, 680, 490));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/a7.jpg"))); // NOI18N
-        jLabel3.setPreferredSize(new java.awt.Dimension(1200, 800));
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -260, 1220, 1320));
     }// </editor-fold>//GEN-END:initComponents
 

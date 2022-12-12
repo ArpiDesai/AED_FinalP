@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package BloodDonationManagement.BDAdmin;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -67,6 +69,10 @@ public class BDPatientPanel extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         doctorusername = new javax.swing.JComboBox<>();
         doctorname = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablepatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,11 +95,22 @@ public class BDPatientPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tablepatient);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 660, 250));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("Hospital Name:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
 
-        jLabel2.setText("Blood Center");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel2.setText("Blood Center:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
 
-        jLabel3.setText("Patient Name");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel3.setText("Patient Name:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, -1, -1));
+        jPanel2.add(hospitalid, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 80, -1));
+        jPanel2.add(bloodcentrename, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 80, -1));
+        jPanel2.add(bloodcentreid, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 80, -1));
 
         create.setText("Create");
         create.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +118,7 @@ public class BDPatientPanel extends javax.swing.JPanel {
                 createActionPerformed(evt);
             }
         });
+        jPanel2.add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, -1, -1));
 
         update.setText("Update");
         update.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +126,7 @@ public class BDPatientPanel extends javax.swing.JPanel {
                 updateActionPerformed(evt);
             }
         });
+        jPanel2.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, -1, -1));
 
         view.setText("View");
         view.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +134,7 @@ public class BDPatientPanel extends javax.swing.JPanel {
                 viewActionPerformed(evt);
             }
         });
+        jPanel2.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, -1, -1));
 
         delete.setText("Delete");
         delete.addActionListener(new java.awt.event.ActionListener() {
@@ -122,134 +142,59 @@ public class BDPatientPanel extends javax.swing.JPanel {
                 deleteActionPerformed(evt);
             }
         });
+        jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel5.setText("Hospital ID:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, -1));
+        jPanel2.add(hospitalname, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 80, -1));
+        jPanel2.add(patientid, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 80, -1));
 
-        jLabel6.setText("Blood Center ID");
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel6.setText("Blood Center ID:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
+        jPanel2.add(emergencycause, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, 80, -1));
+        jPanel2.add(patientname, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 80, -1));
 
-        jLabel7.setText("Patient ID");
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel7.setText("Patient ID:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, -1, -1));
 
-        jLabel4.setText("Emergency Cause");
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel4.setText("Emergency Cause:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, -1, -1));
 
-        jLabel8.setText("Date");
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel8.setText("Date:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, -1));
 
-        jLabel9.setText("Time");
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel9.setText("Time:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 580, -1, -1));
+        jPanel2.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 80, -1));
+        jPanel2.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 540, 80, -1));
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel11.setText("Doctor Username:");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 610, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel10.setText("Doctor Name:");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 640, -1, 20));
 
         doctorusername.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        doctorusername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorusernameActionPerformed(evt);
+            }
+        });
+        jPanel2.add(doctorusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 600, 80, 30));
 
         doctorname.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(doctorname, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 640, 80, 30));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(hospitalname, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addComponent(bloodcentreid, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bloodcentrename, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(hospitalid, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(patientid, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(emergencycause, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(patientname, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(time)
-                            .addComponent(date)
-                            .addComponent(doctorusername, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(doctorname, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(create)
-                            .addComponent(update)
-                            .addComponent(view)
-                            .addComponent(delete))))
-                .addContainerGap(222, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(create)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(update)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(view)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(delete)
-                        .addGap(32, 32, 32))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(hospitalname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(hospitalid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bloodcentrename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bloodcentreid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(patientname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(patientid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emergencycause, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(doctorusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(doctorname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/a7.jpg"))); // NOI18N
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -394,18 +339,58 @@ public class BDPatientPanel extends javax.swing.JPanel {
         String s8 = date.getText();
         if(s8.equals(""))
         {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s8.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
         }
+        
+        StringBuffer sBuffer = new StringBuffer(s8);
+        String mm;
+        String dd;
+        String yr;
 
-        String s9 = time.getText();
-        if(s9.equals(""))
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
         {
             flag=0;
-            JOptionPane.showMessageDialog(this,"Time field cannot be empty");
-            return;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
         }
+
+
+        String s9 = time.getText();
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";
+        
+        Pattern p = Pattern.compile(regex);
+ 
+        if (s9 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");
+        }
+ 
+        Matcher m = p.matcher(s9);
+ 
+        if (m.matches()){
+            
+        }
+        else{
+            flag = 0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
+        }
+        
          String s10 = (String)doctorusername.getSelectedItem();
         if(s10.equals(""))
         {
@@ -623,19 +608,53 @@ public class BDPatientPanel extends javax.swing.JPanel {
         }
 
         String s8 = date.getText();
-        if(s8.equals(""))
+       if(s8.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s8.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
+            return;
+        }
+        
+        StringBuffer sBuffer = new StringBuffer(s8);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
         {
             flag=0;
-            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
-            return;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
         }
 
         String s9 = time.getText();
-        if(s9.equals(""))
-        {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Time field cannot be empty");
-            return;
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s9 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s9); 
+        if (m.matches()){
+            
+        }
+        else{
+            flag = 0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
         }
         
         String s10 = (String)doctorusername.getSelectedItem();
@@ -707,6 +726,10 @@ public class BDPatientPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_deleteActionPerformed
 
+    private void doctorusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorusernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doctorusernameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bloodcentreid;
@@ -722,6 +745,7 @@ public class BDPatientPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

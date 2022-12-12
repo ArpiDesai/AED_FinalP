@@ -8,6 +8,7 @@ import BloodDonationManagement.Applicant.BDHiringApplicantPanel;
 import BloodDonationManagement.HiringPanel.BDAdminNewApplicants;
 import BloodDonationManagement.HiringPanel.BDHiringAdminPanel;
 import DB4OUtilConn.DB40Util;
+import Main.MainLogin;
 import javax.swing.JOptionPane;
 import model.Applicant;
 import model.system;
@@ -27,7 +28,7 @@ public class loginHR extends javax.swing.JFrame {
         initComponents();
         this.s = s;
           s = dB4OUtil.retrieveSystem();
-          this.setExtendedState(loginHR.MAXIMIZED_BOTH);
+//          this.setExtendedState(loginHR.MAXIMIZED_BOTH);
     }
 
     /**
@@ -50,7 +51,8 @@ public class loginHR extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         logout = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,17 +62,17 @@ public class loginHR extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("Username:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 114, 90, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel2.setText("Password:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 154, 70, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 70, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel3.setText("Role:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 194, 50, -1));
-        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 111, 120, -1));
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 151, 120, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 50, -1));
+        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 120, -1));
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 120, -1));
 
         role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Applicant ", "Hiring Manager " }));
         role.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +80,7 @@ public class loginHR extends javax.swing.JFrame {
                 roleActionPerformed(evt);
             }
         });
-        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 191, -1, -1));
+        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, -1, -1));
 
         login.setText("LOGIN");
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -86,11 +88,11 @@ public class loginHR extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
-        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         jLabel4.setText("Let's Hire!");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 360, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 360, -1));
 
         jButton2.setText("New Applicant? Create Account");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +100,7 @@ public class loginHR extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 230, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 360, 30));
 
         logout.setText("LOGOUT");
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -106,11 +108,19 @@ public class loginHR extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, -1));
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/hirelogin.jpeg"))); // NOI18N
-        jLabel5.setPreferredSize(new java.awt.Dimension(1200, 800));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 810));
+        jButton1.setText("HOME");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/We're+HiringLOGIN.jpg"))); // NOI18N
+        jLabel6.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,7 +130,7 @@ public class loginHR extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -194,6 +204,13 @@ public class loginHR extends javax.swing.JFrame {
         
     }//GEN-LAST:event_logoutActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -230,12 +247,13 @@ public class loginHR extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JButton logout;

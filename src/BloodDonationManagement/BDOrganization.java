@@ -73,7 +73,6 @@ public class BDOrganization extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 870, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/main page.jpg"))); // NOI18N
-        jLabel3.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1210, 810));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

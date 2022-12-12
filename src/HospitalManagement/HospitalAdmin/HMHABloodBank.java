@@ -4,6 +4,8 @@
  */
 package HospitalManagement.HospitalAdmin;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.BloodBank;
@@ -96,18 +98,23 @@ public class HMHABloodBank extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 74, 897, 154));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("Hospital Name:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel2.setText("Location:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel3.setText("Date:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel4.setText("Time:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel5.setText("Contact:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
         jPanel1.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 130, -1));
@@ -122,35 +129,43 @@ public class HMHABloodBank extends javax.swing.JPanel {
         jPanel1.add(location, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 130, -1));
         jPanel1.add(hospitalname, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 130, -1));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel6.setText("A+");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel7.setText("A-");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel8.setText("B+");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel9.setText("B-");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel10.setText("AB+");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, -1, -1));
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel11.setText("AB-");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, -1, -1));
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel12.setText("O-");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, -1, -1));
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel13.setText("O+");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, -1, -1));
         jPanel1.add(bp, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 121, -1));
         jPanel1.add(bn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 121, -1));
         jPanel1.add(abp, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 121, -1));
-        jPanel1.add(abn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 121, -1));
+        jPanel1.add(abn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 121, -1));
         jPanel1.add(op, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 121, -1));
-        jPanel1.add(on, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 121, -1));
+        jPanel1.add(on, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 121, -1));
         jPanel1.add(an, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 121, -1));
         jPanel1.add(ap, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 121, -1));
 
@@ -238,17 +253,53 @@ public class HMHABloodBank extends javax.swing.JPanel {
         
         String s3 = date.getText();
        
-       if(s3.equals("")){
+       if(s3.equals(""))
+        {
            flag=0;
-           JOptionPane.showMessageDialog(this,"Location cannot be empty");
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s3.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
+        }
+        
+        StringBuffer sBuffer = new StringBuffer(s3);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            flag=0;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
         }
        String s4 = time.getText();
        
-       if(s4.equals("")){
-           flag=0;
-           JOptionPane.showMessageDialog(this,"Location cannot be empty");
-            return;
+       String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s4 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s4); 
+        if (m.matches()){
+            
+        }
+        else{
+            flag = 0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
         }
        String ss5 =  contact.getText();
         
@@ -452,17 +503,53 @@ public class HMHABloodBank extends javax.swing.JPanel {
         
         String s3 = date.getText();
        
-       if(s3.equals("")){
+        if(s3.equals(""))
+        {
            flag=0;
-           JOptionPane.showMessageDialog(this,"Location cannot be empty");
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s3.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
+        }
+        
+        StringBuffer sBuffer = new StringBuffer(s3);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            flag=0;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
         }
        String s4 = time.getText();
        
-       if(s4.equals("")){
-           flag=0;
-           JOptionPane.showMessageDialog(this,"Location cannot be empty");
-            return;
+      String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s4 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s4); 
+        if (m.matches()){
+            
+        }
+        else{
+            flag =0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
         }
        String ss5 =  contact.getText();
         

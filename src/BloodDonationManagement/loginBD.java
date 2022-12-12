@@ -8,6 +8,7 @@ import BloodDonationManagement.Donor.BDDonorPanel;
 import BloodDonationManagement.Donor.BDNewUserPanel;
 import BloodDonationManagement.Receiver.BDReceiverPanel;
 import DB4OUtilConn.DB40Util;
+import Main.MainLogin;
 import javax.swing.JOptionPane;
 import model.Donor;
 import model.Receiver;
@@ -29,7 +30,7 @@ public class loginBD extends javax.swing.JFrame {
         initComponents();        
         this.s = s;
         s = dB4OUtil.retrieveSystem();
-        this.setExtendedState(loginBD.MAXIMIZED_BOTH);
+//        this.setExtendedState(loginBD.MAXIMIZED_BOTH);
     }
 
     /**
@@ -52,7 +53,8 @@ public class loginBD extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         newuser = new javax.swing.JButton();
         logout = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,9 +72,9 @@ public class loginBD extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel3.setText("Role:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 110, 50));
-        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 129, -1));
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 129, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 50, 50));
+        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 190, -1));
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 190, -1));
 
         role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Blood Donation Admin", "Donor", "Receiver" }));
         role.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +82,7 @@ public class loginBD extends javax.swing.JFrame {
                 roleActionPerformed(evt);
             }
         });
-        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 140, -1));
+        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 190, -1));
 
         login.setText("LOGIN");
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +102,7 @@ public class loginBD extends javax.swing.JFrame {
                 newuserActionPerformed(evt);
             }
         });
-        jPanel1.add(newuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, -1, 30));
+        jPanel1.add(newuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, -1, 30));
 
         logout.setText("LOGOUT");
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -108,11 +110,19 @@ public class loginBD extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 170, 30));
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 20, 170, 30));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/a7.jpg"))); // NOI18N
-        jLabel6.setPreferredSize(new java.awt.Dimension(1200, 800));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jButton1.setText("HOME");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 60, 170, 30));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/a7.jpg"))); // NOI18N
+        jLabel5.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,7 +195,10 @@ public class loginBD extends javax.swing.JFrame {
                     x.setVisible(true);
                 }
             }     
-        }
+         }
+        
+        else
+            JOptionPane.showMessageDialog(null,"Credentials mismatch");
     }//GEN-LAST:event_loginActionPerformed
 
     private void roleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleActionPerformed
@@ -214,6 +227,13 @@ public class loginBD extends javax.swing.JFrame {
         
         dB4OUtil.storeSystem(s);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,11 +271,12 @@ public class loginBD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
     private javax.swing.JButton logout;

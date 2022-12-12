@@ -89,7 +89,7 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabledonor);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 6, -1, 154));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, 154));
 
         jButton1.setText("Create");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
         jLabel8.setText("User Type:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 234, -1, -1));
 
-        usertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Donor", " " }));
+        usertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Donor" }));
         jPanel1.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 231, 152, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -190,7 +190,6 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/a7.jpg"))); // NOI18N
-        jLabel6.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -245,6 +244,7 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
            JOptionPane.showMessageDialog(this,"Age field cannot be empty or contain alphabet"); 
            return;
         }
+        
         char[] chars1 = ss3.toCharArray();
         for(char c : chars1)
         {
@@ -255,7 +255,12 @@ public class BDDonorUserPanel extends javax.swing.JPanel {
                return;   
             }
         }
-        int s3 = Integer.parseInt(ss3);
+        int s3 = Integer.parseInt(ss3);        
+        if((s3<18) || (s3>60)){
+                   flag = 0;
+                   JOptionPane.showMessageDialog(this,"Age must be between 18 to 60"); 
+         
+        }
           
         String s4 = (String)gender.getSelectedItem();
         if(s4.equals("select"))

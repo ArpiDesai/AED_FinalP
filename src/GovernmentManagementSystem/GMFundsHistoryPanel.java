@@ -37,6 +37,7 @@ public class GMFundsHistoryPanel extends javax.swing.JPanel {
         tablefund = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(1200, 800));
         setPreferredSize(new java.awt.Dimension(1200, 800));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -61,10 +62,10 @@ public class GMFundsHistoryPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tablefund);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 58, 716, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 716, 540));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GovernmentManagementSystem/gov pages.jpg"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 760, 560));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 1290, 780));
     }// </editor-fold>//GEN-END:initComponents
 
 

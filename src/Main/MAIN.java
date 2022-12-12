@@ -58,7 +58,6 @@ public class MAIN extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1200, 88));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Main/main page.jpg"))); // NOI18N
-        jLabel4.setPreferredSize(new java.awt.Dimension(1200, 800));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -120, -1, -1));
 
         pack();

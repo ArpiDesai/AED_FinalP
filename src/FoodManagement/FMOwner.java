@@ -4,6 +4,7 @@
  */
 package FoodManagement;
 
+import Main.MainLogin;
 import model.Hotel;
 import model.system;
 
@@ -20,7 +21,7 @@ public class FMOwner extends javax.swing.JFrame {
     public FMOwner(system s) {
         initComponents();
         this.s = s;
-        this.setExtendedState(FMOwner.MAXIMIZED_BOTH);
+//        this.setExtendedState(FMOwner.MAXIMIZED_BOTH);
     }
 
     /**
@@ -37,6 +38,8 @@ public class FMOwner extends javax.swing.JFrame {
         Billing = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Menu = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         display1 = new javax.swing.JLabel();
@@ -54,7 +57,7 @@ public class FMOwner extends javax.swing.JFrame {
                 BillingActionPerformed(evt);
             }
         });
-        jPanel1.add(Billing, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        jPanel1.add(Billing, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 110, -1));
 
         jButton2.setText("Profile");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +65,7 @@ public class FMOwner extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 110, -1));
 
         Menu.setText("Menu");
         Menu.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +73,23 @@ public class FMOwner extends javax.swing.JFrame {
                 MenuActionPerformed(evt);
             }
         });
-        jPanel1.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        jPanel1.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 110, -1));
+
+        jButton1.setText("Home");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 110, -1));
+
+        jButton3.setText("Main Page");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 110, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FoodManagement/food pages.jpg"))); // NOI18N
         jLabel5.setPreferredSize(new java.awt.Dimension(100, 300));
@@ -81,7 +100,7 @@ public class FMOwner extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        display1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        display1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         display1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(display1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 68, 46));
 
@@ -99,7 +118,7 @@ public class FMOwner extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FMOwnerSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 1385, Short.MAX_VALUE)
+            .addComponent(FMOwnerSplit, javax.swing.GroupLayout.DEFAULT_SIZE, 1415, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,6 +162,20 @@ public class FMOwner extends javax.swing.JFrame {
         FMOwnerSplit.setRightComponent(sapframe);
     }//GEN-LAST:event_MenuActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         FMLogin sapframe = new FMLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,7 +217,9 @@ public class FMOwner extends javax.swing.JFrame {
     private javax.swing.JButton Menu;
     private javax.swing.JLabel display;
     public static javax.swing.JLabel display1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

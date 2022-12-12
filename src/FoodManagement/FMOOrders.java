@@ -330,7 +330,7 @@ public class FMOOrders extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         int sitem = Integer.parseInt(itemid.getText());
-
+        int flag = 1;
         for (Menu epp:s.getMenudirectory().getMenu()){
             if (sitem == (epp.getItemid())){
                 int s1 = epp.getQuantity();
@@ -351,7 +351,40 @@ public class FMOOrders extends javax.swing.JPanel {
         int s8 = Integer.parseInt(quantity.getText());
         int s9 = Integer.parseInt(price.getText());
         String s10 = date.getText();
+         if(s10.equals(""))
+        {
+           flag = 0;
+           javax.swing.JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s10.length()<10){
+            flag = 0;
+            javax.swing.JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
+            return;
+        }
+        
+        StringBuffer sBuffer = new StringBuffer(s10);
+        String mm;
+        String dd;
+        String yr;
 
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            
+         javax.swing.JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
+        }
+
+        if (flag==0){
         HotelOrders pp = s.getHotelordersdirectory().addNewHO();
         pp.setHotelusername(s1);
         pp.setHotelname(s2);
@@ -365,6 +398,7 @@ public class FMOOrders extends javax.swing.JPanel {
         pp.setDate(s10);
 
         populateOrderTable();
+        }
 
         //        pharmacyusername.setText("");
         //        pharmacyname.setText("Select");

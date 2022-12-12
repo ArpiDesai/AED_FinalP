@@ -7,6 +7,7 @@ package HospitalManagement;
 import DB4OUtilConn.DB40Util;
 import HospitalManagement.Doctor.HMHDoctor;
 import HospitalManagement.HospitalAdmin.HMHospitalAdmin;
+import Main.MainLogin;
 import javax.swing.JOptionPane;
 import model.Doctor;
 import model.system;
@@ -57,22 +58,22 @@ public class HMHospitalLogin extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1022, 800));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
         jLabel1.setText("Username:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 63, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
         jLabel2.setText("Password:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 105, 71, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 105, 120, -1));
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
         jLabel3.setText("Role:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 155, 37, -1));
-        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 61, 95, -1));
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 103, 95, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 60, -1));
+        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 150, 30));
+        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 150, 30));
 
         role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Hospital Admin", "Doctor" }));
         role.addActionListener(new java.awt.event.ActionListener() {
@@ -80,34 +81,39 @@ public class HMHospitalLogin extends javax.swing.JFrame {
                 roleActionPerformed(evt);
             }
         });
-        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 153, -1, -1));
+        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 150, 30));
 
-        login.setFont(new java.awt.Font("Arial Black", 1, 11)); // NOI18N
-        login.setForeground(new java.awt.Color(51, 102, 255));
+        login.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         login.setText("LOGIN");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
             }
         });
-        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 160, -1));
 
+        logout.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         logout.setText("LOGOUT");
         logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 103, -1, -1));
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, 160, -1));
 
+        home.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         home.setText("HOME");
-        jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 160, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HospitalManagement/hosp loginnn.jpeg"))); // NOI18N
-        jLabel5.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1022, 770));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -167,6 +173,13 @@ public class HMHospitalLogin extends javax.swing.JFrame {
         
         dB4OUtil.storeSystem(s);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+        // TODO add your handling code here:
+          MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeActionPerformed
 
     /**
      * @param args the command line arguments

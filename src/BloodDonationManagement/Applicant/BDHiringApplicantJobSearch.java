@@ -89,6 +89,7 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableevent = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
 
         jLabel8.setText("User Type:");
 
@@ -125,56 +126,115 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
             }
         });
 
+        setPreferredSize(new java.awt.Dimension(1200, 800));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("Name:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
 
-        jLabel14.setText("Age");
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel14.setText("Age:");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, -1, -1));
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel15.setText("Contact:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, -1, -1));
 
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel16.setText("Email ID:");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, -1, -1));
 
+        name1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jPanel1.add(name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 154, -1));
+
+        age1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jPanel1.add(age1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 154, -1));
+
+        emailid1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jPanel1.add(emailid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, 154, -1));
+
+        contact1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         contact1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contact1ActionPerformed(evt);
             }
         });
+        jPanel1.add(contact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 154, -1));
 
+        apply.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         apply.setText("APPLY");
         apply.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 applyActionPerformed(evt);
             }
         });
+        jPanel1.add(apply, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, 153, 35));
 
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel17.setText("Applicant ID:");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, -1, -1));
 
+        id1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jPanel1.add(id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 154, -1));
+
+        bloodcentre1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jPanel1.add(bloodcentre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, 154, -1));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel18.setText("Blood Center:");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, -1, -1));
 
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel19.setText("Gender:");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, -1, -1));
 
+        gender1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         gender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Female", "Male", "Other" }));
         gender1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gender1ActionPerformed(evt);
             }
         });
+        jPanel1.add(gender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 154, -1));
 
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel20.setText("User Type:");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, -1));
 
+        usertype1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         usertype1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Donor", "Receiver" }));
+        jPanel1.add(usertype1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 154, -1));
 
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel22.setText("Username:");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 700, -1, -1));
 
+        qualification1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         qualification1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 qualification1ActionPerformed(evt);
             }
         });
+        jPanel1.add(qualification1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 660, 154, -1));
 
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel23.setText("Qualification:");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 660, -1, -1));
 
+        username1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jPanel1.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 154, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel24.setText("Date:");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 630, -1, -1));
 
+        date1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jPanel1.add(date1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, 154, -1));
+
+        tableevent.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tableevent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -196,111 +256,20 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableevent);
 
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 770, 221));
+
+        jButton3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton3.setText("SELECT THIS JOB");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 153, 34));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel23)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel17))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(id1)
-                            .addComponent(contact1)
-                            .addComponent(age1)
-                            .addComponent(name1)
-                            .addComponent(emailid1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(gender1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(usertype1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(username1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(date1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bloodcentre1)
-                            .addComponent(qualification1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(77, 77, 77)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(apply, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(usertype1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(age1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(apply, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(contact1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel16)
-                                    .addComponent(emailid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(9, 9, 9)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bloodcentre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(date1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel24))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel23)
-                                    .addComponent(qualification1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(username1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel22)))))
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(365, Short.MAX_VALUE))
-        );
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/Applicant/HP.png"))); // NOI18N
+        jLabel21.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -308,7 +277,7 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1190, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -451,10 +420,37 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
         String s9 = date1.getText();
         if(s9.equals(""))
         {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s9.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
         }
+        
+        StringBuffer sBuffer = new StringBuffer(s9);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            flag=0;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
+        }
+
         String s10 = qualification1.getText();
         if(s10.equals(""))
         {
@@ -559,6 +555,7 @@ public class BDHiringApplicantJobSearch extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;

@@ -4,6 +4,8 @@
  */
 package GovernmentManagementSystem;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Fund;
@@ -269,17 +271,51 @@ public class GMFund extends javax.swing.JPanel {
         String s6 = date.getText();
         if(s6.equals(""))
         {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s6.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
+        }
+        
+        StringBuffer sBuffer = new StringBuffer(s6);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            flag=0;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
         }
 
         String s7 = time.getText();
-        if(s7.equals(""))
-        {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Time field cannot be empty");
-            return;
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s7 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s7); 
+        if (m.matches()){
+            
+        }
+        else{
+            flag = 0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
         }
         
         if(flag == 1)
@@ -433,18 +469,53 @@ public class GMFund extends javax.swing.JPanel {
         String s6 = date.getText();
         if(s6.equals(""))
         {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s6.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
+        }
+        
+        StringBuffer sBuffer = new StringBuffer(s6);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            flag=0;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
         }
 
         String s7 = time.getText();
-        if(s7.equals(""))
-        {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Time field cannot be empty");
-            return;
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s7 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s7); 
+        if (m.matches()){
+            
         }
+        else{
+            flag = 0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
+        }
+        
         
         if(flag == 1)
         {

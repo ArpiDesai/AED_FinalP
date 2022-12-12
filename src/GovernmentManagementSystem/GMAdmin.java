@@ -20,7 +20,7 @@ public class GMAdmin extends javax.swing.JFrame {
     public GMAdmin(system s) {
         initComponents();
         this.s = s;
-        this.setExtendedState(GMAdmin.MAXIMIZED_BOTH);
+//        this.setExtendedState(GMAdmin.MAXIMIZED_BOTH);
     }
     
 
@@ -41,12 +41,12 @@ public class GMAdmin extends javax.swing.JFrame {
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 800));
 
         GMSplit.setMinimumSize(new java.awt.Dimension(1200, 800));
 
@@ -100,6 +100,14 @@ public class GMAdmin extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 370, 100, -1));
+
+        jButton1.setText("Main Page");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 100, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GovernmentManagementSystem/gov pages.jpg"))); // NOI18N
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, -1));
@@ -166,6 +174,13 @@ public class GMAdmin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton21ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         GMLoginPanel sapframe = new GMLoginPanel(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -203,6 +218,7 @@ public class GMAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane GMSplit;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;

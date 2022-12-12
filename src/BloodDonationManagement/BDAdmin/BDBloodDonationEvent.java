@@ -4,6 +4,8 @@
  */
 package BloodDonationManagement.BDAdmin;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.BloodDonationEvent;
@@ -258,18 +260,54 @@ public class BDBloodDonationEvent extends javax.swing.JPanel {
         }
 
         String s4 = date.getText();
-
-        if(s4.equals("")){
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Date cannot be empty");
+        if(s4.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s4.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
         }
-        String s5 = time.getText();
+        
+        StringBuffer sBuffer = new StringBuffer(s4);
+        String mm;
+        String dd;
+        String yr;
 
-        if(s5.equals("")){
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
             flag=0;
-            JOptionPane.showMessageDialog(this,"Time cannot be empty");
-            return;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
+        }
+
+       
+        String s5 = time.getText();
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s5 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s5); 
+        if (m.matches()){
+            
+        }
+        else{
+            flag =0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
         }
         String ss6 =  contact.getText();
 
@@ -383,18 +421,57 @@ public class BDBloodDonationEvent extends javax.swing.JPanel {
 
         String s4 = date.getText();
 
-        if(s4.equals("")){
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Date cannot be empty");
+        if(s4.equals(""))
+        {
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s4.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
         }
+        
+        StringBuffer sBuffer = new StringBuffer(s4);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            flag=0;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
+        }
+
         String s5 = time.getText();
 
-        if(s5.equals("")){
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Time cannot be empty");
-            return;
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s5 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s5); 
+        if (m.matches()){
+            
         }
+        else{
+            flag = 0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
+        }
+        
+        
         String ss6 =  contact.getText();
 
         if(ss6.equals(""))
@@ -421,12 +498,7 @@ public class BDBloodDonationEvent extends javax.swing.JPanel {
         }
 
         long s6 = Long.parseLong(ss6);
-        for (BloodDonationEvent epp:s.getBlooddonationeventdirectory().getBloodDonationEvent()){
-            if (s6 == (epp.getContact())){
-                flag=0;
-                JOptionPane.showMessageDialog(this,"Phone Number already exists, please fill the details again");
-            }
-        }
+        
 
         if(flag == 1)
         {

@@ -5,6 +5,7 @@
 package GovernmentManagementSystem;
 
 import DB4OUtilConn.DB40Util;
+import Main.MainLogin;
 import javax.swing.JOptionPane;
 import model.system;
 
@@ -100,10 +101,14 @@ public class GMLoginPanel extends javax.swing.JFrame {
         jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 305, -1, -1));
 
         home.setText("HOME");
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
         jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 305, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GovernmentManagementSystem/gov wallpaper.png"))); // NOI18N
-        jLabel5.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 770));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,6 +170,13 @@ public class GMLoginPanel extends javax.swing.JFrame {
         
         dB4OUtil.storeSystem(s);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+        // TODO add your handling code here:
+       MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeActionPerformed
 
     /**
      * @param args the command line arguments

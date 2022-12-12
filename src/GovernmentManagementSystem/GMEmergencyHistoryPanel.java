@@ -4,6 +4,8 @@
  */
 package GovernmentManagementSystem;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -357,17 +359,51 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
         String s8 = date.getText();
         if(s8.equals(""))
         {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s8.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
+        }
+        
+        StringBuffer sBuffer = new StringBuffer(s8);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            flag=0;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
         }
 
         String s9 = time.getText();
-        if(s9.equals(""))
-        {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Time field cannot be empty");
-            return;
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s9 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s9); 
+        if (m.matches()){
+            
+        }
+        else{
+            flag = 0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
         }
         String s10 = (String)doctorusername.getSelectedItem();
         if(s10.equals(""))
@@ -565,17 +601,51 @@ public class GMEmergencyHistoryPanel extends javax.swing.JPanel {
         String s8 = date.getText();
         if(s8.equals(""))
         {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s8.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
+        }
+        
+        StringBuffer sBuffer = new StringBuffer(s8);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            flag=0;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
         }
 
         String s9 = time.getText();
-        if(s9.equals(""))
-        {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Time field cannot be empty");
-            return;
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s9 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s9); 
+        if (m.matches()){
+            
+        }
+        else{
+            flag = 0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
         }
 
         String s10 = (String)doctorusername.getSelectedItem();

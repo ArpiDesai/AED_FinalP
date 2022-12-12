@@ -5,6 +5,7 @@
 package FoodManagement;
 
 import DB4OUtilConn.DB40Util;
+import Main.MainLogin;
 import javax.swing.JOptionPane;
 import model.Hotel;
 import model.system;
@@ -24,7 +25,7 @@ public class FMLogin extends javax.swing.JFrame {
         initComponents();
         this.s = s;
          s = dB4OUtil.retrieveSystem();
-         this.setExtendedState(FMLogin.MAXIMIZED_BOTH);
+//         this.setExtendedState(FMLogin.MAXIMIZED_BOTH);
     }
 
     /**
@@ -106,10 +107,14 @@ public class FMLogin extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jButton2.setText("HOME");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 590, 90, 30));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 380, 100, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FoodManagement/food wallpaperr.jpg"))); // NOI18N
-        jLabel5.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,6 +183,13 @@ public class FMLogin extends javax.swing.JFrame {
         
         dB4OUtil.storeSystem(s);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

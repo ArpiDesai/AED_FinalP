@@ -56,7 +56,6 @@ public class FMMHotels extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         password = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         ownername = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -187,14 +186,6 @@ public class FMMHotels extends javax.swing.JPanel {
 
         password.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 83, -1));
-
-        jButton5.setText("Home");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 6, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -576,13 +567,6 @@ public class FMMHotels extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        MainLogin sapframe = new MainLogin(s);
-        sapframe.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton5ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField contact;
@@ -592,7 +576,6 @@ public class FMMHotels extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

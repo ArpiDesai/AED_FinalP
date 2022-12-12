@@ -4,6 +4,8 @@
  */
 package HospitalManagement.Doctor;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -92,12 +94,15 @@ public class HMHDEmergencies extends javax.swing.JPanel {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 35, 681, 154));
 
-        jLabel1.setText("Hospital Name:");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel1.setText("Hospital Name");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 224, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel2.setText("Blood Center");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 292, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel3.setText("Patient Name");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 360, -1, -1));
         jPanel2.add(hospitalid, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 255, 80, -1));
@@ -120,34 +125,42 @@ public class HMHDEmergencies extends javax.swing.JPanel {
         });
         jPanel2.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 301, -1, -1));
 
-        jLabel5.setText("Hospital ID:");
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel5.setText("Hospital ID");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 258, -1, -1));
         jPanel2.add(hospitalname, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 221, 80, -1));
         jPanel2.add(patientid, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 391, 80, -1));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel6.setText("Blood Center ID");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 326, -1, -1));
         jPanel2.add(emergencycause, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 419, 80, -1));
         jPanel2.add(patientname, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 357, 80, -1));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel7.setText("Patient ID");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 394, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel4.setText("Emergency Cause");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 422, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel8.setText("Date");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 456, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel9.setText("Time");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 490, -1, -1));
         jPanel2.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 487, 80, -1));
         jPanel2.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 453, 80, -1));
 
-        jLabel11.setText("Doctor Username:");
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel11.setText("Doctor Username");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 524, -1, -1));
 
-        jLabel10.setText("Doctor Name:");
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel10.setText("Doctor Name");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 558, -1, -1));
 
         doctorusername.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -157,7 +170,6 @@ public class HMHDEmergencies extends javax.swing.JPanel {
         jPanel2.add(doctorname, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 555, 80, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HospitalManagement/Doctor/hospilogin.jpeg"))); // NOI18N
-        jLabel12.setPreferredSize(new java.awt.Dimension(1200, 800));
         jLabel12.setVerifyInputWhenFocusTarget(false);
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -311,17 +323,51 @@ public class HMHDEmergencies extends javax.swing.JPanel {
         String s8 = date.getText();
         if(s8.equals(""))
         {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Date field cannot be empty");
+           flag=0;
+           JOptionPane.showMessageDialog(this,"Please enter date");
+           return;                     
+        }
+         if (s8.length()<10){
+             flag=0;
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
             return;
+        }
+        
+        StringBuffer sBuffer = new StringBuffer(s8);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+            flag=0;
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
         }
 
         String s9 = time.getText();
-        if(s9.equals(""))
-        {
-            flag=0;
-            JOptionPane.showMessageDialog(this,"Time field cannot be empty");
-            return;
+        String regex = "([01]?[0-9]|2[0-3]):[0-5][0-9]";        
+        Pattern p = Pattern.compile(regex); 
+        if (s9 == "") {
+            flag = 0;
+            JOptionPane.showMessageDialog(this, "Please enter time");        }
+ 
+        Matcher m = p.matcher(s9); 
+        if (m.matches()){
+            
+        }
+        else{
+            flag = 0;
+             JOptionPane.showMessageDialog(this, "Please enter time in 24 hr format");
         }
 
         String s10 = (String)doctorusername.getSelectedItem();

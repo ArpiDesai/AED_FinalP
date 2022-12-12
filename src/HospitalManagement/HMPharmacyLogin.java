@@ -7,6 +7,7 @@ package HospitalManagement;
 import DB4OUtilConn.DB40Util;
 import HospitalManagement.Pharmacy.HMPharmacyAdmin;
 import HospitalManagement.Pharmacy.HMPharmacyOwner;
+import Main.MainLogin;
 import javax.swing.JOptionPane;
 import model.Pharmacy;
 import model.system;
@@ -98,14 +99,18 @@ public class HMPharmacyLogin extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(926, 20, 110, -1));
 
         home.setText("HOME");
-        jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 60, 110, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/HospitalManagement/pharmacylogin.png"))); // NOI18N
-        jLabel5.setPreferredSize(new java.awt.Dimension(1200, 800));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -134,7 +139,7 @@ public class HMPharmacyLogin extends javax.swing.JFrame {
             {
                 if(user.equals(ep2.getUsername()) && pass.equals(ep2.getPassword()))
                 {
-                    JOptionPane.showMessageDialog(null," Donor Login Successful");
+                    JOptionPane.showMessageDialog(null," Owner Login Successful");
                     HMPharmacyOwner dframe = new HMPharmacyOwner(s);
                     dframe.setVisible(true);
                     this.setVisible(false);
@@ -146,6 +151,7 @@ public class HMPharmacyLogin extends javax.swing.JFrame {
                 }
             }  
          }
+         
     }//GEN-LAST:event_loginActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
@@ -162,6 +168,14 @@ public class HMPharmacyLogin extends javax.swing.JFrame {
         
         dB4OUtil.storeSystem(s);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+          MainLogin sapframe = new MainLogin(s);
+        sapframe.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeActionPerformed
 
     /**
      * @param args the command line arguments

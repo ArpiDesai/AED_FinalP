@@ -260,10 +260,6 @@ public class system {
     public void setPharmacydirectory(PharmacyDirectory pharmacydirectory) {
         this.pharmacydirectory = pharmacydirectory;
     }
-
-    
-   
-    
     
     
 
