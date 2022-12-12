@@ -45,10 +45,19 @@ public class BDFAQPanel extends javax.swing.JPanel {
         question = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablefaq = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(1200, 800));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("Question:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel2.setText("Answer:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, -1, -1));
+        add(answer, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 467, 488, -1));
 
         delete.setText("DELETE");
         delete.addActionListener(new java.awt.event.ActionListener() {
@@ -56,6 +65,7 @@ public class BDFAQPanel extends javax.swing.JPanel {
                 deleteActionPerformed(evt);
             }
         });
+        add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 507, -1, -1));
 
         update.setText("UPDATE");
         update.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +73,7 @@ public class BDFAQPanel extends javax.swing.JPanel {
                 updateActionPerformed(evt);
             }
         });
+        add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 507, -1, -1));
 
         view.setText("VIEW");
         view.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +81,7 @@ public class BDFAQPanel extends javax.swing.JPanel {
                 viewActionPerformed(evt);
             }
         });
+        add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 507, -1, -1));
 
         create.setText("CREATE");
         create.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +89,8 @@ public class BDFAQPanel extends javax.swing.JPanel {
                 createActionPerformed(evt);
             }
         });
+        add(create, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 507, -1, -1));
+        add(question, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 420, 488, -1));
 
         tablefaq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,51 +113,11 @@ public class BDFAQPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tablefaq);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(create)
-                        .addGap(50, 50, 50)
-                        .addComponent(view)
-                        .addGap(40, 40, 40)
-                        .addComponent(update)
-                        .addGap(44, 44, 44)
-                        .addComponent(delete))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(answer, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-                        .addComponent(question)))
-                .addContainerGap(199, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(delete)
-                    .addComponent(update)
-                    .addComponent(view)
-                    .addComponent(create))
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 893, 384));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BloodDonationManagement/a7.jpg"))); // NOI18N
+        jLabel3.setPreferredSize(new java.awt.Dimension(1200, 800));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -260, 1220, 1320));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createActionPerformed
@@ -255,6 +229,7 @@ public class BDFAQPanel extends javax.swing.JPanel {
     private javax.swing.JButton delete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField question;
     private javax.swing.JTable tablefaq;
